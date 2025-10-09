@@ -1,0 +1,307 @@
+adm_0_name,Year,dengue_total,source_file,Notes
+AMERICAN SAMOA,2013,0,,ARBONET
+AMERICAN SAMOA,2014,0,,ARBONET
+AMERICAN SAMOA,2020,0,,ARBONET
+AMERICAN SAMOA,2021,0,,ARBONET
+AMERICAN SAMOA,2022,1,,ARBONET
+AMERICAN SAMOA,2023,0,,ARBONET
+ANGOLA,2023,3,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+AUSTRALIA,1990,84,https://www.sciencedirect.com/science/article/abs/pii/S0031302516357750 and CDI journals https://ojs.cdi.cdc.gov.au/index.php/cdi/issue/view/37,probably including imported cases tho
+BENIN,2023,6,https://iris.who.int/bitstream/handle/10665/375392/AFRO.Dengue.Sitrep001-20231219.pdf,
+"BONAIRE, SAINT EUSTATIUS AND SABA",2014,0,https://www.carpha.org/Portals/0/Documents/State-of-Public-Health-in-the-Caribbean-2014-2016.pdf,
+"BONAIRE, SAINT EUSTATIUS AND SABA",2015,0,https://www.carpha.org/Portals/0/Documents/State-of-Public-Health-in-the-Caribbean-2014-2016.pdf,
+"BONAIRE, SAINT EUSTATIUS AND SABA",2016,0,https://www.carpha.org/Portals/0/Documents/State-of-Public-Health-in-the-Caribbean-2014-2016.pdf,
+BRUNEI DARUSSALAM,1994,38,https://pubmed.ncbi.nlm.nih.gov/17642533/,digitise the fig2
+BRUNEI DARUSSALAM,1996,2,https://pubmed.ncbi.nlm.nih.gov/17642533/,digitise the fig2
+BRUNEI DARUSSALAM,1997,2,https://pubmed.ncbi.nlm.nih.gov/17642533/,digitise the fig2
+BURKINA FASO,2023,237291,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+CABO VERDE,2023,65,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+CHAD,2023,1581,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+COTE D'IVOIRE,2023,107,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+CROATIA,2010,10,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2011,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2012,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2013,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2014,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2015,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2016,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2017,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2018,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2019,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2020,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2021,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2022,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2023,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+CROATIA,2024,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+EGYPT,2023,578,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+ETHIOPIA,2023,21469,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+FRENCH GUIANA,2022,1,https://www.santepubliquefrance.fr/regions/guyane/documents/bulletin-regional/2022/situation-epidemiologique-de-la-dengue-en-guyane.-point-au-16-decembre-2022,1 imported and 1 locally acquired
+FRENCH POLYNESIA,1990,126175,,SPEHSIS
+FRENCH POLYNESIA,2016,2094,"https://www.service-public.pf/dsp/wp-content/uploads/sites/12/2017/08/Rapport-dengue-2016.pdf#:~:text=III,150%201%20052%202%20094",
+FRENCH POLYNESIA,2021,0,https://www.service-public.pf/dsp/wp-content/uploads/sites/12/2021/12/BSS25_S49S50-2021.pdf,
+GHANA,2023,18,https://iris.who.int/bitstream/handle/10665/375392/AFRO.Dengue.Sitrep001-20231219.pdf,
+GUAM,2020,2,,ARBONET (local only)
+GUAM,2021,1,,ARBONET (local only)
+GUAM,2023,0,,ARBONET (local only)
+GUINEA,2023,6,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+HAITI,2023,503,https://www.paho.org/sites/default/files/2024-10/phsa-haiti-update-oct2024.pdf,ew1 to 35
+JAPAN,2020,0,https://id-info.jihs.go.jp/niid/ja/allarticles/surveillance/10845-syulist2020.html,
+JAPAN,2021,0,https://id-info.jihs.go.jp/surveillance/idwr/annual/2021/syulist/index.html,
+JAPAN,2022,0,https://id-info.jihs.go.jp/surveillance/idwr/annual/2022/syulist/index.html,
+JAPAN,2023,0,https://id-info.jihs.go.jp/surveillance/idwr/annual/2023/syulist/index.html,
+JAPAN,2024,0,no final report available yet but can assume local cases = 0?,
+MACAU,2009,6,https://www.cdc.gov.tw/En/Category/ListContent/hQ4XhaZAzUmNe2ksY4tjMA?uaid=EMC83FmmJ0yJygspaIMnrQ,
+MACAU,2011,3,https://www.cdc.gov.tw/En/Category/ListContent/hQ4XhaZAzUmNe2ksY4tjMA?uaid=EMC83FmmJ0yJygspaIMnrQ,
+MACAU,2012,24,https://www.cdc.gov.tw/En/Category/ListContent/hQ4XhaZAzUmNe2ksY4tjMA?uaid=EMC83FmmJ0yJygspaIMnrQ,
+MACAU,2019,0,https://www.macaupostdaily.com/news/23048,"""It is the first time that Macau has confirmed a local case of dengue fever since 2018."""
+MACAU,2020,0,https://www.macaupostdaily.com/news/23048,"""It is the first time that Macau has confirmed a local case of dengue fever since 2018."""
+MACAU,2021,0,https://www.macaupostdaily.com/news/23048,"""It is the first time that Macau has confirmed a local case of dengue fever since 2018."""
+MACAU,2022,0,https://www.macaupostdaily.com/news/23048,"""It is the first time that Macau has confirmed a local case of dengue fever since 2018."""
+MACAU,2023,0,https://www.macaupostdaily.com/news/23048,"""It is the first time that Macau has confirmed a local case of dengue fever since 2018."""
+MACAU,2024,48,https://www.dsec.gov.mo/en-US/Statistic?id=202,Health statistics 2024 - but likely including imported cases
+MALI,2023,5537,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+MARSHALL ISLANDS,2013,0,,ARBONET
+MARSHALL ISLANDS,2014,0,,ARBONET
+MARSHALL ISLANDS,2015,0,,ARBONET
+MARSHALL ISLANDS,2016,1,,ARBONET
+MAURITIUS,2023,265,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+MAYOTTE,2010,54,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2012,43,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2015,0,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2016,0,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2017,0,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2018,0,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2019,186,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MAYOTTE,2020,4305,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0010547,
+MICRONESIA (FEDERATED STATES OF),1990,455,,SPEHSIS
+MICRONESIA (FEDERATED STATES OF),2011,0,,ARBONET
+MICRONESIA (FEDERATED STATES OF),2012,0,,ARBONET
+MICRONESIA (FEDERATED STATES OF),2014,0,,ARBONET
+MICRONESIA (FEDERATED STATES OF),2015,0,,ARBONET
+NEW CALEDONIA,2014,310,"https://dass.gouv.nc/file/943/download?token=XAxFZoJb#:~:text=Coqueluche%203%202%206%203,1%200%200%201%206",
+NEW CALEDONIA,2015,3,Dengue-20161213.pdf,
+NEW CALEDONIA,2016,2,Dengue-20161213.pdf,
+NIGER,2023,148,https://iris.who.int/bitstream/handle/10665/375392/AFRO.Dengue.Sitrep001-20231219.pdf,
+NIGERIA,2023,84,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+NORTHERN MARIANA ISLANDS,1996,1,https://iris.who.int/handle/10665/206874,
+NORTHERN MARIANA ISLANDS,2013,0,,ARBONET
+NORTHERN MARIANA ISLANDS,2014,0,,ARBONET
+NORTHERN MARIANA ISLANDS,2015,0,,ARBONET
+NORTHERN MARIANA ISLANDS,2016,0,,ARBONET
+OMAN,2001,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2002,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2003,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2004,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 . Two indigenous cases reported in 2004 and 2009 https://omjournal.org/articleDetails.aspx?coType=1&aId=2429"
+OMAN,2005,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2006,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2007,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2008,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2009,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 . Two indigenous cases reported in 2004 and 2009 https://omjournal.org/articleDetails.aspx?coType=1&aId=2429"
+OMAN,2010,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2011,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2012,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2013,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2014,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2015,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2016,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+OMAN,2017,0,https://pmc.ncbi.nlm.nih.gov/articles/PMC6425053/,"Between 2001 and 2017, 173 cases were reported, and all were travel-related.8,9 "
+PAKISTAN,1996,0,"Epidemiology of dengue in Pakistan, present prevalence and guidelines for future control",
+PAKISTAN,1998,0,"Epidemiology of dengue in Pakistan, present prevalence and guidelines for future control",
+PAKISTAN,1999,0,"Epidemiology of dengue in Pakistan, present prevalence and guidelines for future control",
+PAKISTAN,2000,0,"Epidemiology of dengue in Pakistan, present prevalence and guidelines for future control",
+PAKISTAN,2001,0,"Epidemiology of dengue in Pakistan, present prevalence and guidelines for future control",
+PAKISTAN,2002,0,"Epidemiology of dengue in Pakistan, present prevalence and guidelines for future control",
+PAPUA NEW GUINEA,2015,170,Dengue-20160209.pdf,"A total of 170 cases were seen at the Daru Hospital Outpatient department, Daru, Western Province from 4 November 2015 to 8 January 2016."
+PITCAIRN,1992,0,,SPEHSIS
+PITCAIRN,1993,0,,SPEHSIS
+PITCAIRN,1994,0,,SPEHSIS
+PITCAIRN,1995,0,,SPEHSIS
+PITCAIRN,1996,0,,SPEHSIS
+PITCAIRN,2010,0,https://www.spc.int/DigitalLibrary/Doc/SDD/HEALTH/Western_Pacific_country_2011_health_information_profiles_WHO.html,"""There has been no instance of dengue fever on Pitcairn"""
+PORTUGAL,2012,1070,http://www.dgs.pt/ficheiros-de-upload-2013/dengue-madeira-situacao-em-2013_05_19-pdf.aspx,
+PORTUGAL,2013,9,http://www.dgs.pt/ficheiros-de-upload-2013/dengue-madeira-situacao-em-2013_05_19-pdf.aspx,
+PORTUGAL,2014,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2015,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2016,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2017,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2018,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2019,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2020,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2021,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2022,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2023,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+PORTUGAL,2024,0,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea,
+REUNION,2004,228,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2007,28,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2008,44,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2009,8,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2010,18,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2011,2,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2012,31,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2013,21,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2014,29,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2015,6,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2016,221,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2017,94,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2018,6759,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2019,18217,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2020,16414,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2021,29577,https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001,
+REUNION,2022,1212,https://www.lareunion.ars.sante.fr/dengue-la-reunion-point-de-situation-au-5-janvier-2023,
+SAMOA,1990,1715,,SPEHSIS
+SAMOA,1994,0,,SPEHSIS
+SAMOA,1999,3,https://iris.who.int/handle/10665/207068,p.100
+SAO TOME AND PRINCIPE,2023,1227,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+SAUDI ARABIA,2003,0,https://www.sciencedirect.com/science/article/pii/S1477893919300651#fig3,
+SAUDI ARABIA,2004,343,https://www.sciencedirect.com/science/article/pii/S1477893919300651#fig3,
+SAUDI ARABIA,2005,406,https://www.sciencedirect.com/science/article/pii/S1477893919300651#fig3,
+SENEGAL,2023,248,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+SEYCHELLES,2022,213,"https://www.health.gov.sc/wp-content/uploads/2024/05/MOH-Annual-Performance-Report-2022.pdf#:~:text=Thirty,1%20and",
+SINT MAARTEN,2010,173,"https://www.paho.org/sites/default/files/ccs-2015-2019-sint-maarten.pdf#:~:text=By%202013%2C%20they%20were%20310,were%20registered%20as",
+SINT MAARTEN,2011,22,"https://www.paho.org/sites/default/files/ccs-2015-2019-sint-maarten.pdf#:~:text=By%202013%2C%20they%20were%20310,were%20registered%20as",
+SINT MAARTEN,2012,39,https://www.carpha.org/Portals/0/Documents/State-of-Public-Health-in-the-Caribbean-2014-2016.pdf,CARPHA 2012-2016
+SINT MAARTEN,2013,310,"https://www.paho.org/sites/default/files/ccs-2015-2019-sint-maarten.pdf#:~:text=By%202013%2C%20they%20were%20310,were%20registered%20as",
+SOLOMON ISLANDS,1990,0,https://iris.who.int/handle/10665/147590,also can assume 0 SPEHSIS
+SOMALIA,2022,211,"https://www.emro.who.int/images/stories/somalia/Health-Emergency-Programme-November-2022_updated.pdf#:~:text=EMRO%20www,case",
+SUDAN,2008,441,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%202",
+SUDAN,2009,441,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%203",
+SUDAN,2010,4008,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%204",
+SUDAN,2011,271,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%205",
+SUDAN,2012,45,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%206",
+SUDAN,2014,738,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%207",
+SUDAN,2017,90,"https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%208",
+SUDAN,2023,1664,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+TOGO,2023,8,https://africacdc.org/download/africa-cdc-weekly-event-based-surveillance-report-december-2023/?ind=1705041410922&filename=Africa_CDC_EBS_Weekly_Report_31_Dec_2023.pdf&wpdmdl=15339&refresh=687f385a52e791753167962,
+TOKELAU,1990,1505,,SPEHSIS
+TUVALU,1990,350,,SPEHSIS
+VANUATU,2016,0,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0012022&rev=1#sec002,
+WALLIS AND FUTUNA,1990,2695,,SPEHSIS
+WALLIS AND FUTUNA,2014,0,https://www.mdpi.com/2076-0817/11/1/74,
+WALLIS AND FUTUNA,2015,0,https://www.mdpi.com/2076-0817/11/1/74,
+COOK ISLANDS,2015,765,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+SUDAN,2021,738,WHO_EMRO_2021.pdf,confirmed cases
+NAURU,2014,251,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+PALAU,2015,20,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+SOLOMON ISLANDS,2014,1872,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+TUVALU,2014,408,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+VANUATU,2014,1561,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+AFGHANISTAN,2019,19,https://academic.oup.com/eurpub/article/35/Supplement_1/i23/7951905?login=false,
+AFGHANISTAN,2021,775,https://academic.oup.com/eurpub/article/35/Supplement_1/i23/7951905?login=false,
+AFGHANISTAN,2022,1266,WHOEMRO-AFG-2022-M01-24,
+AFGHANISTAN,2023,1496,WHOEMRO-AFG-2023-W02-52,
+AFGHANISTAN,2024,4722,emergency-situation-report-47-December-2024.pdf,
+AUSTRALIA,2020,222,Dengue-20210128.pdf,
+BANGLADESH,2015,3162,https://pmc.ncbi.nlm.nih.gov/articles/PMC10883285/#sup1,Supplementary Table 3. 
+BANGLADESH,2016,6060,https://pmc.ncbi.nlm.nih.gov/articles/PMC10883285/#sup1,Supplementary Table 3. 
+BANGLADESH,2017,2769,https://pmc.ncbi.nlm.nih.gov/articles/PMC10883285/#sup1,Supplementary Table 3. 
+BANGLADESH,2021,28429,https://pmc.ncbi.nlm.nih.gov/articles/PMC10883285/#sup1,Supplementary Table 3. 
+CAMBODIA,2019,68657,Dengue-20210114.pdf,
+CAMBODIA,2020,11977,Dengue-20210114.pdf,
+CHINA,2020,616,https://www.mdpi.com/1660-4601/19/7/3910,local cases only
+FIJI,2014,26595,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+FRANCE,2024,83,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea-previous-years,
+FRENCH POLYNESIA,2014,2155,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+ITALY,2024,213,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea-previous-years,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2019,38753,Dengue-20200102.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2020,7599,Dengue-20210114.pdf,
+MALAYSIA,2019,127407,Dengue-20200102.pdf,
+MALAYSIA,2020,88074,Dengue-20201217.pdf,
+MALDIVES,2013,680,https://pmc.ncbi.nlm.nih.gov/articles/PMC6177194/,
+MALDIVES,2014,775,https://pmc.ncbi.nlm.nih.gov/articles/PMC6177194/,
+MALDIVES,2015,1881,https://pmc.ncbi.nlm.nih.gov/articles/PMC6177194/,
+MALDIVES,2016,1931,https://pmc.ncbi.nlm.nih.gov/articles/PMC6177194/,
+MALDIVES,2019,4987,https://www.who.int/southeastasia/publications/i/item/sea-cd-331,
+NEPAL,2020,10808,https://www.who.int/southeastasia/publications/i/item/sea-cd-331,A major outbreak was reported in 2020 with 10 808 cases
+NEW CALEDONIA,2018,1997,WHO_WPSAR_2013_2019_adm0_annual.pdf,
+OMAN,2022,579,WHO_EMRO_2022.pdf,suspected cases
+OMAN,2018,3,WHO_EMRO_2018.pdf,"During 2018, the country reported 30 dengue fever cases, most of themwere in travellers returning from dengue-endemic countries. On 15 December 2018,the IHR national focal point for Oman notified WHO of 3 confirmed, locallyacquired/indigenous dengue fever cases (with no travel history to dengue endemic ordengue fever-reporting countries)"
+PAKISTAN,2023,20072,https://www.who.int/emergencies/disease-outbreak-news/item/2023-DON498,"Pakistan (n= 20 072), Saudi Arabia and Oman have reported the highest number of confirmed cases thus far in 2023.?? "
+PAKISTAN,2022,62,WHO_EMRO_2022.pdf,confirmed cases
+PAKISTAN,2019,54079,WHO_EMRO_2019.pdf,confirmed cases
+PAKISTAN,2020,125794,WHO_EMRO_2020.pdf,suspected; confirmed cases are 5758
+PAKISTAN,2021,293579,WHO_EMRO_2021.pdf,suspected; confirmed cases are 47439
+PHILIPPINES,2019,420453,Dengue-20200102.pdf,
+PHILIPPINES,2020,83155,Dengue-20210114.pdf,
+PHILIPPINES,2023,167355,Dengue-20231221.pdf,
+SAUDI ARABIA,2022,3647,statistical yearbook 2024 https://www.moh.gov.sa/en/Ministry/Statistics/book/Pages/default.aspx,
+SAUDI ARABIA,2024,6003,statistical yearbook 2024 https://www.moh.gov.sa/en/Ministry/Statistics/book/Pages/default.aspx,
+SINGAPORE,2019,15622,Dengue-20200102.pdf,
+SINGAPORE,2020,35315,Dengue-20210114.pdf,
+SOMALIA,2022,5350,WHO_EMRO_2022.pdf,
+SPAIN,2024,8,https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea-previous-years,
+SRI LANKA,2001,8931,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2002,10933,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2009,35095,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2010,34188,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2014,47502,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2015,29777,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2016,55150,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2017,186101,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2018,51659,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2019,105049,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SRI LANKA,2020,31162,https://pmc.ncbi.nlm.nih.gov/articles/PMC11462220/,
+SUDAN,2019,4205,WHO_EMRO_2019.pdf,
+SUDAN,2022,5264,WHO_EMRO_2022.pdf,suspected cases
+THAILAND,2015,144952,https://www.who.int/southeastasia/publications/i/item/sea-cd-331,"The number of cases reported in 2013, 2015 and 2019 were
+154 444, 144 952 and 131 157, respectively"
+TIMOR-LESTE,2016,251,https://www.who.int/southeastasia/publications/i/item/sea-cd-331,
+TIMOR-LESTE,2017,550,https://cdn.who.int/media/docs/default-source/2021-dha-docs/5_national-clinical-guideline-of-dengue-timor-leste_clean_final-12-dec-2022.pdf?sfvrsn=e80bf9cd_1,
+TIMOR-LESTE,2018,330,https://cdn.who.int/media/docs/default-source/2021-dha-docs/5_national-clinical-guideline-of-dengue-timor-leste_clean_final-12-dec-2022.pdf?sfvrsn=e80bf9cd_1,
+TIMOR-LESTE,2019,976,https://cdn.who.int/media/docs/default-source/2021-dha-docs/5_national-clinical-guideline-of-dengue-timor-leste_clean_final-12-dec-2022.pdf?sfvrsn=e80bf9cd_1,
+TIMOR-LESTE,2020,1450,https://www.who.int/southeastasia/publications/i/item/sea-cd-331,
+VIET NAM,2019,320702,Dengue-20200102.pdf,
+VIET NAM,2020,121398,Dengue-20210114.pdf,
+VIET NAM,2021,70944,Dengue-20211229.pdf,
+VIET NAM,2024,130342,Dengue-20241212.pdf,
+YEMEN,2024,5003,https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-024-10429-6/tables/1,
+YEMEN,2021,19717,https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-024-10429-6/tables/1,
+YEMEN,2023,22040,https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-024-10429-6/tables/1,
+YEMEN,2022,25749,https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-024-10429-6/tables/1,
+YEMEN,2018,27902,WHO_EMRO_2018.pdf,
+YEMEN,2016,28185,WHO_EMRO_2016.pdf,
+YEMEN,2020,65183,WHO_EMRO_2020.pdf,
+YEMEN,2019,71688,WHO_EMRO_2019.pdf,
+NEPAL,2019,17992,"Virtual Meeting of Regional Technical Advisory
+Group for dengue and other arbovirus",
+THAILAND,2022,46755,"Virtual Meeting of Regional Technical Advisory
+Group for dengue and other arbovirus",
+CAMBODIA,2007,39851,WHO_WPSAR_2011_adm0_annual.pdf,
+CAMBODIA,2008,9542,WHO_WPSAR_2011_adm0_annual.pdf,
+CAMBODIA,2009,11699,WHO_WPSAR_2011_adm0_annual.pdf,
+CAMBODIA,2010,12500,WHO_WPSAR_2011_adm0_annual.pdf,
+CAMBODIA,2011,15980,WHO_WPSAR_2011_adm0_annual.pdf,
+CAMBODIA,2012,42362,WHO_WPSAR_2012_adm0_annual.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2007,4943,WHO_WPSAR_2011_adm0_annual.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2008,4149,WHO_WPSAR_2011_adm0_annual.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2009,7214,WHO_WPSAR_2011_adm0_annual.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2010,22929,WHO_WPSAR_2011_adm0_annual.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2011,3905,WHO_WPSAR_2011_adm0_annual.pdf,
+LAO PEOPLE'S DEMOCRATIC REPUBLIC,2012,145,WHO_WPSAR_2012_adm0_annual.pdf,
+MALAYSIA,2007,48846,WHO_WPSAR_2011_adm0_annual.pdf,
+MALAYSIA,2008,49335,WHO_WPSAR_2011_adm0_annual.pdf,
+MALAYSIA,2009,41486,WHO_WPSAR_2011_adm0_annual.pdf,
+MALAYSIA,2010,46171,WHO_WPSAR_2011_adm0_annual.pdf,
+MALAYSIA,2011,19884,WHO_WPSAR_2011_adm0_annual.pdf,
+MALAYSIA,2012,21900,WHO_WPSAR_2012_adm0_annual.pdf,
+PHILIPPINES,2007,55639,WHO_WPSAR_2011_adm0_annual.pdf,
+PHILIPPINES,2008,39620,WHO_WPSAR_2011_adm0_annual.pdf,
+PHILIPPINES,2009,57819,WHO_WPSAR_2011_adm0_annual.pdf,
+PHILIPPINES,2010,135355,WHO_WPSAR_2011_adm0_annual.pdf,
+PHILIPPINES,2011,125975,WHO_WPSAR_2011_adm0_annual.pdf,
+PHILIPPINES,2012,187031,WHO_WPSAR_2012_adm0_annual.pdf,
+SINGAPORE,2007,8826,WHO_WPSAR_2011_adm0_annual.pdf,
+SINGAPORE,2008,7031,WHO_WPSAR_2011_adm0_annual.pdf,
+SINGAPORE,2009,4497,WHO_WPSAR_2011_adm0_annual.pdf,
+SINGAPORE,2010,5363,WHO_WPSAR_2011_adm0_annual.pdf,
+SINGAPORE,2011,5330,WHO_WPSAR_2011_adm0_annual.pdf,
+SINGAPORE,2012,4632,WHO_WPSAR_2012_adm0_annual.pdf,
+VIET NAM,2007,104393,WHO_WPSAR_2011_adm0_annual.pdf,
+VIET NAM,2008,96451,WHO_WPSAR_2011_adm0_annual.pdf,
+VIET NAM,2009,105370,WHO_WPSAR_2011_adm0_annual.pdf,
+VIET NAM,2010,128831,WHO_WPSAR_2011_adm0_annual.pdf,
+VIET NAM,2011,69680,WHO_WPSAR_2011_adm0_annual.pdf,
+VIET NAM,2012,86026,WHO_WPSAR_2012_adm0_annual.pdf,
+MARSHALL ISLANDS,2011,1257,WHO_WPSAR_2011_adm0_annual.pdf,
+MARSHALL ISLANDS,2012,182,WHO_WPSAR_2012_adm0_annual.pdf,
+KIRIBATI,2012,243,WHO_WPSAR_2012_adm0_annual.pdf,
+NIUE,2012,128,WHO_WPSAR_2012_adm0_annual.pdf,
