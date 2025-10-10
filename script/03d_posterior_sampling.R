@@ -1,53 +1,9 @@
-# pred_down <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_out.csv"))
-#
-#
-# pred_down <- pred_down %>%
-#   select(-imputed_weekly) %>%
-#   mutate(id = paste0(adm_0_name, Year, month)) %>%
-#   merge(., df, by = "id")
-#
-# summary(pred_down$imputed_monthly)
-# summary(pred_down$imputed_weekly)
-#
-# names(pred_down)
-#
-# summary(is.na(pred_down$dengue_total))
-# summary(pred_down$imputed_weekly)
-# summary(pred_down$imputed_monthly)
-# summary(pred_down$annual_total)
-#
-# pred_down <- pred_down %>%
-#   group_by(adm_0_name, Year) %>%
-#   mutate(dengue_total = case_when(
-#     annual_total == 0 ~ 0,
-#     TRUE ~ dengue_total
-#   ))
-#
-# write.csv(pred_down, "runs/pred/pred_downscale_to_rescale.csv", row.names = F)
-
-#
-# pred_down <- pred_down %>%
-#   group_by(adm_0_name, Year) %>%
-#   mutate(pred_sum = sum(pred_mean, na.rm = T))%>%
-#   ungroup()%>%
-#   mutate(dengue_total_scaled = case_when(
-#     is.na(dengue_total)~ as.integer(pred_mean*(annual_total/pred_sum)),
-#     annual_total == 0 ~ 0,
-#     TRUE ~ dengue_total
-#     )
-#   )
-#
-# summary(pred_down$dengue_total_scaled)
+library(dplyr)
 
 set.seed(123)
-df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_out_V1.csv"))
-# df <- pred_down
-# fallback defaults if columns are missing for any reason
-if (!"imputed_weekly" %in% names(df)) df$imputed_weekly <- FALSE
-if (!"imputed_monthly" %in% names(df)) df$imputed_monthly <- FALSE
+df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_out_V2.csv"))
 
-
-fit <- readRDS(file.path(getwd(), "runs/pred/pred_downscale_fit_V1.rds"))
+fit <- readRDS(file.path(getwd(), "runs/pred/pred_downscale_fit_V2.rds"))
 
 # Safety check: if config info is missing, you can't sample the posterior
 if (is.null(fit$misc$configs)) {
@@ -55,12 +11,11 @@ if (is.null(fit$misc$configs)) {
 }
 
 # Read the data frame that matches the fit's row order
-# df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_out.csv"))
 
 # Ensure flags exist (conservative defaults = don't lock unless sure it's truly observed)
-for (nm in c("imputed_weekly", "imputed_monthly")) {
-  if (!nm %in% names(df)) df[[nm]] <- FALSE
-}
+# for (nm in c("imputed_weekly", "imputed_monthly")) {
+#   if (!nm %in% names(df)) df[[nm]] <- FALSE
+# }
 
 # 1) Align df to the row order INLA used
 # Align df to EXACT order INLA used
@@ -112,13 +67,13 @@ N <- nrow(df)
 stopifnot(length(pred_idx) == N)
 
 
-## 0) Build what you really need from `samples`, then free it
+## 0) Build what you really need from samples, then free it
 n_pred <- nrow(fit$.args$data)
 R <- 300
 Ydraw <- matrix(0L, nrow = N, ncol = R)
 pred_names <- paste0("Predictor:", 1:n_pred)
 
-# η (latent predictor) → μ per draw, as a dense N×R matrix (usually ~100 MB, not 1+ GB)
+# eta (latent predictor) -> mu per draw, as a dense NxR matrix
 eta_mat <- vapply(samples, function(s) as.numeric(s$latent[pred_names, 1]), numeric(n_pred))
 mu_mat <- pmax(exp(eta_mat), 0)
 
@@ -129,9 +84,9 @@ size_vec <- vapply(samples, function(s) {
   if (length(j) > 0) as.numeric(hp[j[1]]) else Inf
 }, numeric(1))
 
-saveRDS(samples, "runs/pred/samples_V1.rds")
+saveRDS(samples, "runs/pred/samples_V2.rds")
 rm(samples)
-gc() # <<< critical: don't export the 1.08 GB list to workers
+gc()
 
 
 # -------------------------
@@ -197,7 +152,6 @@ row_lwr <- apply(Ydraw, 1, quantile, probs = 0.025, type = 8)
 row_upr <- apply(Ydraw, 1, quantile, probs = 0.975, type = 8)
 
 
-
 # numeric point estimates first
 y_mean <- ifelse(lock_obs, dengue_obs, row_mean)
 
@@ -251,6 +205,28 @@ annual <- unname(as.numeric(annual))
 stopifnot(identical(sum_point, annual))
 
 names(df)
+source("functions/fn_OD_region.R")
+
 df_clean <- df %>%
-  select(adm_0_name, ISO_A0, Year, month, time_seq, pop_est, lat_band, dengue_total_scaled:dengue_upr_scaled, imputed_weekly, imputed_monthly, disaggregated_yearly)
-write.csv(df_clean, "runs/pred/pred_downscale_with_ci_V1.csv", row.names = F)
+  select(adm_0_name, ISO_A0, Year, month, time_seq, pop_est, lat_band, dengue_total_scaled:dengue_upr_scaled, imputed_weekly, imputed_monthly, disaggregated_yearly) %>%
+  add_od_regions()
+summary(is.na(df_clean))
+
+# quick check
+tab <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_08.csv")
+tab %>%
+  group_by(cat_model) %>%
+  tally()
+
+df_clean %>%
+  group_by(adm_0_name, Year) %>%
+  summarise(
+    imp_w = sum(imputed_weekly),
+    imp_m = sum(imputed_monthly)
+  ) %>%
+  filter(imp_w > 0 | imp_m > 0) %>%
+  nrow()
+
+sum(df_clean$disaggregated_yearly) / 12
+
+write.csv(df_clean, "runs/pred/pred_downscale_with_ci_V2.csv", row.names = F)

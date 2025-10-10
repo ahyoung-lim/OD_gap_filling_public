@@ -54,7 +54,9 @@ pred_m_filled <- fill_medium_gaps(pred_m_out,
 )
 
 # summary: how many points were filled?
-sum(pred_m_filled$imputed_monthly, na.rm = TRUE)
+w_filled <- sum(pred_m_filled$imputed_weekly, na.rm = TRUE)
+m_filled <- sum(pred_m_filled$imputed_monthly, na.rm = TRUE)
+total_imp <- w_filled + m_filled
 
 sum(is.na(pred_m_filled$dengue_total)) # remaining gaps
 pred_m_filled[is.na(pred_m_filled$dengue_total), ]
@@ -77,7 +79,11 @@ pred_data <- read.csv(file.path(getwd(), "data/model_input/pred_data_disaggregat
 # merge monthly + weekly
 df <- rbind(
   pred_data,
-  pred_m_filled %>% mutate(imputed_weekly = FALSE) %>% select(names(pred_data))
+  pred_m_filled %>% select(names(pred_data))
+)
+
+stopifnot(
+  total_imp == (sum(df$imputed_weekly, na.rm = TRUE) + sum(df$imputed_monthly, na.rm = TRUE))
 )
 
 # check duplicates- should be 0
@@ -175,6 +181,6 @@ df$pred_mean <- fit$summary.fitted.values$mean
 df$pred_lwr <- fit$summary.fitted.values$`0.025quant`
 df$pred_upr <- fit$summary.fitted.values$`0.975quant`
 
-saveRDS(fit, file.path(getwd(), "runs/pred/pred_downscale_fit.rds"))
+saveRDS(fit, file.path(getwd(), "runs/pred/pred_downscale_fit_V2.rds"))
 
-write.csv(df, file.path(getwd(), "runs/pred/pred_downscale_out.csv"), row.names = FALSE)
+write.csv(df, file.path(getwd(), "runs/pred/pred_downscale_out_V2.csv"), row.names = FALSE)
