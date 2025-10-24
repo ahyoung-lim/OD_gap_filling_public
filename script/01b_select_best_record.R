@@ -63,8 +63,8 @@ od %>%
 # ------------------------------------------------------------------------------
 # 3. MERGE WITH AD HOC DATA
 # ------------------------------------------------------------------------------
-
-ad <- read.csv("data/processed_data/ad_hoc_data_all_2025_10_08.csv")
+# od$cat <- "OD"
+ad <- read.csv("data/processed_data/ad_hoc_data_all_2025_10_22.csv")
 
 # Combine OpenDengue and ad hoc data with category labels
 od <- rbind(
@@ -837,5 +837,6 @@ if (nrow(scaling_summary) > 0) {
   cat("\nScaled records are flagged with scaled_to_annual = TRUE in final_dataset\n")
 }
 
-write.csv(final_dataset, "data/processed_data/Best_T_data_V1_3_2025_10_08.csv", row.names = F)
-write.csv(selection_outcome, "data/processed_data/selection_outcome_V1_3_2025_10_08.csv", row.names = F)
+write.csv(final_dataset, "data/processed_data/Best_T_data_V1_3_2025_10_22.csv", row.names = F)
+write.csv(selection_outcome, "data/processed_data/selection_outcome_V1_3_2025_10_22.csv", row.names = F)
+# write.csv(selection_outcome, "data/processed_data/selection_outcome_without_ad_hoc_2025_10_08.csv", row.names = F)

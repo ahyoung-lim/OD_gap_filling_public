@@ -135,8 +135,8 @@ get_od_regions <- function(iso3_vector) {
         # South America
         ISO_A0 %in% south_america ~ "South America",
         # Central America & Mexico
-        ISO_A0 %in% central_america ~ "Central America & Mexico",
-        ISO_A0 == "USA" ~ "Central America & Mexico",
+        ISO_A0 %in% central_america ~ "North & Central America",
+        ISO_A0 == "USA" ~ "North & Central America",
         # Caribbean
         ISO_A0 %in% caribbean ~ "Caribbean",
         # East & Southeast Asia

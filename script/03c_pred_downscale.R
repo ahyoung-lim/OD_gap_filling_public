@@ -181,6 +181,6 @@ df$pred_mean <- fit$summary.fitted.values$mean
 df$pred_lwr <- fit$summary.fitted.values$`0.025quant`
 df$pred_upr <- fit$summary.fitted.values$`0.975quant`
 
-saveRDS(fit, file.path(getwd(), "runs/pred/pred_downscale_fit_V2.rds"))
+saveRDS(fit, file.path(getwd(), "runs/pred/pred_downscale_fit_V3.rds"))
 
-write.csv(df, file.path(getwd(), "runs/pred/pred_downscale_out_V2.csv"), row.names = FALSE)
+write.csv(df, file.path(getwd(), "runs/pred/pred_downscale_out_V3.csv"), row.names = FALSE)

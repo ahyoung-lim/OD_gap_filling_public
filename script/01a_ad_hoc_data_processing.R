@@ -174,10 +174,16 @@ eur <- ad_monthly %>%
   fill(source_file, .direction = "downup") %>%
   ungroup()
 
+# PIC monthly data
+pic_monthly <- read.csv("data/ad_hoc/SPEHSIS_monthly.csv") %>%
+  mutate(Notes = NA) %>%
+  filter(adm_0_name != "Guam")
+
 # Standardize monthly data format
 ad_monthly_clean <- ad_monthly %>%
   filter(!adm_0_name %in% c("SPAIN", "FRANCE", "ITALY")) %>%
   rbind(., eur) %>%
+  rbind(., pic_monthly) %>%
   transmute(
     adm_0_name = toupper(adm_0_name),
     adm_1_name = NA,
@@ -519,6 +525,12 @@ ad_hoc$full_name[ad_hoc$full_name == "TANZANIA"] <- "UNITED REPUBLIC OF TANZANIA
 
 ad_hoc$adm_0_name[ad_hoc$adm_0_name == "CAPE VERDE"] <- "CABO VERDE"
 ad_hoc$full_name[ad_hoc$full_name == "CAPE VERDE"] <- "CABO VERDE"
+
+ad_hoc$adm_0_name[ad_hoc$adm_0_name == "FED. STATES OF MICRONESIA"] <- "MICRONESIA (FEDERATED STATES OF)"
+ad_hoc$full_name[ad_hoc$full_name == "FED. STATES OF MICRONESIA"] <- "MICRONESIA (FEDERATED STATES OF)"
+
+ad_hoc$adm_0_name[ad_hoc$adm_0_name == "WESTERN SAMOA"] <- "SAMOA"
+ad_hoc$full_name[ad_hoc$full_name == "WESTERN SAMOA"] <- "SAMOA"
 
 # ------------------------------------------------------------------------------
 # 8. MANUAL DUPLICATE RESOLUTION - COUNTRY-SPECIFIC CASES
@@ -879,7 +891,7 @@ summary(is.na(ad_clean$ISO_A0))
 
 # Remove Pitcairn Islands (if present)
 ad_clean <- ad_clean %>%
-  filter(!adm_0_name %in% c("PITCAIRN", "PITCAIRN ISLANDS"))
+  filter(!grepl("PITCAIRN", adm_0_name))
 
 # Verify country name consistency (should return 0 rows)
 ad_clean %>%
@@ -888,4 +900,4 @@ ad_clean %>%
   filter(n() > 1)
 
 # Export final cleaned dataset
-write.csv(ad_clean, "data/processed_data/ad_hoc_data_all_2025_10_08.csv", row.names = F)
+write.csv(ad_clean, "data/processed_data/ad_hoc_data_all_2025_10_22.csv", row.names = F)

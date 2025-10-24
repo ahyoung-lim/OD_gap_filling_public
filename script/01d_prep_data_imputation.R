@@ -30,10 +30,10 @@ add_country_year <- function(df) {
 # ------------------------------------------------------------------------------
 
 # Load coverage assessment table with modelling categories
-tab <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_08.csv")
+tab <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_22.csv")
 
 # Load calibrated temporal extract
-T_data <- read.csv("data/processed_data/Best_T_data_calibrated_V1_3_2025_10_08.csv")
+T_data <- read.csv("data/processed_data/Best_T_data_calibrated_V1_3_2025_10_22.csv")
 summary(is.na(T_data))
 
 # 1.1 Data Summary Statistics --------------------------------------------------
@@ -47,9 +47,9 @@ tab %>%
   group_by(cat_model) %>%
   tally()
 
-# 1 Annual_disaggregation  1537
-# 2 No_modelling_required  3300
-# 3 Sub_annual_imputation   168
+# 1 Annual_disaggregation  1483
+# 2 No_modelling_required  3349
+# 3 Sub_annual_imputation   173
 
 # No modelling required by temporal resolution
 tab %>%
@@ -186,7 +186,7 @@ stopifnot(length(unique(dt_m_complete$calendar_start_date)) ==
 # 3.7 Calculate Missing Data Proportion ----------------------------------------
 n_gap <- nrow(dt_m_complete[is.na(dt_m_complete$dengue_total), ])
 n_total <- nrow(dt_m_complete)
-test_ratio <- n_gap / n_total * 100 # 9.4
+test_ratio <- n_gap / n_total * 100 # 8.9
 
 # Clean up temporary objects
 rm(dt_w_m, consistent_time_seq_check, inconsistent_dates)
@@ -394,7 +394,7 @@ data_m_down_filtered <- data_m_down %>%
   mutate(sum_of_monthly = sum(dengue_total, na.rm = T)) %>%
   filter(sum_of_monthly == annual_total) %>%
   ungroup() %>%
-  na.omit() # 12192 records
+  na.omit() # 13195 records
 
 # quick sanity check -- why sum_of_monthly != annual_total?
 mismatches <- data_m_down %>%
@@ -403,12 +403,14 @@ mismatches <- data_m_down %>%
   filter(sum_of_monthly != annual_total) %>%
   add_country_year()
 
-so <- read.csv("data/processed_data/selection_outcome_V1_3_2025_10_08.csv")
+so <- read.csv("data/processed_data/selection_outcome_V1_3_2025_10_22.csv")
 
 inspect <- so %>%
-  filter(country_year %in% data_m_down_filtered$country_year) %>%
-  pull(relationship_category)
+  filter(country_year %in% mismatches$country_year) %>%
+  distinct(relationship_category)
 
+# should be either Case 2: Sub-annual only or Incomplete sub-annual - sub-annual selected
+# sum_of_monthly != annual_total because sub-annual is incomplete and was aggregated weekly -> monthly
 
 # 7.4 Disaggregation Data Variables --------------------------------------------
 data_y$yearx <- as.integer(as.factor(data_y$Year))
@@ -424,20 +426,20 @@ data_y$countryx <- as.integer(factor(
 
 # 8.1 Training Data (Complete Cases Only) --------------------------------------
 # Data for cross-validation and model training
-write.csv(data_w %>% na.omit(),
-  "data/model_input/model_data_weekly_new.csv",
-  row.names = F
-)
-
-write.csv(data_m %>% na.omit(),
-  "data/model_input/model_data_monthly_new.csv",
-  row.names = F
-)
-
-write.csv(data_m_down_filtered,
-  "data/model_input/model_data_downscaling_new.csv",
-  row.names = F
-)
+# write.csv(data_w %>% na.omit(),
+#   "data/model_input/model_data_weekly_new.csv",
+#   row.names = F
+# )
+#
+# write.csv(data_m %>% na.omit(),
+#   "data/model_input/model_data_monthly_new.csv",
+#   row.names = F
+# )
+#
+# write.csv(data_m_down_filtered,
+#   "data/model_input/model_data_downscaling_new.csv",
+#   row.names = F
+# )
 
 # 8.2 Prediction Data (Including Missing Values) -------------------------------
 # Full datasets with gaps for model prediction/imputation

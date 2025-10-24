@@ -31,7 +31,7 @@ add_country_year <- function(df) {
 # ------------------------------------------------------------------------------
 
 # 1.1 Load Best Temporal Data -------------------------------------------------
-T_data <- read.csv("data/processed_data/Best_T_data_V1_3_2025_10_08.csv") %>%
+T_data <- read.csv("data/processed_data/Best_T_data_V1_3_2025_10_22.csv") %>%
   filter(between(Year, min_year, max_year)) %>% # keep target period
   region_class() %>% # add WHO region
   Year_checker() %>% # fix year alignment
@@ -107,6 +107,8 @@ data_source <- T_data %>%
   ) %>%
   select(-cat)
 
+
+
 # Merge data source labels into coverage table
 coverage_tbl <- coverage_tbl %>%
   merge(., data_source %>% select(country_year, adm_0_name, Year, data_source),
@@ -152,6 +154,7 @@ coverage_tbl$cat_model <- factor(coverage_tbl$cat_model, levels = c(
   "Sub_annual_imputation",
   "No_modelling_required"
 ))
+
 
 # ------------------------------------------------------------------------------
 # 2. HANDLE FIRST-YEAR TRANSMISSION AND EMERGING EPIDEMIC SETTINGS
@@ -449,6 +452,9 @@ zero_cases_only <- coverage_tbl_cal %>%
   pull(adm_0_name)
 
 length(zero_cases_only) # 11 countries
+# [1] "BURUNDI"           "CONGO"             "EQUATORIAL GUINEA" "GAMBIA"            "GUINEA-BISSAU"
+#  [6] "MALAWI"            "NAMIBIA"           "RWANDA"            "UGANDA"            "ZAMBIA"
+# [11] "ZIMBABWE"
 
 # Remove from both coverage table and time series data
 coverage_tbl_cal <- coverage_tbl_cal %>%
@@ -551,6 +557,10 @@ T_data_cal %>%
   filter(n() > 1)
 
 summary(is.na(T_data_cal))
+T_data_cal$ISO_A0 <- countrycode::countrycode(
+  T_data_cal$adm_0_name, "country.name", "iso3c"
+)
+T_data_cal$ISO_A0[T_data_cal$adm_0_name == "SAINT MARTIN"] <- "MAF"
 
 # Check for duplicate country-years in coverage table (should be 0)
 coverage_tbl_cal %>%
@@ -559,7 +569,7 @@ coverage_tbl_cal %>%
 
 # Export calibrated time series data
 write.csv(T_data_cal,
-  "data/processed_data/Best_T_data_calibrated_V1_3_2025_10_08.csv",
+  "data/processed_data/Best_T_data_calibrated_V1_3_2025_10_22.csv",
   row.names = F
 )
 
@@ -569,6 +579,6 @@ write.csv(
     select(-annual_total, -(IHME_est:annual_total2)) %>%
     mutate(annual_total = annual_total3) %>%
     select(-annual_total3),
-  "data/processed_data/dt_heatmap_calibrated_2025_10_08.csv",
+  "data/processed_data/dt_heatmap_calibrated_2025_10_22.csv",
   row.names = F
 )

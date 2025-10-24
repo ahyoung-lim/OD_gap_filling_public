@@ -1,9 +1,9 @@
 library(dplyr)
 
 set.seed(123)
-df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_out_V2.csv"))
+df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_out_V3.csv"))
 
-fit <- readRDS(file.path(getwd(), "runs/pred/pred_downscale_fit_V2.rds"))
+fit <- readRDS(file.path(getwd(), "runs/pred/pred_downscale_fit_V3.rds"))
 
 # Safety check: if config info is missing, you can't sample the posterior
 if (is.null(fit$misc$configs)) {
@@ -84,7 +84,7 @@ size_vec <- vapply(samples, function(s) {
   if (length(j) > 0) as.numeric(hp[j[1]]) else Inf
 }, numeric(1))
 
-saveRDS(samples, "runs/pred/samples_V2.rds")
+saveRDS(samples, "runs/pred/samples_V3.rds")
 rm(samples)
 gc()
 
@@ -213,7 +213,7 @@ df_clean <- df %>%
 summary(is.na(df_clean))
 
 # quick check
-tab <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_08.csv")
+tab <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_22.csv")
 tab %>%
   group_by(cat_model) %>%
   tally()
@@ -229,4 +229,4 @@ df_clean %>%
 
 sum(df_clean$disaggregated_yearly) / 12
 
-write.csv(df_clean, "runs/pred/pred_downscale_with_ci_V2.csv", row.names = F)
+write.csv(df_clean, "runs/pred/pred_downscale_with_ci_V3.csv", row.names = F)
