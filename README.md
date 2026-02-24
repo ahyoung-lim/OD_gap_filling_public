@@ -8,7 +8,7 @@ This repository provides:
 
 1. **Data processing** — cleaning, deduplication, and harmonisation of dengue case counts from OpenDengue and supplementary ad hoc sources
 2. **Gap-filling models** — Bayesian spatio-temporal models (INLA) that impute missing weekly and monthly case counts, with posterior-predictive uncertainty
-3. **Cross-validation** — repeated CV evaluation of INLA and deep-learning (PyMC) benchmark models
+3. **Cross-validation** — repeated CV evaluation of INLA and PyMC benchmark models
 4. **Downstream analyses** — consistency checks against WHO data, regional trend analysis, and wavelet synchrony analysis
 
 ## Repository structure
