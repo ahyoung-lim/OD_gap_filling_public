@@ -1,116 +1,116 @@
-﻿Year,Country,Cases
-Burkina Faso,2023,146878
-Cape Verde,2009,21313
-Ethiopia,2023,14249
-Eritrea,2011,14195
-Eritrea,2010,12946
-Eritrea,2012,12939
-Eritrea,2013,12503
-Ethiopia,2013,11409
-Eritrea,2014,10889
-Burkina Faso,2017,9029
-Tanzania,2019,6917
-Eritrea,2015,6871
-Reunion,2018,6770
-Seychelles,2018,6120
-Eritrea,2005,4481
-Mali,2023,4427
-Seychelles,2017,4068
-Cote d'Ivoire,2023,3895
-Sudan,2010,3765
-Cote d'Ivoire,2019,3201
-Senegal,2018,2981
-Eritrea,2009,2947
-Burkina Faso,2016,2929
-Madagascar,2006,2942
-Kenya,2022,2426
-Tanzania,2014,2121
-Sudan,2023,1664
-Chad,2023,1581
-Kenya,2017,1537
-Cote d'Ivoire,2017,1421
-Burkina Faso,2016,1327
-Eritrea,2008,1284
-Ethiopia,2019,1251
-Angola,2013,1214
-Sao Tome and Principe,2022,1150
-Seychelles,2016,1062
-Kenya,2014,1022
-Kenya,2021,867
-Senegal,2018,832
-Cameroon,2017,791
-Comoros,2020,696
-Senegal,2009,696
-Eritrea,2007,662
-Kenya,2019,660
-Egypt,2023,578
-Kenya,2016,560
-Sudan,2015,560
-Nigeria,2014,526
-Tanzania,2013,431
-Mali,2017,429
-Cape Verde,2023,410
-Angola,2017,401
-Burkina Faso,2015,399
-Sudan,2019,395
-Eritrea,2006,388
-Somalia,2011,368
-Djibouti,2012,354
-Cameroon,2015,349
-Mauritania,2018,322
-Cameroon,2020,320
-Sudan,2005,312
-Cameroon,2019,310
-Mauritania,2017,307
-Gabon,2010,288
-Kenya,2013,267
-Mauritius,2019,265
-Mauritius,2023,265
-Democratic Republic of Congo,2016,253
-Egypt,2015,253
-Reunion,2016,231
-Tanzania,2018,226
-Senegal,2023,203
-Mauritius,2009,200
-Senegal,2022,196
-Mozambique,2015,192
-South Sudan,2014,155
-Ghana,2018,150
-Niger,2023,148
-Comoros,1993,146
-Senegal,2017,145
-Egypt,2017,144
-Nigeria,2018,130
-Sudan,2016,106
-Senegal,2015,104
-Ethiopia,2017,101
-Reunion,2017,97
-Sudan,2017,90
-Angola,2021,86
-Senegal,2021,86
-Nigeria,2020,82
-Sudan,2019,76
-Mali,2008,72
-Nigeria,2023,72
-Sao Tome and Principe,2023,69
-Gabon,2007,68
-Madagascar,2006,55
-Madagascar,2008,55
-Djibouti,1991,46
-Reunion,2019,30
-Benin,2019,26
-Mali,2019,20
-Ghana,2023,18
-Cote d'Ivoire,2022,11
-Gabon,2008,11
-Gabon,2009,9
-Togo,2023,8
-Cote d'Ivoire,2010,7
-Mauritania,2020,7
-Benin,2023,6
-Guinea,2023,6
-Senegal,2019,6
-Cote d'Ivoire,2021,4
-Angola,2023,3
-Senegal,1990,2
-Niger,2022,1
+﻿Year,Country,Cases,Source
+Burkina Faso,2023,146878,dengue 2013-2023
+Cape Verde,2009,21313,"https://pubmed.ncbi.nlm.nih.gov/23199267/#:~:text=At%20the%20end%20of%202009,ever%20reported%20in%20Cape%20Verde."
+Ethiopia,2023,14249,dengue 2013-2023
+Eritrea,2011,14195,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Eritrea,2010,12946,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Eritrea,2012,12939,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Eritrea,2013,12503,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Ethiopia,2013,11409,https://mail.ejhd.org/index.php/ejhd/article/view/3351
+Eritrea,2014,10889,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Burkina Faso,2017,9029,dengue 2013-2023
+Tanzania,2019,6917,dengue 2013-2023
+Eritrea,2015,6871,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Reunion,2018,6770,dengue 2013-2023
+Seychelles,2018,6120,dengue 2013-2023
+Eritrea,2005,4481,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Mali,2023,4427,dengue 2013-2023
+Seychelles,2017,4068,dengue 2013-2023
+Cote d'Ivoire,2023,3895,dengue 2013-2023
+Sudan,2010,3765,https://iris.who.int/bitstream/handle/10665/326742/EMHJ_18_12_2012.pdf#page=45
+Cote d'Ivoire,2019,3201,https://iris.who.int/bitstream/handle/10665/326596/OEW34-1925082019.pdf
+Senegal,2018,2981,dengue 2013-2023
+Eritrea,2009,2947,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Burkina Faso,2016,2929,https://pmc.ncbi.nlm.nih.gov/articles/PMC2600361/pdf/07-1521_finalD.pdf
+Madagascar,2006,2942,dengue 2013-2023
+Kenya,2022,2426,dengue 2013-2023
+Tanzania,2014,2121,dengue 2013-2023
+Sudan,2023,1664,dengue 2013-2023
+Chad,2023,1581,dengue 2013-2023
+Kenya,2017,1537,dengue 2013-2023
+Cote d'Ivoire,2017,1421,dengue 2013-2023
+Burkina Faso,2016,1327,dengue 2013-2023
+Eritrea,2008,1284,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Ethiopia,2019,1251,dengue 2013-2023
+Angola,2013,1214,https://pmc.ncbi.nlm.nih.gov/articles/PMC4517701/
+Sao Tome and Principe,2022,1150,dengue 2013-2023
+Seychelles,2016,1062,dengue 2013-2023
+Kenya,2014,1022,dengue 2013-2023
+Kenya,2021,867,dengue 2013-2023
+Senegal,2018,832,dengue 2013-2023
+Cameroon,2017,791,dengue 2013-2023
+Comoros,2020,696,dengue 2013-2023
+Senegal,2009,696,https://pmc.ncbi.nlm.nih.gov/articles/PMC3944854/
+Eritrea,2007,662,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Kenya,2019,660,dengue 2013-2023
+Egypt,2023,578,dengue 2013-2023
+Kenya,2016,560,dengue 2013-2023
+Sudan,2015,560,https://www.mdpi.com/2414-6366/4/1/43
+Nigeria,2014,526,dengue 2013-2023
+Tanzania,2013,431,dengue 2013-2023
+Mali,2017,429,dengue 2013-2023
+Cape Verde,2023,410,dengue 2013-2023
+Angola,2017,401,dengue 2013-2023
+Burkina Faso,2015,399,dengue 2013-2023
+Sudan,2019,395,dengue 2013-2023
+Eritrea,2006,388,"https://ghrp.biomedcentral.com/articles/10.1186/s41256-016-0016-5#:~:text=The%20first%20outbreak%20of%20dengue,2010%20%5B16%2C%2017%5D."
+Somalia,2011,368,Brady et al.
+Djibouti,2012,354,https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0004755
+Cameroon,2015,349,dengue 2013-2023
+Mauritania,2018,322,dengue 2013-2023
+Cameroon,2020,320,dengue 2013-2023
+Sudan,2005,312,https://www.sciencedirect.com/science/article/pii/S1876034110000523
+Cameroon,2019,310,dengue 2013-2023
+Mauritania,2017,307,dengue 2013-2023
+Gabon,2010,288,https://academic.oup.com/cid/article/55/6/e45/344615#google_vignette
+Kenya,2013,267,dengue 2013-2023
+Mauritius,2019,265,dengue 2013-2023
+Mauritius,2023,265,dengue 2013-2023
+Democratic Republic of Congo,2016,253,dengue 2013-2023
+Egypt,2015,253,dengue 2013-2023
+Reunion,2016,231,https://pmc.ncbi.nlm.nih.gov/articles/PMC6885751/pdf/eurosurv-24-47-5.pdf
+Tanzania,2018,226,dengue 2013-2023
+Senegal,2023,203,dengue 2013-2023
+Mauritius,2009,200,https://pmc.ncbi.nlm.nih.gov/articles/PMC3321960/pdf/09-1582_finalD.pdf
+Senegal,2022,196,dengue 2013-2023
+Mozambique,2015,192,https://pmc.ncbi.nlm.nih.gov/articles/PMC5817774/pdf/tpmd170317.pdf
+South Sudan,2014,155,dengue 2013-2023
+Ghana,2018,150,dengue 2013-2023
+Niger,2023,148,dengue 2013-2023
+Comoros,1993,146,https://lib.itg.be/open/asbmt/1994/1994asbm0217.pdf
+Senegal,2017,145,https://pdf.sciencedirectassets.com/272925/1-s2.0-S1477893919X00034/1-s2.0-S1477893918303934/am.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIDLBbJhklfQ2XZYMFYAOCY0%2BKNu14n0d2u4LXuJXve0TAiBPLUipnukKnbls1DSIaY0KQA3wnyBRF%2FlOddHU2AcI3iq7BQjW%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIM5c%2BM5nXYWAQYB%2BITKo8Fdyr9Hw7N71KQbc9XxcNqlK%2B6uY6l9PZjdwmDE3HTF6fosAkk4x4ieSKeMBBKSmzn4mWKLL63wfsoN8A6lxPW2JUzu0k02ja3uMcFGjvPUx%2Fjq6H6vT6HOI8NdM7VfXJnajJ5RVqPrkbDSk4BS7Tfgj%2Btz7TQ7A%2FxK7zVgruWRHq%2FZ4ceXLuBsPoyFb2TJpJ2Dbp3AV3sYnLzMAQXap29bzPInD9AiHF4OT8PlevWBdPLi24EuaMH%2FxDrPT1ecwEvTDIKkozV3sGKA2BDVqqmfgK4LDokniZzWpNtVkNXvj%2BzdnCX49Ut4Kj4QHx5RQ8VMUSqvxxuZ%2Fdg8hSVZNAAR%2BJ5JNvD9E6Nr4hhmoTny7wVRsyk2OrOhvcqchMx2VBDmKd5XGGnFmqN02QcFpyjWxT65ZHGH2Xhxii69gTC0EMSHEI3zXSLBCQpazk1stiFNoFpHaQlXfV5ec1fP6lVzCgp0zNxrTu2f2ze461apKTmztawxjpE%2BFQG7IGB%2BscOYUpal%2BXuJvjLj2g%2FZ%2BuFhu9mx3ZDwA8vr5lJauFa5JPYLvPUk1CAYHaHClNIvbm5hsN8ozifwQ%2BzA0OHn%2B97j15OooZh9xVKmOoZWqtfTump2Ux65FzK%2FNdGm4imvj8Ezi0n1d2L6f9h8B1N7nHe8fIv6f2wisjW03l19pKoL2I86bXtvekhqJA1QVWL06Jfr7tMhBTGL9%2F6TBU%2B89%2Fl6Sonfqh0jpIz5bfn1QZhYyUuA%2FlKTUXiHZ4g3oqK%2FwojLIP4WfYckhjyi4O31dD6Gt2MCikn68%2B8aY2bqCoJMtc730mgrYWRo0Ot8hbkwH3B1BCxeoVbbTnPDtxNfZJaDe451gOKPTiKNT79iD8MQTD9lcTDBjqyAW%2B0Uw7FI71%2Bz71s3h1NayfoMnZnN52FBP1Ge6wASGQR%2BKAFXrCcV806jaYJiFmFDAkptpDpnkv0FfVUtN9maQNeCOK6zh2RKhJRE0Hpe%2F7dRACqTdZyUNi9oMj7xXy3junYc5knVgyKPMSRPphGIOwJpNi3nrH%2B9p%2FkoZ1vW2%2Fx%2FdDLGpyApuoAYp%2B98PiZiZ5AL1SdlBrJHpmJyVbe3p5K7ylNdyK0P7A3uSCBSEYMitY%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250711T135752Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYRJMESGNJ%2F20250711%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f5a91c003ef12bd72e10cf45d066503580cc8d6820197af63003c9845f3f7441&hash=a9f3716ef271d2349b1e3cca9071f31795031589a77bf28fc8d8e5b2cdba7b29&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1477893918303934&tid=pdf-a48144d2-3871-4c30-a6e0-52f1fe81ea22&sid=30ca371746a2954a38893b14f7ca5181d53agxrqb&type=client
+Egypt,2017,144,dengue 2013-2023
+Nigeria,2018,130,dengue 2013-2023
+Sudan,2016,106,dengue 2013-2023
+Senegal,2015,104,dengue 2013-2023
+Ethiopia,2017,101,dengue 2013-2023
+Reunion,2017,97,https://pmc.ncbi.nlm.nih.gov/articles/PMC6885751/pdf/eurosurv-24-47-5.pdf
+Sudan,2017,90,dengue 2013-2023
+Angola,2021,86,dengue 2013-2023
+Senegal,2021,86,dengue 2013-2023
+Nigeria,2020,82,dengue 2013-2023
+Sudan,2019,76,dengue 2013-2023
+Mali,2008,72,dengue 2013-2023
+Nigeria,2023,72,https://www.liebertpub.com/doi/10.1089/vbz.2011.0622?url_ver=Z39.88-2003&rfr_id=ori%3Arid%3Acrossref.org&rfr_dat=cr_pub++0pubmed
+Sao Tome and Principe,2023,69,dengue 2013-2023
+Gabon,2007,68,https://academic.oup.com/cid/article/55/6/e45/344615#google_vignette
+Madagascar,2006,55,https://pmc.ncbi.nlm.nih.gov/articles/PMC2600361/
+Madagascar,2008,55,https://pmc.ncbi.nlm.nih.gov/articles/PMC2600361/
+Djibouti,1991,46,https://pdf.sciencedirectassets.com/272971/1-s2.0-S0035920300X00661/1-s2.0-S003592039690228X/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDDCXnnvol%2FYzZsc3OeK5rEfggdLEpyYLbdWFMIw3%2BICgIhAP0TYMCm%2BT2ANkxPK1VjRYPPC%2BjaMv3n191zC9X6CrjNKrwFCNb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQBRoMMDU5MDAzNTQ2ODY1IgycHscpKlVJLFlf0hIqkAXCVG%2F8qT0YymZpFy80t8OaFlTh0CmC32Gz2rKMGB7rq3Nqc9YUqkGTuJ8cSGC3mCcU1evD0uYZzLn4BBU8vZ9rJx5WHe7WsdwFlRfl1z%2FBqOSyvfz2h46TtFL0u34JjHHJjZ07HAt3jUcbUGFdr1rWpu%2F7j%2B2blGEUwVld8YP7dT1LEwhDuzVYTmrjRPWq3Bs44NNG%2BI5UwCD7UVV4Qbn6lF32EOo4I0qSE7ATBGfjJfzlGl5SbJNsX0pJ5YXJ8Hm%2FqK55maecgolli1wyJLT8WiH1u6m3ABAYBf7Lbij19GEm%2FROvBBgcAHg%2B3OfX%2F00CT6IkhxC67Wh%2F8FRHKPfCfOMMHO1MZLN%2FSmH7QpaJmI171wENbVqRW6SuN5dBWSakw%2B0%2FtpH34ZaKAAjjJBhtIXnwgcV22FeZL%2BHhqdVouBGzbuZJSSox8JNWhZ1g1ZUDWLpdIbFlLdFc%2BGGcJQrZg04E1lkFRegtOTEQc3jwPy2jyV%2F0wJd3vPe1ods54411rJ7YFu3OplfOsNBfnchN%2FZ71IqXImSjEydWfoARcrijEMSYktZUViEMojiNsTQc6ZSBCFlXlcdbhViXnYXhX1P%2FY%2BVmAmvMZsHFFjdu4Cvf1Q8kZsHNufYEQSZ%2BxxjnIedHZ6ZhkdCHVehI9ok0%2BTwkGu1S0uTFImVDlF8z76eZwG404J8JKTdr29WE%2FQW2c53JMMY1cSSGCTQxpdIMkau5ISbPMtSYlnsbrPWR2Pl0v0TtQhe%2FYPwMbkomKqoSaA5BqtsdV1MNd1RGoRwQXU4AyzfhwEw3ijkmFes4Hfk7fihRQYe5MtICQiTAvW59egSHCCgf64kWfJKltvkhVdmKf9yPBIlol0DvPGe5F%2BDDCmcTDBjqwAXQt4RRljXmQAUQqAGUfvSSnJ%2FIRXP0C4xo%2FhrKspmVVRW4KyvjKjwtQmnhHFz%2FFA8pOrCyO2ND3AumZ3EdIagWQwq9ZND89szOJsY2gbzjfxYrVsoJcTBF41tpjxOGqbiDi7ljwR198ybegfaC9n21AIyXA3vlNvy1s5eCg5GVaanyDQFwu%2FkDOHjtsgEO3A07hsVA3mUfPQQ6RpCdlVEjv87yU5YrwMrfD99NrCV9%2F&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250711T141439Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYUF5ITXGN%2F20250711%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d63ea9a2db41332384fc62ce3546aa24e55f5422390f52edbc0784d29e5187c9&hash=8ed463be7e4464f5eb7b016f4b2672ad7a4af6cdddca215491b41c900a0f9f77&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S003592039690228X&tid=spdf-aef72bf1-919b-4ef4-b43e-22c290a0f0c4&sid=30ca371746a2954a38893b14f7ca5181d53agxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&rh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=080058510356055657&rr=95d8e8927ce3ef01&cc=gb
+Reunion,2019,30,dengue 2013-2023
+Benin,2019,26,dengue 2013-2023
+Mali,2019,20,dengue 2013-2023
+Ghana,2023,18,dengue 2013-2023
+Cote d'Ivoire,2022,11,dengue 2013-2023
+Gabon,2008,11,https://academic.oup.com/cid/article/55/6/e45/344615#google_vignette
+Gabon,2009,9,https://academic.oup.com/cid/article/55/6/e45/344615#google_vignette
+Togo,2023,8,dengue 2013-2023
+Cote d'Ivoire,2010,7,dengue 2013-2023
+Mauritania,2020,7,https://www.sciencedirect.com/science/article/pii/S0399077X14002054
+Benin,2023,6,dengue 2013-2023
+Guinea,2023,6,dengue 2013-2023
+Senegal,2019,6,dengue 2013-2023
+Cote d'Ivoire,2021,4,dengue 2013-2023
+Angola,2023,3,dengue 2013-2023
+Senegal,1990,2,https://academic.oup.com/jme/article/31/4/623/2221407
+Niger,2022,1,dengue 2013-2023

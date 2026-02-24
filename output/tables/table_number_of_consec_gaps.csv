@@ -1,0 +1,10 @@
+"od_region","small_internal_gap","small_Edge","medium_internal_gap","medium_Edge","large_internal_gap","large_Edge","region_total"
+"North & Central America",3,0,0,0,14,6,23
+"Caribbean",2,0,1,0,106,23,132
+"South America",0,0,0,0,15,8,23
+"Europe, Middle East & North Africa",5,0,0,2,12,1,20
+"South Asia",0,0,0,0,17,2,19
+"Sub-Saharan Africa",1,0,2,15,64,1,83
+"East & Southeast Asia",10,3,1,0,21,13,48
+"Pacific Islands",522,2,93,34,88,1,740
+"Total",543,5,97,51,337,55,1088

@@ -11,7 +11,7 @@ library(mapview)
 library(countrycode)
 
 # load shapefile
-od_countries <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_08.csv") %>%
+od_countries <- read.csv("data/processed_data/dt_heatmap_calibrated.csv") %>%
   # filter(region == "PAHO") %>%
   distinct(adm_0_name)
 
@@ -112,21 +112,40 @@ source("functions/fn_OD_region.R")
 
 # map$adm_0_name <- toupper(map$brk_name)
 
-# 1) Repair, 2) compute centroid in a metric CRS, 3) transform centroid back to 4326,
-# 4) extract coords, 5) bind to original data (which stays in 4326)
-centroids_4326 <- map |>
-  st_make_valid() |>
-  st_transform(3857) |>
-  st_centroid(of_largest_polygon = TRUE) |>
-  st_transform(4326)
+# --- Robust country representative points (dateline-safe) ---
 
-xy <- st_coordinates(centroids_4326)
+# 1) Validate and handle antimeridian, then shift longitudes to [-180, 180]
+map_fix <- map %>%
+  st_make_valid() %>%
+  st_wrap_dateline(options = c("WRAPDATELINE=YES", "DATELINEOFFSET=180"), quiet = TRUE) %>%
+  st_shift_longitude()
 
-map_with_centroid <- map |>
+# 2) Split multipolygons into polygons, keep the largest polygon per country
+map_poly <- map_fix %>%
+  st_cast("POLYGON", warn = FALSE)
+
+# Use an equal-area CRS for correct area ranking
+map_poly <- map_poly %>%
+  mutate(.area = st_area(st_transform(., 6933)))
+
+map_largest <- map_poly %>%
+  group_by(iso_a3) %>%
+  slice_max(.area, n = 1, with_ties = FALSE) %>%
+  ungroup()
+
+# 3) Use a point guaranteed to lie inside the polygon (better than centroid)
+pts <- st_point_on_surface(map_largest)
+
+xy <- st_coordinates(st_transform(pts, 4326))
+
+map_with_centroid <- map_largest %>%
   mutate(
     Longitude = xy[, 1],
-    Latitude = xy[, 2]
+    Latitude  = xy[, 2]
   )
+
+map_with_centroid <- map %>%
+  left_join(st_drop_geometry(map_with_centroid) %>% select(iso_a3, Longitude, Latitude), by = "iso_a3")
 
 map_with_centroid$lat_band <- cut(
   map_with_centroid$Latitude,
@@ -134,6 +153,7 @@ map_with_centroid$lat_band <- cut(
   labels = c("< -15", "-15 to -5", "-5 to 5", "5 to 15", ">= 15"),
   right = FALSE
 )
+
 
 # update population estimates
 und <- read.csv("data/un_world_pop_prospects.csv")
@@ -162,7 +182,7 @@ und <- bind_rows(und, und_2024)
 
 map_final <- merge(map_with_centroid, und, by.x = "iso_a3", by.y = "iso3c", all.x = T)
 
-rm(und, map, und_2024, map_with_centroid, xy, centroids_4326, geounit, od_countries)
+rm(und, map, und_2024, map_with_centroid, xy, geounit, od_countries)
 
 #
 # ggplot(map) +

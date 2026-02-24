@@ -30,19 +30,19 @@ add_country_year <- function(df) {
 # 1. LOAD AND PREPARE DATA
 # ------------------------------------------------------------------------------
 
-# 1.1 Load Best Temporal Data -------------------------------------------------
-T_data <- read.csv("data/processed_data/Best_T_data_V1_3_2025_10_22.csv") %>%
+# 1.1 Load best temporal data -------------------------------------------------
+T_data <- read.csv("data/processed_data/Best_T_data_V1_3.csv") %>%
   filter(between(Year, min_year, max_year)) %>% # keep target period
   region_class() %>% # add WHO region
   Year_checker() %>% # fix year alignment
   add_country_year()
 
-# 1.2 Check for Missing Regional Classifications ------------------------------
+# 1.2 Check for missing regional classifications ------------------------------
 T_data %>%
   filter(is.na(region)) %>%
   distinct(adm_0_name)
 
-# 1.3 Summarize Record Counts and Coverage ------------------------------------
+# 1.3 Summarize record counts and coverage ------------------------------------
 d_cov <- T_data %>%
   group_by(adm_0_name, Year, T_res) %>%
   summarise(
@@ -73,7 +73,7 @@ d_cov <- d_cov %>%
   ) %>%
   select(-epiweeks)
 
-# 1.4 Initialize Coverage Table -----------------------------------------------
+# 1.4 Initialize coverage table -----------------------------------------------
 # Start with complete country-year grid
 coverage_tbl <- T_data %>%
   group_by(adm_0_name, Year) %>%
@@ -83,7 +83,7 @@ coverage_tbl <- T_data %>%
   ) %>%
   add_country_year()
 
-# 1.5 Determine Data Source Priority ------------------------------------------
+# 1.5 Determine data source priority ------------------------------------------
 # When both OD and ad_hoc_data exist, prioritise ad_hoc_data
 data_source <- T_data %>%
   distinct(adm_0_name, Year, cat) %>% # all combos present in the file
@@ -122,7 +122,7 @@ coverage_tbl %>%
 
 summary(is.na(coverage_tbl))
 
-# 1.6 Categorize Data Completeness --------------------------------------------
+# 1.6 Categorize data completeness --------------------------------------------
 coverage_tbl <- coverage_tbl %>%
   # Join coverage metrics
   left_join(d_cov %>% select(country_year, T_res, n_record, prop),
@@ -160,7 +160,7 @@ coverage_tbl$cat_model <- factor(coverage_tbl$cat_model, levels = c(
 # 2. HANDLE FIRST-YEAR TRANSMISSION AND EMERGING EPIDEMIC SETTINGS
 # ------------------------------------------------------------------------------
 
-# 2.1 Define Geographic Groups ------------------------------------------------
+# 2.1 Define geographic groups ------------------------------------------------
 # Pacific Island Countries
 PIC_names <- T_data %>%
   filter(grepl("PICs", UUID)) %>%
@@ -178,9 +178,9 @@ caribbean_names <- toupper(c(
   "Trinidad and Tobago", "Turks and Caicos Islands"
 ))
 
-# 2.2 Handle First Year of Local Transmission ---------------------------------
+# 2.2 Handle first year of local transmission ---------------------------------
 # Load documented first year of local dengue transmission
-first_year <- read.csv("data/ad_hoc/first_year_summary.csv") %>%
+first_year <- read.csv("data/processed_data/first_year_summary.csv") %>%
   mutate(adm_0_name = toupper(adm_0_name))
 
 # Identify violations: cases reported before documented first transmission
@@ -207,7 +207,7 @@ coverage_tbl <- coverage_tbl %>%
   ) %>%
   select(-first_year, -before_first_year)
 
-# 2.3 Remove Violations from Time Series Data ---------------------------------
+# 2.3 Remove violations from time series data ---------------------------------
 T_data_clean <- T_data %>%
   anti_join(violations, by = c("adm_0_name", "Year")) %>%
   filter(!country_year %in% violations$country_year)
@@ -216,7 +216,7 @@ T_data_clean <- T_data %>%
 T_data_clean <- T_data_clean %>%
   filter(!country_year %in% c("GUAM_2017", "GUAM_2018"))
 
-# 2.4 Add Back Corrected Records -----------------------------------------------
+# 2.4 Add back corrected records -----------------------------------------------
 # Prepare violations as zero-case annual records
 toadd2 <- tibble(
   adm_0_name = c(rep("GUAM", 2)),
@@ -224,7 +224,7 @@ toadd2 <- tibble(
   region = c("WPRO", "WPRO")
 ) %>%
   add_country_year() %>%
-  mutate(Source = NA)
+  mutate(Source = "LITERATURE-GUM-19902016-Y01-00")
 
 toadd <- violations %>%
   select(adm_0_name, Year, region, country_year, Source) %>%
@@ -259,7 +259,7 @@ nrow(coverage_tbl[coverage_tbl$data_source == "No_data", ])
 # Clean up temporary objects
 rm(first_year, violations, d_cov, data_source, epiweek_tbl, toadd, toadd2)
 
-# 2.5 Define Emerging Epidemic Settings (EES) ---------------------------------
+# 2.5 Define emerging epidemic settings (EES) ---------------------------------
 # EES: Regions with sporadic transmission where missing years are assumed zero
 # Includes: Africa, select Middle East, Europe, small island nations
 
@@ -286,7 +286,7 @@ coverage_tbl <- coverage_tbl %>%
     prop = case_when(ees ~ 1, TRUE ~ prop),
     n_record = case_when(ees ~ 1, TRUE ~ n_record),
     T_res = case_when(ees ~ "Year", TRUE ~ T_res),
-    data_source = case_when(ees ~ "ees", TRUE ~ data_source)
+    data_source = case_when(ees ~ "Assumed_zero_cases", TRUE ~ data_source)
   )
 
 # Count EES countries
@@ -295,20 +295,20 @@ ees_final <- coverage_tbl %>%
   distinct(adm_0_name) %>%
   pull(adm_0_name)
 
-length(ees_final) # 74 countries
+length(ees_final) # 72 countries
 
 # ------------------------------------------------------------------------------
 # 3. IHME CALIBRATION FOR REMAINING "NO_DATA" GAPS
 # ------------------------------------------------------------------------------
 
-# 3.1 Harmonize ISO Codes -----------------------------------------------------
+# 3.1 Harmonize ISO codes -----------------------------------------------------
 coverage_tbl <- coverage_tbl %>%
   mutate(
     ISO_A0 = countrycode(adm_0_name, "country.name", "iso3c"),
     ISO_A0 = if_else(adm_0_name == "SAINT MARTIN", "MAF", ISO_A0)
   )
 
-# 3.2 Load IHME GBD 2021 Estimates ---------------------------------------------
+# 3.2 Load IHME GBD 2021 estimates ---------------------------------------------
 ihme_raw <- read.csv("data/ad_hoc/IHME-GBD_2021_DATA.csv") %>%
   transmute(
     adm_0_name = location_name,
@@ -334,7 +334,7 @@ ihme_raw %>%
 # but no confirmed local dengue outbreaks or sentinel cases per literature
 # Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC5142774/
 
-# 3.3 Identify Overlap: OD Gaps with IHME Data --------------------------------
+# 3.3 Identify overlap: OD gaps with IHME data --------------------------------
 od_no_data_iso <- coverage_tbl %>%
   filter(data_source == "No_data", Year < 2022) %>%
   distinct(ISO_A0) %>%
@@ -346,7 +346,13 @@ iso_overlap <- intersect(od_no_data_iso, ihme_raw$ISO_A0)
 unique(coverage_tbl$adm_0_name[coverage_tbl$ISO_A0 %in% iso_overlap])
 # [1] "BRUNEI DARUSSALAM" "INDIA" "MALDIVES" "TIMOR-LESTE"
 
-# 3.4 Calculate Country-Level Scaling Factors ---------------------------------
+coverage_tbl %>%
+  filter(data_source == "No_data", Year < 2022 & ISO_A0 %in% iso_overlap) %>%
+  distinct(country_year)
+
+
+
+# 3.4 Calculate country-level scaling factors ---------------------------------
 # Scale IHME estimates using ratio: (OD mean) / (IHME mean)
 coverage_tbl_cal <- coverage_tbl %>%
   left_join(
@@ -371,7 +377,7 @@ no_scaling <- coverage_tbl_cal %>%
   distinct(adm_0_name)
 no_scaling
 
-# 3.5 Fill No_data Slots with Calibrated IHME Estimates -----------------------
+# 3.5 Fill No_data slots with calibrated IHME estimates -----------------------
 coverage_tbl_cal <- coverage_tbl_cal %>%
   mutate(
     # Fill annual total with calibrated IHME estimate
@@ -422,7 +428,7 @@ coverage_tbl_cal <- coverage_tbl_cal %>%
 summary(is.na(coverage_tbl_cal))
 nrow(coverage_tbl_cal[coverage_tbl_cal$data_source == "No_data", ])
 
-# 3.6 Diagnostic Plot: Calibrated Time Series ---------------------------------
+# 3.6 Diagnostic plot: calibrated time series ---------------------------------
 coverage_tbl_cal %>%
   filter(ISO_A0 %in% iso_overlap) %>%
   ggplot() +
@@ -430,7 +436,7 @@ coverage_tbl_cal %>%
   geom_point(aes(Year, annual_total2, color = data_source)) +
   facet_wrap(adm_0_name ~ ., scales = "free")
 
-# 3.7 Data Source Summary ------------------------------------------------------
+# 3.7 Data source summary ------------------------------------------------------
 coverage_tbl_cal %>%
   group_by(data_source) %>%
   tally()
@@ -443,7 +449,7 @@ coverage_tbl_cal %>%
 # 5 ees              1532
 # 6 first_year        370
 
-# 3.8 Remove Countries with Only Zero Cases -----------------------------------
+# 3.8 Remove countries with only zero cases -----------------------------------
 # Identify countries with zero cases across all years
 zero_cases_only <- coverage_tbl_cal %>%
   group_by(adm_0_name) %>%
@@ -569,7 +575,7 @@ coverage_tbl_cal %>%
 
 # Export calibrated time series data
 write.csv(T_data_cal,
-  "data/processed_data/Best_T_data_calibrated_V1_3_2025_10_22.csv",
+  "data/processed_data/Best_T_data_calibrated_V1_3.csv",
   row.names = F
 )
 
@@ -579,6 +585,6 @@ write.csv(
     select(-annual_total, -(IHME_est:annual_total2)) %>%
     mutate(annual_total = annual_total3) %>%
     select(-annual_total3),
-  "data/processed_data/dt_heatmap_calibrated_2025_10_22.csv",
+  "data/processed_data/dt_heatmap_calibrated.csv",
   row.names = F
 )

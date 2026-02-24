@@ -34,8 +34,8 @@ region_class <- function(data, upper = T) {
     AFRO = c(
       "Angola", "Benin", "Burkina Faso", "Cabo Verde", "Cameroon",
       "Central African Republic", "Chad", "Cote D'ivoire", "Eritrea", "Ethiopia",
-      "Ghana", "Guinea", "Kenya", "Mali", "Mauritania", "Mauritius", "Mayotte",
-      "Niger", "Reunion", "Sao Tome and Principe", "Senegal", "Seychelles",
+      "Ghana", "Guinea", "Kenya", "Mali", "Mauritania", "Mauritius",
+      "Niger", "Sao Tome and Principe", "Senegal", "Seychelles",
       "Togo", "United Republic of Tanzania",
       "Comoros", "Democratic Republic of Congo", "Gabon", "Madagascar",
       "Mozambique", "Nigeria", "South Sudan",
@@ -44,7 +44,7 @@ region_class <- function(data, upper = T) {
       "Rwanda", "Sierra Leone", "Uganda", "Zambia", "Zimbabwe"
     ),
     EURO = c(
-      "France", "Italy", "Spain", "Croatia", "Portugal"
+      "France", "Italy", "Spain", "Croatia", "Portugal", "Reunion", "Mayotte"
     )
   )
 

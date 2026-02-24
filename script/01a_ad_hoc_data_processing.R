@@ -27,7 +27,7 @@ summary(is.na(od$region))
 # 2. WHO DATA SOURCES
 # ------------------------------------------------------------------------------
 
-# 2.1 WHO SEARO Dashboard Data ------------------------------------------------
+# 2.1 WHO SEARO dashboard data ------------------------------------------------
 searo <- read.csv("data/raw_data/SEARO_ad_hoc_2025_06_04.csv") %>%
   transmute(
     adm_0_name = toupper(adm_0_name),
@@ -51,7 +51,7 @@ searo <- read.csv("data/raw_data/SEARO_ad_hoc_2025_06_04.csv") %>%
     UUID = "SEARO_ad_hoc_2025_06_04.csv"
   )
 
-# 2.2 WHO Global Dashboard - African Countries --------------------------------
+# 2.2 WHO global dashboard - African countries --------------------------------
 who_afr <- read.csv("data/raw_data/who_dengue_global_2025_09_26.csv") %>%
   filter(who_region == "AFR") %>%
   merge(., od %>% distinct(adm_0_name, ISO_A0), by.x = "iso3", by.y = "ISO_A0", all.x = T) %>%
@@ -91,14 +91,14 @@ who_afr_toadd <- who_afr %>%
     case_definition_standardised = NA,
     S_res = "Admin0",
     T_res = "Month",
-    UUID = "who_global_dashboard_2025_09_26.csv"
+    UUID = "who_dengue_global_2025_09_26.csv"
   )
 
 # ------------------------------------------------------------------------------
 # 3. AD HOC DATA BY TEMPORAL RESOLUTION
 # ------------------------------------------------------------------------------
 
-# 3.1 Weekly Data --------------------------------------------------------------
+# 3.1 Weekly data --------------------------------------------------------------
 ad_weekly <- read.csv("data/ad_hoc/ad_hoc_weekly.csv") %>%
   transmute(
     adm_0_name = toupper(adm_0_name),
@@ -139,7 +139,7 @@ ad_weekly <- ad_weekly %>%
 
 check_epiweek_span(ad_weekly)
 
-# 3.2 Japan Missing Week 53 (2014) --------------------------------------------
+# 3.2 Japan missing week 53 (2014) --------------------------------------------
 # Add missing week 53 for Japan 2014 with assumed 0 cases
 jpn <- tibble(
   adm_0_name = "JAPAN",
@@ -160,7 +160,7 @@ jpn <- tibble(
   UUID = "assumed 0 cases"
 )
 
-# 3.3 Monthly Data -------------------------------------------------------------
+# 3.3 Monthly data -------------------------------------------------------------
 ad_monthly <- read.csv("data/ad_hoc/ad_hoc_monthly.csv")
 
 # Fill in 0 cases for European countries (complete all 12 months)
@@ -203,7 +203,7 @@ ad_monthly_clean <- ad_monthly %>%
     UUID = source_file
   )
 
-# 3.4 Yearly Data --------------------------------------------------------------
+# 3.4 Yearly data --------------------------------------------------------------
 ad_yearly <- read.csv("data/ad_hoc/ad_hoc_yearly.csv") %>%
   transmute(
     adm_0_name = toupper(adm_0_name),
@@ -232,7 +232,7 @@ ad_yearly_clean <- ad_yearly %>%
 # 4. AFRICA DATA PROCESSING
 # ------------------------------------------------------------------------------
 
-# 4.1 Annual Data --------------------------------------------------------------
+# 4.1 Annual data --------------------------------------------------------------
 annual <- read.csv("data/ad_hoc/Africa_data_annual_AL.csv") %>%
   rename(
     Year = Country,
@@ -254,10 +254,10 @@ annual <- read.csv("data/ad_hoc/Africa_data_annual_AL.csv") %>%
     case_definition_standardised = NA,
     S_res = "Admin0",
     T_res = "Year",
-    UUID = "Africa_data_annual.csv"
+    UUID = Source
   )
 
-# 4.2 Subannual Data - Multiple Resolutions -----------------------------------
+# 4.2 Subannual data - multiple resolutions -----------------------------------
 suban <- read.csv("data/ad_hoc/Africa_data_subannual_AL.csv")
 erit <- read.csv("data/ad_hoc/Eritrea_subannual.csv")
 
@@ -275,7 +275,7 @@ suban <- suban %>%
     Source
   )
 
-# 4.2.1 Aggregate Daily to Weekly Data ----------------------------------------
+# 4.2.1 Aggregate daily to weekly data ----------------------------------------
 suban_daily <- suban %>%
   filter(Resolution == "Daily")
 
@@ -308,7 +308,7 @@ for (i in 1:nrow(suban_daily)) {
 suban_daily$calendar_start_date <- as.character(ymd(suban_daily$calendar_end_date) - 6)
 suban_daily$Resolution <- "Week"
 
-# 4.2.2 Aggregate Quarterly to Yearly Data ------------------------------------
+# 4.2.2 Aggregate quarterly to yearly data ------------------------------------
 suban_quarterly <- suban %>%
   filter(Resolution == "Quarterly")
 
@@ -322,7 +322,7 @@ suban_quarterly <- suban_quarterly %>%
   summarise(dengue_total = sum(dengue_total), .groups = "drop") %>%
   mutate(Resolution = "Year")
 
-# 4.2.3 Fix Weekly Data Epiweek Mismatches ------------------------------------
+# 4.2.3 Fix weekly data epiweek mismatches ------------------------------------
 suban_weekly <- suban %>%
   filter(Resolution %in% c("Weekly"))
 
@@ -382,7 +382,7 @@ suban_weekly_clean <- suban_weekly %>%
 # Verify epiweek corrections
 check_epiweek_span(suban_weekly_clean)
 
-# 4.2.4 Eritrea Weekly Data ----------------------------------------------------
+# 4.2.4 Eritrea weekly data ----------------------------------------------------
 erit <- erit %>%
   transmute(
     adm_0_name = Country,
@@ -401,7 +401,7 @@ for (i in 1:nrow(erit)) {
 
 check_epiweek_span(erit)
 
-# 4.3 Combine All Africa Subannual Data ---------------------------------------
+# 4.3 Combine all Africa subannual data ---------------------------------------
 suban_new <-
   rbind(
     suban_daily %>%
@@ -447,7 +447,7 @@ suban_new <- suban_new %>%
     UUID = Source
   )
 
-# 4.4 Combine All Africa Data --------------------------------------------------
+# 4.4 Combine all Africa data --------------------------------------------------
 afro_all <- rbind(annual, suban_new)
 
 # Verify row counts match
@@ -662,7 +662,7 @@ ad_hoc <- rbind(ad_hoc, outbreak_clean)
 # 10. WHO DENGUE EXPLORER DATA
 # ------------------------------------------------------------------------------
 
-de <- read.csv("C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/OpenDengue-Dev/open_dengue_1.3/source_files/original_name/dengue_explorer_all_countries.csv")
+de <- read.csv("data/raw_data/dengue_explorer_all_countries.csv")
 
 # Filter to WPRO and SEARO regions only
 de <- de %>%
@@ -763,7 +763,7 @@ who <- read.csv("data/raw_data/who_dengue_global_2025_09_26.csv") %>%
     case_definition_standardised = NA,
     S_res = "Admin0",
     T_res = "Month",
-    UUID = "who_global_dashboard_2025_09_26.csv",
+    UUID = "who_dengue_global_2025_09_26.csv",
     cat = "ad_hoc_data"
   )
 
@@ -778,7 +778,7 @@ x1 <- ad_hoc %>%
   group_by(full_name, calendar_start_date, calendar_end_date) %>%
   filter(n() > 1)
 
-# 12.1 Monthly Duplicates ------------------------------------------------------
+# 12.1 Monthly duplicates ------------------------------------------------------
 monthly_dups <- x1 %>%
   filter(T_res == "Month")
 
@@ -823,7 +823,7 @@ ad_clean <- ad_hoc %>%
   ) %>%
   select(-start_date, -end_date, -total)
 
-# 12.2 Weekly Duplicates -------------------------------------------------------
+# 12.2 Weekly duplicates -------------------------------------------------------
 weekly_dups <- x1 %>%
   filter(T_res == "Week")
 
@@ -846,7 +846,7 @@ uuids_to_remove_week <- weekly_dups %>%
 ad_clean <- ad_clean %>%
   anti_join(uuids_to_remove_week, by = c("adm_0_name", "calendar_start_date", "calendar_end_date", "UUID"))
 
-# 12.3 Yearly Duplicates -------------------------------------------------------
+# 12.3 Yearly duplicates -------------------------------------------------------
 yearly_dups <- x1 %>%
   filter(T_res == "Year")
 
@@ -899,5 +899,247 @@ ad_clean %>%
   group_by(ISO_A0) %>%
   filter(n() > 1)
 
+
+
+# ad hoc data source processing ---------------------------#
+
+# manual edits
+ad_clean$UUID[grepl("WHOEMRO-ALL-2016-Y01|WHO_EMRO_2016", ad_clean$UUID)] <- "WHOEMRO-ALL-2016-Y01-00"
+ad_clean$UUID[grepl("https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%", ad_clean$UUID)] <- "https://reliefweb.int/report/sudan/who-emro-weekly-epidemiological-monitor-volume-10-issue-49-3-december-2017#:~:text=WHO%20EMRO%20Weekly%20Epidemiological%20Monitor%3A,to%2090%20with%202"
+ad_clean$UUID[grepl("https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea", ad_clean$UUID)] <- "https://www.ecdc.europa.eu/en/all-topics-z/dengue/surveillance-and-disease-data/autochthonous-transmission-dengue-virus-eueea-previous-years"
+ad_clean$UUID[grepl("local only", ad_clean$UUID)] <- "ARBONET"
+ad_clean$UUID[grepl("\n", ad_clean$UUID)] <- "Virtual Meeting of Regional Technical Advisory Group for dengue and other arbovirus"
+ad_clean$UUID[grepl("assumed 0 cases|Outbreak_assumption", ad_clean$UUID)] <- "Assumed_zero_cases"
+ad_clean$UUID[grepl("https://ejol.aau.edu.et/index.php/EJHD/article/download/1786/1417/2872", ad_clean$UUID)] <- "https://ejol.aau.edu.et/index.php/EJHD/article/download/1786/1417/2872"
+ad_clean$UUID[grepl("https://www.who.int/southeastasia/publications/i/item/sea-cd-331", ad_clean$UUID)] <- "Virtual Meeting of Regional Technical Advisory Group for dengue and other arbovirus"
+ad_clean$UUID[grepl("article?id=10.1371/journal.pntd.0010547", ad_clean$UUID, fixed = TRUE)] <- "https://journals.plos.org/plosntds/article/figure?id=10.1371/journal.pntd.0010547.t001"
+
+
+
+# load filing DB
+ad_f <- readxl::read_xlsx("data/ad_hoc/ad_hoc_filingDB_cleaned.xlsx")
+
+meta_to_fill <- ad_f %>%
+  filter(is.na(ad_f$metadata_url)) %>%
+  distinct(clean_ID) %>%
+  pull(clean_ID)
+
+od_f <- readxl::read_xlsx("C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/OpenDengue-Dev/archive/filingDB_allV_2025_08_01.xlsx")
+names(od_f)
+
+summary(meta_to_fill %in% od_f$UUID)
+
+meta <- od_f %>%
+  filter(od_f$UUID %in% meta_to_fill) %>%
+  select(UUID, metadata_description, metadata_url, metadata_steps)
+
+
+# Merge ad_f with meta to fill in missing metadata
+ad_f <- ad_f %>%
+  left_join(meta, by = c("clean_ID" = "UUID"), suffix = c("", "_od")) %>%
+  mutate(
+    metadata_description = coalesce(metadata_description, metadata_description_od),
+    metadata_url = coalesce(metadata_url, metadata_url_od),
+    metadata_steps = coalesce(metadata_steps, metadata_steps_od)
+  ) %>%
+  select(-ends_with("_od"))
+
+summary(is.na(ad_f$metadata_url))
+
+unique(ad_f$metadata_url)
+
+ad_f$ISO_A0 <- countrycode::countrycode(ad_f$adm_0_name, "country.name", "iso3c")
+
+ad_f <- ad_f %>%
+  group_by(metadata_url) %>%
+  mutate(
+    n_countries = n_distinct(adm_0_name),
+    country_id = case_when(
+      is.na(ISO_A0) ~ adm_0_name,
+      !is.na(ISO_A0) & n_countries == 1 ~ ISO_A0,
+      n_countries > 1 ~ "ALL", TRUE ~ NA
+    )
+  )
+
+# check errors
+ad_f %>%
+  filter(is.na(clean_ID), source_cat != "LITERATURE") %>%
+  group_by(key_to_T_data) %>%
+  filter(n_distinct(metadata_steps) > 1)
+
+# serial_cat (W/M/Y): categorize publications based on their frequency of publication
+# serial_cat_num: uniquely identify different types of publications within the same frequency category
+## for example, weekly publications in Pakistan: `01` for IDSR, `02` for FELTP.
+# serial_id: assign a unique identifier to each individual publication
+
+ad_f_new <- ad_f %>%
+  filter(is.na(clean_ID)) %>%
+  distinct(key_to_T_data, source_cat, country_id, period, serial_cat, serial_id, metadata_description, metadata_url, metadata_steps)
+
+# serial_cat_num
+ad_f_new <- ad_f_new %>%
+  group_by(source_cat, country_id) %>%
+  mutate(
+    num_types = n_distinct(metadata_description),
+    serial_cat_num = match(metadata_description, unique(metadata_description))
+  ) %>%
+  ungroup()
+
+# serial_id
+ad_f_new <- ad_f_new %>%
+  group_by(source_cat, country_id, serial_cat_num) %>%
+  arrange(period) %>%
+  mutate(
+    serial_id = ifelse(serial_cat == "Y" & is.na(serial_id), 0:n(), serial_id),
+  ) %>%
+  ungroup()
+
+ad_f_new <- ad_f_new %>%
+  mutate(
+    sourceID = paste0(
+      source_cat, "-", country_id, "-", period, "-", serial_cat,
+      sprintf("%02d", as.numeric(serial_cat_num))
+    )
+  ) %>%
+  mutate(
+    UUID = paste0(sourceID, "-", sprintf("%02d", as.numeric(serial_id)))
+  )
+
+# !!!! check if any duplicated UUID
+ad_f_new %>%
+  group_by(UUID) %>%
+  filter(n() > 1)
+
+# checking if any UUIDs have been changed since the last release
+dev_path <- "C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/OpenDengue-Dev/"
+
+f_old <- readxl::read_xlsx(paste0(dev_path, "archive/filingDB_allV_2025_08_01.xlsx")) %>%
+  filter(released == "Y") %>%
+  rename(UUID_old_v = UUID)
+
+summary(f_old$UUID_old_v %in% ad_f_new$UUID)
+f_old$UUID_old_v[f_old$UUID_old_v %in% ad_f_new$UUID]
+
+ad_f_new$clean_ID <- ad_f_new$UUID
+
+# final table with clean format
+final <- ad_f_new %>%
+  select(key_to_T_data, clean_ID, metadata_description:metadata_steps)
+
+# existing UUIDs
+ex_UUID <- ad_f %>%
+  ungroup() %>%
+  filter(!is.na(clean_ID), source_cat != "LITERATURE" | is.na(source_cat)) %>%
+  distinct(key_to_T_data, clean_ID, metadata_description, metadata_url, metadata_steps)
+
+final <- rbind(final, ex_UUID)
+
+nrow(final) == length(unique(final$key_to_T_data))
+
+final %>%
+  group_by(key_to_T_data) %>%
+  tally() %>%
+  filter(n > 1)
+
+
+ad_clean_final <- merge(ad_clean, final[, c("key_to_T_data", "clean_ID")],
+  by.x = "UUID", by.y = "key_to_T_data", all = TRUE
+)
+
+summary(is.na(ad_clean_final$clean_ID))
+ad_clean_final$UUID[is.na(ad_clean_final$clean_ID)]
+
+ad_clean_final$clean_ID[is.na(ad_clean_final$clean_ID)] <- "Assumed_zero_cases"
+
+ad_clean_final$UUID <- ad_clean_final$clean_ID
+
+ad_clean_final <- ad_clean_final %>% select(adm_0_name:cat, UUID)
+ad_clean_final <- ad_clean_final %>% arrange(adm_0_name, full_name, calendar_start_date)
+
 # Export final cleaned dataset
-write.csv(ad_clean, "data/processed_data/ad_hoc_data_all_2025_10_22.csv", row.names = F)
+write.csv(ad_clean_final, "data/processed_data/ad_hoc_data_all.csv", row.names = F)
+
+# Export final source data
+source_data <- final %>%
+  transmute(
+    UUID = clean_ID,
+    metadata_description, metadata_url, metadata_steps
+  ) %>%
+  arrange(UUID)
+write.csv(source_data, "data/processed_data/ad_hoc_source_data.csv", row.names = F)
+
+
+
+#
+#
+#
+# #########
+# ad_hoc_weekly <- read.csv("data/ad_hoc/ad_hoc_weekly.csv")
+# ad_hoc_monthly <- read.csv("data/ad_hoc/ad_hoc_monthly.csv")
+# ad_hoc_yearly <- read.csv("data/ad_hoc/ad_hoc_yearly.csv")
+#
+# ad_hoc_files <-
+#   rbind(
+#     ad_hoc_weekly %>%
+#       select(adm_0_name, Year, original_filename = source_file, Notes) %>%
+#       mutate(T_res = "Weekly"),
+#     ad_hoc_monthly %>%
+#       select(adm_0_name, Year, original_filename = source_file, Notes) %>%
+#       mutate(T_res = "Monthly"),
+#     ad_hoc_yearly %>%
+#       select(adm_0_name, Year, original_filename = source_file, Notes) %>%
+#       mutate(T_res = "Yearly")
+#   ) %>%
+#   distinct()
+#
+# afr_annual <- read.csv("data/ad_hoc/Africa_data_annual_AL.csv") %>%
+#   rename(
+#     Year = Country,
+#     adm_0_name = Year
+#   )
+# afr_suban <- read.csv("data/ad_hoc/Africa_data_subannual_AL.csv")
+# eri <- read.csv("data/ad_hoc/Eritrea_subannual.csv")
+#
+# afr_files <- rbind(
+#   afr_annual %>%
+#     select(adm_0_name, Year, original_filename = Source) %>%
+#     mutate(
+#       Notes = NA,
+#       T_res = "Yearly"
+#     ),
+#   afr_suban %>%
+#     transmute(
+#       adm_0_name = Country,
+#       Year = as.character(year(lubridate::dmy(Start.time))),
+#       original_filename = Source,
+#       Notes = Details, T_res = Resolution
+#     ),
+#   eri %>%
+#     transmute(
+#       adm_0_name = Country,
+#       Year = as.character(year(lubridate::ymd(Start.time))),
+#       original_filename = Source,
+#       Notes = Details, T_res = Resolution
+#     )
+# ) %>%
+#   distinct()
+#
+# names(ad_hoc_files)
+# names(afr_files)
+#
+# ad_hoc_UUID <- rbind(ad_hoc_files, afr_files)
+#
+# ad_hoc_UUID_collapsed <- ad_hoc_UUID %>%
+#   mutate(Year = as.integer(Year)) %>%
+#   group_by(adm_0_name, original_filename, Notes, T_res) %>%
+#   summarise(
+#     period = if (min(Year, na.rm = TRUE) == max(Year, na.rm = TRUE)) {
+#       as.character(min(Year, na.rm = TRUE))
+#     } else {
+#       paste0(min(Year, na.rm = TRUE), max(Year, na.rm = TRUE))
+#     },
+#     .groups = "drop"
+#   )
+#
+#
+# write.csv(ad_hoc_UUID_collapsed, "data/ad_hoc/ad_hoc_UUID.csv", row.names = F)

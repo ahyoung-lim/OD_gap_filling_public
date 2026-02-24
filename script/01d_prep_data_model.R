@@ -30,13 +30,13 @@ add_country_year <- function(df) {
 # ------------------------------------------------------------------------------
 
 # Load coverage assessment table with modelling categories
-tab <- read.csv("data/processed_data/dt_heatmap_calibrated_2025_10_22.csv")
+tab <- read.csv("data/processed_data/dt_heatmap_calibrated.csv")
 
 # Load calibrated temporal extract
-T_data <- read.csv("data/processed_data/Best_T_data_calibrated_V1_3_2025_10_22.csv")
+T_data <- read.csv("data/processed_data/Best_T_data_calibrated_V1_3.csv")
 summary(is.na(T_data))
 
-# 1.1 Data Summary Statistics --------------------------------------------------
+# 1.1 Data summary statistics --------------------------------------------------
 # Temporal resolution distribution
 tab %>%
   group_by(T_res) %>%
@@ -46,10 +46,6 @@ tab %>%
 tab %>%
   group_by(cat_model) %>%
   tally()
-
-# 1 Annual_disaggregation  1483
-# 2 No_modelling_required  3349
-# 3 Sub_annual_imputation   173
 
 # No modelling required by temporal resolution
 tab %>%
@@ -68,7 +64,7 @@ tab %>%
 # 2. PROCESS WEEKLY DATA
 # ------------------------------------------------------------------------------
 
-# 2.1 Extract Weekly Records ---------------------------------------------------
+# 2.1 Extract weekly records ---------------------------------------------------
 dt_w <- T_data %>%
   filter(T_res == "Week") %>%
   region_class()
@@ -77,11 +73,11 @@ unique(dt_w$adm_0_name) # 96 countries
 
 
 
-# 2.2 Complete Time Series (Fill Date Gaps) -----------------------------------
+# 2.2 Complete time series (fill date gaps) -----------------------------------
 # Ensure all countries have consistent start/end dates with complete weekly sequence
 dt_w_complete <- make_week_complete_clean(data = dt_w, keep_vars = TRUE)
 
-# 2.3 Diagnostic Time Series Plot ----------------------------------------------
+# 2.3 Diagnostic time series plot ----------------------------------------------
 dt_w_complete %>%
   ggplot() +
   geom_point(
@@ -94,7 +90,7 @@ dt_w_complete %>%
   ) +
   facet_wrap(adm_0_name ~ ., scales = "free_y")
 
-# 2.4 Validate Time Sequence Consistency ---------------------------------------
+# 2.4 Validate time sequence consistency ---------------------------------------
 # Check if same time_seq assigned for same calendar_start_date across countries
 consistent_time_seq_check <- dt_w_complete %>%
   group_by(calendar_start_date) %>%
@@ -115,21 +111,21 @@ if (nrow(inconsistent_dates) != 0) {
 stopifnot(length(unique(dt_w_complete$calendar_start_date)) ==
   length(unique(dt_w_complete$time_seq)))
 
-# 2.5 Calculate Missing Data Proportion ----------------------------------------
+# 2.5 Calculate missing data proportion ----------------------------------------
 n_gap <- nrow(dt_w_complete[is.na(dt_w_complete$dengue_total), ])
 n_total <- nrow(dt_w_complete)
-test_ratio <- n_gap / n_total * 100 # 9.4
+test_ratio <- n_gap / n_total * 100
 
 # ------------------------------------------------------------------------------
 # 3. PROCESS MONTHLY DATA
 # ------------------------------------------------------------------------------
 
-# 3.1 Extract Monthly Records --------------------------------------------------
+# 3.1 Extract monthly records --------------------------------------------------
 dt_m <- T_data %>%
   filter(T_res == "Month") %>%
   mutate(month = month(calendar_start_date))
 
-# 3.2 Aggregate Weekly to Monthly ----------------------------------------------
+# 3.2 Aggregate weekly to monthly ----------------------------------------------
 # Convert weekly data to monthly for countries without direct monthly data
 dt_w_m <- dt_w_complete %>%
   mutate(month = as.integer(month(calendar_start_date))) %>%
@@ -144,7 +140,7 @@ dt_w_m <- dt_w_complete %>%
   group_by(adm_0_name, ISO_A0, Year, month) %>%
   summarise(dengue_total = sum(dengue_total, na.rm = F))
 
-# 3.3 Combine Direct Monthly + Aggregated Weekly ------------------------------
+# 3.3 Combine direct monthly + aggregated weekly ------------------------------
 dt_m <- rbind(
   dt_m[, c("adm_0_name", "ISO_A0", "Year", "month", "dengue_total")],
   dt_w_m
@@ -154,18 +150,18 @@ dt_m <- rbind(
   region_class()
 
 unique(dt_m$adm_0_name) # 136 countries
-length(unique(dt_m$country_year)) # 1158
+length(unique(dt_m$country_year)) # 1242
 
-# 3.4 Check for Duplicates (should be 0) ---------------------------------------
+# 3.4 Check for duplicates (should be 0) ---------------------------------------
 dt_m %>%
   group_by(adm_0_name, Year, month) %>%
   tally() %>%
   filter(n > 1)
 
-# 3.5 Complete Time Series (Fill Date Gaps) -----------------------------------
+# 3.5 Complete time series (fill date gaps) -----------------------------------
 dt_m_complete <- make_month_complete_clean(data = dt_m %>% select(-month), keep_vars = TRUE)
 
-# 3.6 Validate Time Sequence Consistency ---------------------------------------
+# 3.6 Validate time sequence consistency ---------------------------------------
 consistent_time_seq_check <- dt_m_complete %>%
   group_by(calendar_start_date) %>%
   summarize(is_consistent = n_distinct(time_seq) == 1) %>%
@@ -183,7 +179,7 @@ if (nrow(inconsistent_dates) != 0) {
 stopifnot(length(unique(dt_m_complete$calendar_start_date)) ==
   length(unique(dt_m_complete$time_seq)))
 
-# 3.7 Calculate Missing Data Proportion ----------------------------------------
+# 3.7 Calculate missing data proportion ----------------------------------------
 n_gap <- nrow(dt_m_complete[is.na(dt_m_complete$dengue_total), ])
 n_total <- nrow(dt_m_complete)
 test_ratio <- n_gap / n_total * 100 # 8.9
@@ -191,7 +187,7 @@ test_ratio <- n_gap / n_total * 100 # 8.9
 # Clean up temporary objects
 rm(dt_w_m, consistent_time_seq_check, inconsistent_dates)
 
-# 3.9 Verify Coverage Table Consistency ----------------------------------------
+# 3.9 Verify coverage table consistency ----------------------------------------
 # All sub-annual records in coverage table should match dt_m
 stopifnot(
   nrow(tab[tab$T_res != "Year", ]) ==
@@ -207,11 +203,11 @@ setdiff(sub_in_tab, sub_in_t_data)
 # 4. PROCESS YEARLY DATA (FOR DISAGGREGATION)
 # ------------------------------------------------------------------------------
 
-# 4.1 Extract Yearly Records ---------------------------------------------------
+# 4.1 Extract yearly records ---------------------------------------------------
 dt_y <- T_data %>%
   filter(T_res == "Year")
 
-# 4.2 Expand Annual to Monthly -------------------------------------------------
+# 4.2 Expand annual to monthly -------------------------------------------------
 # Create 12 monthly records for each annual record (for disaggregation modeling)
 dt_y_expand <- dt_y %>%
   rowwise() %>%
@@ -237,10 +233,10 @@ dt_y_expand <- dt_y %>%
 unique(dt_y_expand$adm_0_name) # 143 countries
 length(unique(dt_y_expand$country_year)) # 3847
 
-# 4.3 Complete Time Series (add time_seq column) --------------------------------
+# 4.3 Complete time series (add time_seq column) --------------------------------
 dt_y_complete <- make_month_complete_clean(data = dt_y_expand %>% select(-month), keep_vars = TRUE)
 
-# 4.4 Validate Time Sequence Consistency ---------------------------------------
+# 4.4 Validate time sequence consistency ---------------------------------------
 consistent_time_seq_check <- dt_y_complete %>%
   group_by(calendar_start_date) %>%
   summarize(is_consistent = n_distinct(time_seq) == 1) %>%
@@ -262,7 +258,7 @@ stopifnot(length(unique(dt_y_complete$calendar_start_date)) ==
 # 5. PREPARE MODEL INPUT DATASETS
 # ------------------------------------------------------------------------------
 
-# 5.1 Weekly Data --------------------------------------------------------------
+# 5.1 Weekly data --------------------------------------------------------------
 data_w <- dt_w_complete %>%
   select(
     adm_0_name,
@@ -274,7 +270,7 @@ data_w <- dt_w_complete %>%
   ) %>%
   arrange(adm_0_name, Year, week, time_seq)
 
-# 5.2 Monthly Data -------------------------------------------------------------
+# 5.2 Monthly data -------------------------------------------------------------
 data_m <- dt_m_complete %>%
   mutate(calendar_start_date = as.character(make_date(Year, month, 1))) %>%
   select(
@@ -287,7 +283,7 @@ data_m <- dt_m_complete %>%
   ) %>%
   arrange(adm_0_name, Year, month, time_seq)
 
-# 5.3 Monthly Data (Downscaling with Annual Totals) ---------------------------
+# 5.3 Monthly data (downscaling with annual totals) ---------------------------
 # For countries with complete sub-annual data to train downscaling model
 data_m_down <- merge(dt_m_complete,
   tab[tab$T_res != "Year", c("country_year", "annual_total")],
@@ -303,7 +299,7 @@ data_m_down <- merge(dt_m_complete,
   ) %>%
   arrange(adm_0_name, Year, month, time_seq)
 
-# 5.4 Yearly Data (Disaggregation) ---------------------------------------------
+# 5.4 Yearly data (disaggregation) ---------------------------------------------
 data_y <- dt_y_complete %>%
   select(
     adm_0_name,
@@ -325,7 +321,7 @@ source("functions/fn_load_map_shp.R")
 pop_data <- map_final[, c("adm_0_name", "pop_est", "Year", "Latitude", "Longitude", "lat_band")] %>%
   st_drop_geometry()
 
-# 6.1 Merge Population Data with Weekly Dataset --------------------------------
+# 6.1 Merge population data with weekly dataset --------------------------------
 data_w <- merge(
   data_w,
   pop_data,
@@ -333,7 +329,7 @@ data_w <- merge(
   all.x = T
 )
 
-# 6.2 Merge Population Data with Monthly Dataset -------------------------------
+# 6.2 Merge population data with monthly dataset -------------------------------
 data_m <- merge(
   data_m,
   pop_data,
@@ -341,7 +337,7 @@ data_m <- merge(
   all.x = T
 )
 
-# 6.3 Merge Population Data with Downscaling Dataset ---------------------------
+# 6.3 Merge population data with downscaling dataset ---------------------------
 data_m_down <- merge(
   data_m_down,
   pop_data,
@@ -349,7 +345,7 @@ data_m_down <- merge(
   all.x = T
 )
 
-# 6.4 Merge Population Data with Disaggregation Dataset ------------------------
+# 6.4 Merge population data with disaggregation dataset ------------------------
 data_y <- merge(
   data_y,
   pop_data,
@@ -361,7 +357,7 @@ data_y <- merge(
 # 7. CREATE MODEL-SPECIFIC VARIABLES
 # ------------------------------------------------------------------------------
 
-# 7.1 Weekly Data Variables ----------------------------------------------------
+# 7.1 Weekly data variables ----------------------------------------------------
 data_w$yearx <- as.integer(as.factor(data_w$Year))
 data_w$countryx <- as.integer(factor(
   data_w$adm_0_name,
@@ -370,7 +366,7 @@ data_w$countryx <- as.integer(factor(
 ))
 # data_w$logpop <- log(data_w$pop_est + 1)
 
-# 7.2 Monthly Data Variables ---------------------------------------------------
+# 7.2 Monthly data variables ---------------------------------------------------
 data_m$yearx <- as.integer(as.factor(data_m$Year))
 data_m$countryx <- as.integer(factor(
   data_m$adm_0_name,
@@ -379,7 +375,7 @@ data_m$countryx <- as.integer(factor(
 ))
 # data_m$logpop <- log(data_m$pop_est + 1)
 
-# 7.3 Downscaling Data Variables -----------------------------------------------
+# 7.3 Downscaling data variables -----------------------------------------------
 data_m_down$yearx <- as.integer(as.factor(data_m_down$Year))
 data_m_down$countryx <- as.integer(factor(
   data_m_down$adm_0_name,
@@ -403,7 +399,7 @@ mismatches <- data_m_down %>%
   filter(sum_of_monthly != annual_total) %>%
   add_country_year()
 
-so <- read.csv("data/processed_data/selection_outcome_V1_3_2025_10_22.csv")
+so <- read.csv("data/processed_data/selection_outcome_V1_3.csv")
 
 inspect <- so %>%
   filter(country_year %in% mismatches$country_year) %>%
@@ -412,7 +408,7 @@ inspect <- so %>%
 # should be either Case 2: Sub-annual only or Incomplete sub-annual - sub-annual selected
 # sum_of_monthly != annual_total because sub-annual is incomplete and was aggregated weekly -> monthly
 
-# 7.4 Disaggregation Data Variables --------------------------------------------
+# 7.4 Disaggregation data variables --------------------------------------------
 data_y$yearx <- as.integer(as.factor(data_y$Year))
 data_y$countryx <- as.integer(factor(
   data_y$adm_0_name,
@@ -424,24 +420,24 @@ data_y$countryx <- as.integer(factor(
 # 8. EXPORT MODEL INPUT FILES
 # ------------------------------------------------------------------------------
 
-# 8.1 Training Data (Complete Cases Only) --------------------------------------
+# 8.1 Training data (complete cases only) --------------------------------------
 # Data for cross-validation and model training
-# write.csv(data_w %>% na.omit(),
-#   "data/model_input/model_data_weekly_new.csv",
-#   row.names = F
-# )
-#
-# write.csv(data_m %>% na.omit(),
-#   "data/model_input/model_data_monthly_new.csv",
-#   row.names = F
-# )
-#
-# write.csv(data_m_down_filtered,
-#   "data/model_input/model_data_downscaling_new.csv",
-#   row.names = F
-# )
+write.csv(data_w %>% na.omit(),
+  "data/model_input/model_data_weekly_new.csv",
+  row.names = F
+)
 
-# 8.2 Prediction Data (Including Missing Values) -------------------------------
+write.csv(data_m %>% na.omit(),
+  "data/model_input/model_data_monthly_new.csv",
+  row.names = F
+)
+
+write.csv(data_m_down_filtered,
+  "data/model_input/model_data_downscaling_new.csv",
+  row.names = F
+)
+
+# 8.2 Prediction data (including missing values) -------------------------------
 # Full datasets with gaps for model prediction/imputation
 write.csv(data_w,
   "data/model_input/pred_data_weekly.csv",

@@ -34,10 +34,10 @@
 "AFGHANISTAN_2023","Week","a0",52,1497,52,1497,NA,NA,NA,NA,"Sub-annual >= Annual",100.066844919786,1497,TRUE
 "AFGHANISTAN_2024","Month","a0",12,4722,12,4722,NA,NA,NA,NA,"Sub-annual >= Annual",100,4722,TRUE
 "AMERICAN SAMOA_1991","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"AMERICAN SAMOA_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"AMERICAN SAMOA_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"AMERICAN SAMOA_1994","Year","a0",1,246,1,246,NA,NA,NA,NA,"Case 1: Annual only",NA,246,NA
-"AMERICAN SAMOA_1995","Year","a0",1,246,1,246,NA,NA,NA,NA,"Case 1: Annual only",NA,246,NA
+"AMERICAN SAMOA_1992","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"AMERICAN SAMOA_1993","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"AMERICAN SAMOA_1994","Year","a0",1,246,1,246,NA,NA,NA,NA,"Sub-annual sum zero - annual selected",0,246,FALSE
+"AMERICAN SAMOA_1995","Month","a0",12,246,12,246,NA,NA,NA,NA,"Sub-annual >= Annual",100,246,TRUE
 "AMERICAN SAMOA_1996","Year","a0",1,49,1,49,NA,NA,NA,NA,"Case 1: Annual only",NA,49,NA
 "AMERICAN SAMOA_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "AMERICAN SAMOA_1998","Year","a0",1,205,1,205,NA,NA,NA,NA,"Case 1: Annual only",NA,205,NA
@@ -453,7 +453,7 @@
 "BHUTAN_2019","Year","a0",1,5480,1,5480,1,5480,NA,NA,"Case 1: Annual only",NA,5480,NA
 "BHUTAN_2020","Year","a0",1,16,1,16,NA,NA,NA,NA,"Case 1: Annual only",NA,16,NA
 "BHUTAN_2021","Year","a0",1,5,1,5,NA,NA,NA,NA,"Case 1: Annual only",NA,5,NA
-"BHUTAN_2022","Year","a0",1,123,1,123,NA,NA,NA,NA,"Case 1: Annual only",NA,123,NA
+"BHUTAN_2022","Year","a0",1,460,1,460,NA,NA,NA,NA,"Case 1: Annual only",NA,460,NA
 "BHUTAN_2023","Year","a0",1,626,1,626,NA,NA,NA,NA,"Case 1: Annual only",NA,626,NA
 "BHUTAN_2024","Month","a0",12,214,12,214,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,214,TRUE
 "BOLIVIA_1990","Year","a0",1,40642,1,40642,NA,NA,NA,NA,"Case 1: Annual only",NA,40642,NA
@@ -834,13 +834,13 @@
 "COMOROS_1993","Year","a0",1,146,1,146,NA,NA,NA,NA,"Case 1: Annual only",NA,146,NA
 "COMOROS_2020","Year","a0",1,696,1,696,NA,NA,NA,NA,"Case 1: Annual only",NA,696,NA
 "CONGO_2024","Month","a0",6,0,6,0,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,0,FALSE
-"COOK ISLANDS_1990","Year","a0",1,5,1,5,NA,NA,NA,NA,"Case 1: Annual only",NA,5,NA
-"COOK ISLANDS_1991","Year","a0",1,1776,1,1776,NA,NA,NA,NA,"Case 1: Annual only",NA,1776,NA
-"COOK ISLANDS_1992","Year","a0",1,5,1,5,NA,NA,NA,NA,"Case 1: Annual only",NA,5,NA
+"COOK ISLANDS_1990","Year","a0",1,5,1,5,NA,NA,NA,NA,"Annual > sub-annual",40,5,TRUE
+"COOK ISLANDS_1991","Month","a0",12,1776,12,1776,NA,NA,NA,NA,"Sub-annual >= Annual",100,1776,TRUE
+"COOK ISLANDS_1992","Month","a0",12,5,12,5,NA,NA,NA,NA,"Sub-annual >= Annual",100,5,TRUE
 "COOK ISLANDS_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"COOK ISLANDS_1994","Year","a0",1,1,1,1,NA,NA,NA,NA,"Case 1: Annual only",NA,1,NA
-"COOK ISLANDS_1995","Year","a0",1,786,1,786,NA,NA,NA,NA,"Case 1: Annual only",NA,786,NA
-"COOK ISLANDS_1996","Year","a0",1,2,1,2,NA,NA,NA,NA,"Case 1: Annual only",NA,2,NA
+"COOK ISLANDS_1994","Month","a0",12,1,12,1,NA,NA,NA,NA,"Sub-annual >= Annual",100,1,TRUE
+"COOK ISLANDS_1995","Month","a0",12,786,12,786,NA,NA,NA,NA,"Sub-annual >= Annual",100,786,TRUE
+"COOK ISLANDS_1996","Month","a0",12,2,12,2,NA,NA,NA,NA,"Sub-annual >= Annual",100,2,TRUE
 "COOK ISLANDS_1997","Year","a0",1,1652,1,1652,NA,NA,NA,NA,"Case 1: Annual only",NA,1652,NA
 "COOK ISLANDS_1998","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "COOK ISLANDS_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -1198,13 +1198,13 @@
 "ETHIOPIA_2019","Year","a0",1,1251,1,1251,NA,NA,NA,NA,"Annual > sub-annual",94.8041566746603,1251,TRUE
 "ETHIOPIA_2023","Month","a0",9,25939,9,25939,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",120.820718244911,25939,FALSE
 "ETHIOPIA_2024","Month","a0",12,4016,12,4016,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,4016,TRUE
-"FIJI_1990","Year","a0",1,1461,1,1461,NA,NA,NA,NA,"Case 1: Annual only",NA,1461,NA
-"FIJI_1991","Year","a0",1,65,1,65,NA,NA,NA,NA,"Case 1: Annual only",NA,65,NA
-"FIJI_1992","Year","a0",1,358,1,358,NA,NA,NA,NA,"Case 1: Annual only",NA,358,NA
-"FIJI_1993","Year","a0",1,39,1,39,NA,NA,NA,NA,"Case 1: Annual only",NA,39,NA
-"FIJI_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"FIJI_1995","Year","a0",1,31,1,31,NA,NA,NA,NA,"Case 1: Annual only",NA,31,NA
-"FIJI_1996","Year","a0",1,2,1,2,NA,NA,NA,NA,"Case 1: Annual only",NA,2,NA
+"FIJI_1990","Month","a0",12,1473,12,1473,NA,NA,NA,NA,"Sub-annual >= Annual",100.82135523614,1473,TRUE
+"FIJI_1991","Month","a0",12,65,12,65,NA,NA,NA,NA,"Sub-annual >= Annual",100,65,TRUE
+"FIJI_1992","Year","a0",1,358,1,358,NA,NA,NA,NA,"Annual > sub-annual",97.4860335195531,358,TRUE
+"FIJI_1993","Month","a0",12,39,12,39,NA,NA,NA,NA,"Sub-annual >= Annual",100,39,TRUE
+"FIJI_1994","Month","a0",12,17,12,17,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"FIJI_1995","Month","a0",11,31,11,31,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",100,31,FALSE
+"FIJI_1996","Month","a0",12,2,12,2,NA,NA,NA,NA,"Sub-annual >= Annual",100,2,TRUE
 "FIJI_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "FIJI_1998","Year","a0",1,24780,1,24780,NA,NA,NA,NA,"Case 1: Annual only",NA,24780,NA
 "FIJI_1999","Year","a0",1,430,1,430,NA,NA,NA,NA,"Case 1: Annual only",NA,430,NA
@@ -1303,13 +1303,13 @@
 "FRENCH GUIANA_2022","Year","a0",1,1,1,1,NA,NA,NA,NA,"Case 1: Annual only",NA,1,NA
 "FRENCH GUIANA_2023","Year","a0",1,2684,1,2684,NA,NA,NA,NA,"Incomplete sub-annual - annual selected",14.2697466467958,2684,FALSE
 "FRENCH GUIANA_2024","Week","a0",52,16141,52,16141,NA,NA,NA,NA,"Sub-annual >= Annual",100,16141,TRUE
-"FRENCH POLYNESIA_1990","Year","a0",1,126175,1,126175,NA,NA,NA,NA,"Case 1: Annual only",NA,126175,NA
-"FRENCH POLYNESIA_1991","Year","a0",1,518,1,518,NA,NA,NA,NA,"Case 1: Annual only",NA,518,NA
-"FRENCH POLYNESIA_1992","Year","a0",1,593,1,593,NA,NA,NA,NA,"Case 1: Annual only",NA,593,NA
-"FRENCH POLYNESIA_1993","Year","a0",1,355,1,355,NA,NA,NA,NA,"Case 1: Annual only",NA,355,NA
-"FRENCH POLYNESIA_1994","Year","a0",1,134,1,134,NA,NA,NA,NA,"Case 1: Annual only",NA,134,NA
-"FRENCH POLYNESIA_1995","Year","a0",1,208,1,208,NA,NA,NA,NA,"Case 1: Annual only",NA,208,NA
-"FRENCH POLYNESIA_1996","Year","a0",1,577,1,577,NA,NA,NA,NA,"Case 1: Annual only",NA,577,NA
+"FRENCH POLYNESIA_1990","Month","a0",12,3605,12,3605,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,3605,TRUE
+"FRENCH POLYNESIA_1991","Month","a0",12,518,12,518,NA,NA,NA,NA,"Sub-annual >= Annual",100,518,TRUE
+"FRENCH POLYNESIA_1992","Month","a0",12,593,12,593,NA,NA,NA,NA,"Sub-annual >= Annual",100,593,TRUE
+"FRENCH POLYNESIA_1993","Month","a0",12,355,12,355,NA,NA,NA,NA,"Sub-annual >= Annual",100,355,TRUE
+"FRENCH POLYNESIA_1994","Month","a0",11,134,11,134,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",100,134,FALSE
+"FRENCH POLYNESIA_1995","Year","a0",1,208,1,208,NA,NA,NA,NA,"Annual > sub-annual",99.0384615384615,208,TRUE
+"FRENCH POLYNESIA_1996","Month","a0",12,577,12,577,NA,NA,NA,NA,"Sub-annual >= Annual",100,577,TRUE
 "FRENCH POLYNESIA_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "FRENCH POLYNESIA_1998","Year","a0",1,16,1,16,NA,NA,NA,NA,"Case 1: Annual only",NA,16,NA
 "FRENCH POLYNESIA_1999","Year","a0",1,33,1,33,NA,NA,NA,NA,"Case 1: Annual only",NA,33,NA
@@ -1845,13 +1845,13 @@
 "KENYA_2021","Year","a0",1,867,1,867,NA,NA,NA,NA,"Case 1: Annual only",NA,867,NA
 "KENYA_2022","Year","a0",1,2426,1,2426,NA,NA,NA,NA,"Case 1: Annual only",NA,2426,NA
 "KENYA_2024","Month","a0",12,4443,12,4443,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,4443,TRUE
-"KIRIBATI_1990","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"KIRIBATI_1990","Month","a0",12,9,12,9,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "KIRIBATI_1991","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"KIRIBATI_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"KIRIBATI_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"KIRIBATI_1992","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"KIRIBATI_1993","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "KIRIBATI_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"KIRIBATI_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"KIRIBATI_1996","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"KIRIBATI_1995","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"KIRIBATI_1996","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "KIRIBATI_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "KIRIBATI_1998","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "KIRIBATI_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -2018,8 +2018,8 @@
 "MALDIVES_2015","Month","a0",12,1890,12,1890,NA,NA,NA,NA,"Sub-annual >= Annual",100.478468899522,1890,TRUE
 "MALDIVES_2016","Month","a0",12,1962,12,1962,NA,NA,NA,NA,"Sub-annual >= Annual",101.605385810461,1962,TRUE
 "MALDIVES_2017","Year","a0",1,851,1,851,NA,NA,NA,NA,"Case 1: Annual only",NA,851,NA
-"MALDIVES_2018","Year","a0",1,1838,1,1838,NA,NA,NA,NA,"Case 1: Annual only",NA,1838,NA
-"MALDIVES_2019","Year","a0",1,4987,1,4987,NA,NA,NA,NA,"Case 1: Annual only",NA,4987,NA
+"MALDIVES_2018","Year","a0",1,3403,1,3403,NA,NA,NA,NA,"Case 1: Annual only",NA,3403,NA
+"MALDIVES_2019","Year","a0",1,5008,1,5008,NA,NA,NA,NA,"Case 1: Annual only",NA,5008,NA
 "MALDIVES_2020","Month","a0",12,328,12,328,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,328,TRUE
 "MALDIVES_2022","Month","a0",12,2695,12,2695,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,2695,TRUE
 "MALDIVES_2023","Month","a0",12,3417,12,3417,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,3417,TRUE
@@ -2029,12 +2029,12 @@
 "MALI_2019","Year","a0",1,20,1,20,NA,NA,NA,NA,"Case 1: Annual only",NA,20,NA
 "MALI_2023","Year","a0",1,5537,1,5537,NA,NA,NA,NA,"Annual > sub-annual",14.5927397507676,5537,TRUE
 "MALI_2024","Month","a0",12,9556,12,9556,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,9556,TRUE
-"MARSHALL ISLANDS_1991","Year","a0",1,56,1,56,NA,NA,NA,NA,"Case 1: Annual only",NA,56,NA
+"MARSHALL ISLANDS_1991","Month","a0",12,56,12,56,NA,NA,NA,NA,"Sub-annual >= Annual",100,56,TRUE
 "MARSHALL ISLANDS_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "MARSHALL ISLANDS_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "MARSHALL ISLANDS_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"MARSHALL ISLANDS_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"MARSHALL ISLANDS_1996","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"MARSHALL ISLANDS_1995","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"MARSHALL ISLANDS_1996","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "MARSHALL ISLANDS_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "MARSHALL ISLANDS_1998","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "MARSHALL ISLANDS_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -2152,11 +2152,11 @@
 "MEXICO_2022","Week","a0",52,59918,52,59918,33,19404,NA,NA,"Sub-annual >= Annual",100,59918,TRUE
 "MEXICO_2023","Week","a0",52,277963,52,277963,NA,NA,NA,NA,"Sub-annual >= Annual",100,277963,TRUE
 "MEXICO_2024","Week","a0",52,558846,52,558846,NA,NA,NA,NA,"Sub-annual >= Annual",100,558846,TRUE
-"MICRONESIA (FEDERATED STATES OF)_1990","Year","a0",1,455,1,455,NA,NA,NA,NA,"Case 1: Annual only",NA,455,NA
+"MICRONESIA (FEDERATED STATES OF)_1990","Month","a0",5,13,5,13,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,13,FALSE
 "MICRONESIA (FEDERATED STATES OF)_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "MICRONESIA (FEDERATED STATES OF)_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"MICRONESIA (FEDERATED STATES OF)_1995","Year","a0",1,66,1,66,NA,NA,NA,NA,"Case 1: Annual only",NA,66,NA
-"MICRONESIA (FEDERATED STATES OF)_1996","Year","a0",1,67,1,67,NA,NA,NA,NA,"Case 1: Annual only",NA,67,NA
+"MICRONESIA (FEDERATED STATES OF)_1995","Month","a0",12,66,12,66,NA,NA,NA,NA,"Sub-annual >= Annual",100,66,TRUE
+"MICRONESIA (FEDERATED STATES OF)_1996","Year","a0",1,67,1,67,NA,NA,NA,NA,"Annual > sub-annual",92.5373134328358,67,TRUE
 "MICRONESIA (FEDERATED STATES OF)_1998","Year","a0",1,700,1,700,NA,NA,NA,NA,"Case 1: Annual only",NA,700,NA
 "MICRONESIA (FEDERATED STATES OF)_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "MICRONESIA (FEDERATED STATES OF)_2000","Year","a0",1,14,1,14,NA,NA,NA,NA,"Case 1: Annual only",NA,14,NA
@@ -2226,9 +2226,9 @@
 "MYANMAR_1993","Year","a0",1,2279,1,2279,NA,NA,NA,NA,"Case 1: Annual only",NA,2279,NA
 "MYANMAR_1994","Year","a0",1,11647,1,11647,NA,NA,NA,NA,"Case 1: Annual only",NA,11647,NA
 "MYANMAR_1995","Year","a0",1,2477,1,2477,NA,NA,NA,NA,"Case 1: Annual only",NA,2477,NA
-"MYANMAR_1996","Year","a0",1,1731,1,1731,NA,NA,NA,NA,"Case 1: Annual only",NA,1731,NA
-"MYANMAR_1997","Year","a0",1,3993,1,3993,NA,NA,NA,NA,"Case 1: Annual only",NA,3993,NA
-"MYANMAR_1998","Year","a0",1,12231,1,12231,NA,NA,NA,NA,"Case 1: Annual only",NA,12231,NA
+"MYANMAR_1996","Year","a0",1,1854,1,1854,NA,NA,NA,NA,"Case 1: Annual only",NA,1854,NA
+"MYANMAR_1997","Year","a0",1,4500,1,4500,NA,NA,NA,NA,"Case 1: Annual only",NA,4500,NA
+"MYANMAR_1998","Year","a0",1,13002,1,13002,NA,NA,NA,NA,"Case 1: Annual only",NA,13002,NA
 "MYANMAR_1999","Year","a0",1,12918,1,12918,NA,NA,NA,NA,"Case 1: Annual only",NA,12918,NA
 "MYANMAR_2000","Year","a0",1,1884,1,1884,NA,NA,NA,NA,"Case 1: Annual only",NA,1884,NA
 "MYANMAR_2001","Year","a0",1,15695,1,15695,NA,NA,NA,NA,"Case 1: Annual only",NA,15695,NA
@@ -2259,7 +2259,7 @@
 "NAURU_1991","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "NAURU_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "NAURU_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NAURU_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"NAURU_1994","Month","a0",6,0,6,0,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",NA,0,FALSE
 "NAURU_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "NAURU_1996","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "NAURU_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -2318,13 +2318,13 @@
 "NEPAL_2022","Month","a2",12,54784,12,22865,NA,NA,12,54784,"Sub-annual >= Annual",100,54784,TRUE
 "NEPAL_2023","Month","a0",12,52790,12,52790,NA,NA,12,51243,"Sub-annual >= Annual",103.01894892961,52790,TRUE
 "NEPAL_2024","Month","a0",12,41865,12,41865,NA,NA,12,34385,"Case 2: Sub-annual only",NA,41865,TRUE
-"NEW CALEDONIA_1990","Year","a0",1,92,1,92,NA,NA,NA,NA,"Case 1: Annual only",NA,92,NA
-"NEW CALEDONIA_1991","Year","a0",1,26,1,26,NA,NA,NA,NA,"Case 1: Annual only",NA,26,NA
-"NEW CALEDONIA_1992","Year","a0",1,10,1,10,NA,NA,NA,NA,"Case 1: Annual only",NA,10,NA
-"NEW CALEDONIA_1993","Year","a0",1,4,1,4,NA,NA,NA,NA,"Case 1: Annual only",NA,4,NA
-"NEW CALEDONIA_1994","Year","a0",1,11,1,11,NA,NA,NA,NA,"Case 1: Annual only",NA,11,NA
-"NEW CALEDONIA_1995","Year","a0",1,2211,1,2211,NA,NA,NA,NA,"Case 1: Annual only",NA,2211,NA
-"NEW CALEDONIA_1996","Year","a0",1,2121,1,2121,NA,NA,NA,NA,"Case 1: Annual only",NA,2121,NA
+"NEW CALEDONIA_1990","Month","a0",12,326,12,326,NA,NA,NA,NA,"Sub-annual >= Annual",354.347826086957,326,TRUE
+"NEW CALEDONIA_1991","Month","a0",12,26,12,26,NA,NA,NA,NA,"Sub-annual >= Annual",100,26,TRUE
+"NEW CALEDONIA_1992","Month","a0",12,10,12,10,NA,NA,NA,NA,"Sub-annual >= Annual",100,10,TRUE
+"NEW CALEDONIA_1993","Year","a0",1,4,1,4,NA,NA,NA,NA,"Annual > sub-annual",50,4,TRUE
+"NEW CALEDONIA_1994","Year","a0",1,11,1,11,NA,NA,NA,NA,"Annual > sub-annual",54.5454545454545,11,TRUE
+"NEW CALEDONIA_1995","Year","a0",1,2211,1,2211,NA,NA,NA,NA,"Annual > sub-annual",86.4314789687924,2211,TRUE
+"NEW CALEDONIA_1996","Month","a0",12,2121,12,2121,NA,NA,NA,NA,"Sub-annual >= Annual",100,2121,TRUE
 "NEW CALEDONIA_1997","Year","a0",1,250,1,250,NA,NA,NA,NA,"Case 1: Annual only",NA,250,NA
 "NEW CALEDONIA_1998","Year","a0",1,2618,1,2618,NA,NA,NA,NA,"Case 1: Annual only",NA,2618,NA
 "NEW CALEDONIA_1999","Year","a0",1,359,1,359,NA,NA,NA,NA,"Case 1: Annual only",NA,359,NA
@@ -2395,12 +2395,12 @@
 "NIGERIA_2018","Year","a0",1,130,1,130,NA,NA,NA,NA,"Case 1: Annual only",NA,130,NA
 "NIGERIA_2020","Year","a0",1,82,1,82,NA,NA,NA,NA,"Case 1: Annual only",NA,82,NA
 "NIGERIA_2023","Year","a0",1,84,1,84,NA,NA,NA,NA,"Case 1: Annual only",NA,84,NA
-"NIUE_1991","Year","a0",1,2,1,2,NA,NA,NA,NA,"Case 1: Annual only",NA,2,NA
+"NIUE_1991","Month","a0",12,2,12,2,NA,NA,NA,NA,"Sub-annual >= Annual",100,2,TRUE
 "NIUE_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NIUE_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NIUE_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NIUE_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NIUE_1996","Year","a0",1,1,1,1,NA,NA,NA,NA,"Case 1: Annual only",NA,1,NA
+"NIUE_1993","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"NIUE_1994","Month","a0",6,0,6,0,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",NA,0,FALSE
+"NIUE_1995","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"NIUE_1996","Year","a0",1,1,1,1,NA,NA,NA,NA,"Sub-annual sum zero - annual selected",0,1,FALSE
 "NIUE_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "NIUE_1998","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "NIUE_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -2426,10 +2426,10 @@
 "NIUE_2022","Week","a0",37,12,37,12,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,12,FALSE
 "NIUE_2023","Week","a0",20,0,20,0,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,0,FALSE
 "NIUE_2024","Week","a0",40,0,40,0,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,0,FALSE
-"NORTHERN MARIANA ISLANDS_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NORTHERN MARIANA ISLANDS_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NORTHERN MARIANA ISLANDS_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"NORTHERN MARIANA ISLANDS_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"NORTHERN MARIANA ISLANDS_1992","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"NORTHERN MARIANA ISLANDS_1993","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"NORTHERN MARIANA ISLANDS_1994","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"NORTHERN MARIANA ISLANDS_1995","Month","a0",2,0,2,0,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",NA,0,FALSE
 "NORTHERN MARIANA ISLANDS_1996","Year","a0",1,1,1,1,NA,NA,NA,NA,"Case 1: Annual only",NA,1,NA
 "NORTHERN MARIANA ISLANDS_1998","Year","a0",1,3,1,3,NA,NA,NA,NA,"Case 1: Annual only",NA,3,NA
 "NORTHERN MARIANA ISLANDS_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -2530,9 +2530,9 @@
 "PALAU_1991","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "PALAU_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "PALAU_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"PALAU_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"PALAU_1995","Year","a0",1,857,1,857,NA,NA,NA,NA,"Case 1: Annual only",NA,857,NA
-"PALAU_1996","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"PALAU_1994","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"PALAU_1995","Year","a0",1,857,1,857,NA,NA,NA,NA,"Annual > sub-annual",23.5705950991832,857,TRUE
+"PALAU_1996","Month","a0",12,1,12,1,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "PALAU_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "PALAU_1998","Year","a0",1,14,1,14,NA,NA,NA,NA,"Case 1: Annual only",NA,14,NA
 "PALAU_1999","Year","a0",1,1,1,1,NA,NA,NA,NA,"Case 1: Annual only",NA,1,NA
@@ -2989,13 +2989,13 @@
 "SAINT VINCENT AND THE GRENADINES_2022","Week","a0",52,25,52,25,NA,NA,NA,NA,"Sub-annual >= Annual",100,25,TRUE
 "SAINT VINCENT AND THE GRENADINES_2023","Week","a0",52,17,52,17,NA,NA,NA,NA,"Sub-annual >= Annual",100,17,TRUE
 "SAINT VINCENT AND THE GRENADINES_2024","Year","a0",1,971,1,971,NA,NA,NA,NA,"Incomplete sub-annual - annual selected",99.794026776519,971,FALSE
-"SAMOA_1990","Year","a0",1,1715,1,1715,NA,NA,NA,NA,"Case 1: Annual only",NA,1715,NA
-"SAMOA_1991","Year","a0",1,22,1,22,NA,NA,NA,NA,"Case 1: Annual only",NA,22,NA
-"SAMOA_1992","Year","a0",1,3,1,3,NA,NA,NA,NA,"Case 1: Annual only",NA,3,NA
-"SAMOA_1993","Year","a0",1,2,1,2,NA,NA,NA,NA,"Case 1: Annual only",NA,2,NA
-"SAMOA_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"SAMOA_1995","Year","a0",1,278,1,278,NA,NA,NA,NA,"Case 1: Annual only",NA,278,NA
-"SAMOA_1996","Year","a0",1,1013,1,1013,NA,NA,NA,NA,"Case 1: Annual only",NA,1013,NA
+"SAMOA_1990","Month","a0",12,49,12,49,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,49,TRUE
+"SAMOA_1991","Month","a0",12,22,12,22,NA,NA,NA,NA,"Sub-annual >= Annual",100,22,TRUE
+"SAMOA_1992","Month","a0",12,3,12,3,NA,NA,NA,NA,"Sub-annual >= Annual",100,3,TRUE
+"SAMOA_1993","Month","a0",12,2,12,2,NA,NA,NA,NA,"Sub-annual >= Annual",100,2,TRUE
+"SAMOA_1994","Month","a0",12,0,12,0,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,0,TRUE
+"SAMOA_1995","Month","a0",12,388,12,388,NA,NA,NA,NA,"Sub-annual >= Annual",139.568345323741,388,TRUE
+"SAMOA_1996","Year","a0",1,1013,1,1013,NA,NA,NA,NA,"Annual > sub-annual",99.3089832181639,1013,TRUE
 "SAMOA_1997","Year","a0",1,163,1,163,NA,NA,NA,NA,"Case 1: Annual only",NA,163,NA
 "SAMOA_1998","Year","a0",1,49,1,49,NA,NA,NA,NA,"Case 1: Annual only",NA,49,NA
 "SAMOA_1999","Year","a0",1,3,1,3,NA,NA,NA,NA,"Case 1: Annual only",NA,3,NA
@@ -3386,13 +3386,13 @@
 "TIMOR-LESTE_2024","Month","a0",12,1462,12,1462,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,1462,TRUE
 "TOGO_2023","Month","a0",4,55,4,55,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",687.5,55,FALSE
 "TOGO_2024","Month","a0",12,0,12,0,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,0,TRUE
-"TOKELAU_1990","Year","a0",1,1505,1,1505,NA,NA,NA,NA,"Case 1: Annual only",NA,1505,NA
-"TOKELAU_1991","Year","a0",1,3,1,3,NA,NA,NA,NA,"Case 1: Annual only",NA,3,NA
-"TOKELAU_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"TOKELAU_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"TOKELAU_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"TOKELAU_1990","Month","a0",12,43,12,43,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,43,TRUE
+"TOKELAU_1991","Month","a0",12,3,12,3,NA,NA,NA,NA,"Sub-annual >= Annual",100,3,TRUE
+"TOKELAU_1992","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"TOKELAU_1993","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"TOKELAU_1994","Month","a0",5,0,5,0,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",NA,0,FALSE
 "TOKELAU_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"TOKELAU_1996","Year","a0",1,6,1,6,NA,NA,NA,NA,"Case 1: Annual only",NA,6,NA
+"TOKELAU_1996","Month","a0",9,6,9,6,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",100,6,FALSE
 "TOKELAU_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "TOKELAU_1998","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "TOKELAU_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -3417,13 +3417,13 @@
 "TOKELAU_2022","Week","a0",18,3,18,3,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,3,FALSE
 "TOKELAU_2023","Week","a0",7,0,7,0,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,0,FALSE
 "TOKELAU_2024","Month","a0",8,4,8,4,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,4,FALSE
-"TONGA_1990","Year","a0",1,896,1,896,NA,NA,NA,NA,"Case 1: Annual only",NA,896,NA
-"TONGA_1991","Year","a0",1,122,1,122,NA,NA,NA,NA,"Case 1: Annual only",NA,122,NA
-"TONGA_1992","Year","a0",1,35,1,35,NA,NA,NA,NA,"Case 1: Annual only",NA,35,NA
-"TONGA_1993","Year","a0",1,9,1,9,NA,NA,NA,NA,"Case 1: Annual only",NA,9,NA
-"TONGA_1994","Year","a0",1,1,1,1,NA,NA,NA,NA,"Case 1: Annual only",NA,1,NA
+"TONGA_1990","Year","a0",1,896,1,896,NA,NA,NA,NA,"Annual > sub-annual",33.2589285714286,896,TRUE
+"TONGA_1991","Month","a0",12,122,12,122,NA,NA,NA,NA,"Sub-annual >= Annual",100,122,TRUE
+"TONGA_1992","Month","a0",12,35,12,35,NA,NA,NA,NA,"Sub-annual >= Annual",100,35,TRUE
+"TONGA_1993","Year","a0",1,9,1,9,NA,NA,NA,NA,"Annual > sub-annual",88.8888888888889,9,TRUE
+"TONGA_1994","Year","a0",1,1,1,1,NA,NA,NA,NA,"Sub-annual sum zero - annual selected",0,1,FALSE
 "TONGA_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"TONGA_1996","Year","a0",1,3,1,3,NA,NA,NA,NA,"Case 1: Annual only",NA,3,NA
+"TONGA_1996","Year","a0",1,3,1,3,NA,NA,NA,NA,"Annual > sub-annual",66.6666666666667,3,TRUE
 "TONGA_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "TONGA_1998","Year","a0",1,460,1,460,NA,NA,NA,NA,"Case 1: Annual only",NA,460,NA
 "TONGA_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -3520,13 +3520,13 @@
 "TURKS AND CAICOS ISLANDS_2022","Week","a0",52,3,52,3,NA,NA,NA,NA,"Sub-annual >= Annual",100,3,TRUE
 "TURKS AND CAICOS ISLANDS_2023","Week","a0",52,182,52,182,NA,NA,NA,NA,"Sub-annual >= Annual",100,182,TRUE
 "TURKS AND CAICOS ISLANDS_2024","Week","a0",52,117,52,117,NA,NA,NA,NA,"Sub-annual >= Annual",100,117,TRUE
-"TUVALU_1990","Year","a0",1,350,1,350,NA,NA,NA,NA,"Case 1: Annual only",NA,350,NA
+"TUVALU_1990","Month","a0",12,10,12,10,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,10,TRUE
 "TUVALU_1991","Year","a0",1,19,1,19,NA,NA,NA,NA,"Case 1: Annual only",NA,19,NA
-"TUVALU_1992","Year","a0",1,811,1,811,NA,NA,NA,NA,"Case 1: Annual only",NA,811,NA
+"TUVALU_1992","Month","a0",12,811,12,811,NA,NA,NA,NA,"Sub-annual >= Annual",100,811,TRUE
 "TUVALU_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"TUVALU_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"TUVALU_1994","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "TUVALU_1995","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"TUVALU_1996","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"TUVALU_1996","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "TUVALU_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "TUVALU_1998","Year","a0",1,2,1,2,NA,NA,NA,NA,"Case 1: Annual only",NA,2,NA
 "TUVALU_1999","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
@@ -3628,13 +3628,13 @@
 "URUGUAY_2022","Year","a0",1,80,1,80,NA,NA,NA,NA,"Case 1: Annual only",NA,80,NA
 "URUGUAY_2023","Week","a0",52,48,52,48,NA,NA,NA,NA,"Sub-annual >= Annual",100,48,TRUE
 "URUGUAY_2024","Year","a0",1,712,1,712,NA,NA,NA,NA,"Incomplete sub-annual - annual selected",99.5786516853933,712,FALSE
-"VANUATU_1990","Year","a0",1,52,1,52,NA,NA,NA,NA,"Case 1: Annual only",NA,52,NA
-"VANUATU_1991","Year","a0",1,74,1,74,NA,NA,NA,NA,"Case 1: Annual only",NA,74,NA
-"VANUATU_1992","Year","a0",1,113,1,113,NA,NA,NA,NA,"Case 1: Annual only",NA,113,NA
-"VANUATU_1993","Year","a0",1,52,1,52,NA,NA,NA,NA,"Case 1: Annual only",NA,52,NA
-"VANUATU_1994","Year","a0",1,138,1,138,NA,NA,NA,NA,"Case 1: Annual only",NA,138,NA
-"VANUATU_1995","Year","a0",1,100,1,100,NA,NA,NA,NA,"Case 1: Annual only",NA,100,NA
-"VANUATU_1996","Year","a0",1,19,1,19,NA,NA,NA,NA,"Case 1: Annual only",NA,19,NA
+"VANUATU_1990","Month","a0",12,989,12,989,NA,NA,NA,NA,"Sub-annual >= Annual",1901.92307692308,989,TRUE
+"VANUATU_1991","Year","a0",1,74,1,74,NA,NA,NA,NA,"Annual > sub-annual",4.05405405405405,74,TRUE
+"VANUATU_1992","Month","a0",12,113,12,113,NA,NA,NA,NA,"Sub-annual >= Annual",100,113,TRUE
+"VANUATU_1993","Year","a0",1,52,1,52,NA,NA,NA,NA,"Annual > sub-annual",51.9230769230769,52,TRUE
+"VANUATU_1994","Month","a0",9,138,9,138,NA,NA,NA,NA,"Incomplete sub-annual - sub-annual selected",100,138,FALSE
+"VANUATU_1995","Month","a0",12,100,12,100,NA,NA,NA,NA,"Sub-annual >= Annual",100,100,TRUE
+"VANUATU_1996","Month","a0",12,19,12,19,NA,NA,NA,NA,"Sub-annual >= Annual",100,19,TRUE
 "VANUATU_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "VANUATU_1998","Year","a0",1,131,1,131,NA,NA,NA,NA,"Case 1: Annual only",NA,131,NA
 "VANUATU_1999","Year","a0",1,110,1,110,NA,NA,NA,NA,"Case 1: Annual only",NA,110,NA
@@ -3800,13 +3800,13 @@
 "VIRGIN ISLANDS (US)_2022","Week","a0",52,0,52,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "VIRGIN ISLANDS (US)_2023","Week","a0",52,0,52,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "VIRGIN ISLANDS (US)_2024","Week","a0",52,185,52,185,NA,NA,NA,NA,"Sub-annual >= Annual",100,185,TRUE
-"WALLIS AND FUTUNA_1990","Year","a0",1,2695,1,2695,NA,NA,NA,NA,"Case 1: Annual only",NA,2695,NA
-"WALLIS AND FUTUNA_1991","Year","a0",1,11,1,11,NA,NA,NA,NA,"Case 1: Annual only",NA,11,NA
-"WALLIS AND FUTUNA_1992","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"WALLIS AND FUTUNA_1993","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"WALLIS AND FUTUNA_1994","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
-"WALLIS AND FUTUNA_1995","Year","a0",1,5,1,5,NA,NA,NA,NA,"Case 1: Annual only",NA,5,NA
-"WALLIS AND FUTUNA_1996","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
+"WALLIS AND FUTUNA_1990","Month","a0",12,77,12,77,NA,NA,NA,NA,"Case 2: Sub-annual only",NA,77,TRUE
+"WALLIS AND FUTUNA_1991","Month","a0",12,11,12,11,NA,NA,NA,NA,"Sub-annual >= Annual",100,11,TRUE
+"WALLIS AND FUTUNA_1992","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"WALLIS AND FUTUNA_1993","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"WALLIS AND FUTUNA_1994","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
+"WALLIS AND FUTUNA_1995","Year","a0",1,5,1,5,NA,NA,NA,NA,"Incomplete sub-annual - annual selected",60,5,FALSE
+"WALLIS AND FUTUNA_1996","Month","a0",12,0,12,0,NA,NA,NA,NA,"Sub-annual >= Annual",NA,NA,TRUE
 "WALLIS AND FUTUNA_1997","Year","a0",1,0,1,0,NA,NA,NA,NA,"Case 1: Annual only",NA,0,NA
 "WALLIS AND FUTUNA_1998","Year","a0",1,395,1,395,NA,NA,NA,NA,"Case 1: Annual only",NA,395,NA
 "WALLIS AND FUTUNA_1999","Year","a0",1,160,1,160,NA,NA,NA,NA,"Case 1: Annual only",NA,160,NA
