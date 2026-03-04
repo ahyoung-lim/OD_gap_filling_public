@@ -1,6 +1,6 @@
 # OpenDengue Gap-Filling
 
-Code and data for temporal gap-filling and downscaling of the [OpenDengue](https://github.com/OpenDengue/master-repo) database (V1.3), producing complete national-level monthly dengue case estimates for 1990–2024.
+Repository containing the data, analysis code, and key outputs supporting the findings reported in the associated publication (currently available as as [preprint](https://www.researchsquare.com/article/rs-8976788/v1)). This project performs temporal gap-filling and downscaling of the [OpenDengue](https://github.com/OpenDengue/master-repo) database (V1.3), producing complete national-level monthly dengue case estimates for 1990–2024. 
 
 ## Overview
 
