@@ -1,0 +1,11 @@
+parameter_block,parameter,prior,note
+seasonality,g_month,"Normal(0, 0.3)",global seasonal wiggle; month dim
+seasonality,sigma_region_month,HalfNormal(0.4),region×month SD for r_month
+seasonality,r_month,"Normal(g_month, sigma_region_month)",region×month
+seasonality,tau_country_month,HalfNormal(0.15),country SD around region pattern
+seasonality,c_month,"Normal(r_month[region_of_country], tau_country_month)",country×month
+year_effect,tau_region_year,HalfNormal(0.15),region SD for year effects
+year_effect,year_effect_raw,"Normal(0, 1)",country×year
+year_effect,year_effect,MVN with AR(1) corr (rho=0.7) via Cholesky,country×year
+concentration,log_concentration,"Normal(1.6, 0.35)",country×year (concentration = exp(log_conc))
+likelihood,obs_dm,"DirichletMultinomial(n=annual_total, a=dir_means*concentration)",training years only

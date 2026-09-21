@@ -1,0 +1,11 @@
+"section","quantity","median","min","max","n_runs"
+0,"country_years_affected_by_scaling",283,283,283,2
+0,"cases_in_affected_country_years",17065158,17065158,17065158,2
+0,"share_of_all_estimates_1990_2024_pct",23.053117858798,23.053117858798,23.053117858798,2
+0,"all_estimates_1990_2024_cases",74025379.58,73971646.96,74079112.2,2
+0,"country_years_completeness_ge90",142,142,142,2
+0,"country_years_completeness_lt90",141,141,141,2
+1,"tvd_pct_cutoff100_vs_cutoff0",18.2962921878602,18.0260827353605,18.5665016403599,2
+2,"tvd_pct_model_vs_observed_ge90",19.0183261209182,18.6588096186583,19.3778426231782,2
+2,"correct_peak_month_pct_ge90",26.4084507042254,25.3521126760563,27.4647887323944,2
+2,"flatter_than_observed_pct_ge90",91.5492957746479,90.1408450704225,92.9577464788732,2

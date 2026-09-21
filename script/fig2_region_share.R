@@ -4,10 +4,13 @@ library(ggplot2)
 library(scales)
 library(patchwork)
 library(ggtext)
+# Under Rscript there is no screen device, so print() of a plot would write Rplots.pdf;
+# send those calls to a null device. ggsave() opens its own device and is unaffected.
+if (!interactive()) pdf(NULL)
 source("functions/fn_OD_region.R") # regional classification
 
 # od gap filled
-df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_with_ci_V3.csv"))
+df <- read.csv(file.path(getwd(), "runs/mi_full/mi50/opendengue_gap_filled_MI.csv"))
 sum(df$dengue_total_scaled)
 
 df <- df %>%
@@ -44,7 +47,7 @@ df_summary <- bind_rows(df_region, df_global)
 
 
 # Source shared WHO data loading/processing (produces de, who_db, who_combined)
-source("script/04_consistency_analysis.R")
+source("script/04a_consistency_analysis.R")
 
 # Re-aggregate by OD regions (consistency_analysis uses WHO regions)
 de_region <- de %>%
@@ -270,7 +273,7 @@ ggsave(
   height = 6, dpi = 300
 )
 
-# Supp Fig 6
+# Supp Fig 5
 p_v3 <- composition_data %>%
   filter(source2 != "Gap-filled estimates") %>%
   ggplot(aes(x = Year, y = percentage, fill = od_region)) +
@@ -318,10 +321,19 @@ p_v3 <- composition_data %>%
   )
 
 ggsave(
-  plot = p_v3, "output/figures/sfig6.png",
+  plot = p_v3, "output/figures/sfig5.png",
   width = 12,
   height = 6, dpi = 300
 )
+
+# ---- Source data for Fig. 2: regional share of the global total, gap-filled estimates ----
+# Assembled into one workbook per figure by script/fig_source_data_xlsx.R.
+dir.create("output/source_data", recursive = TRUE, showWarnings = FALSE)
+fig2_sd <- composition_data %>%
+  filter(source2 == "Gap-filled estimates") %>%
+  transmute(Year, od_region, cases, percentage) %>%
+  arrange(Year, od_region)
+write.csv(as.data.frame(fig2_sd), "output/source_data/fig2_source_data.csv", row.names = FALSE)
 
 
 
@@ -370,6 +382,9 @@ share_change_who <- regional_shares %>%
 print(share_change_od)
 print(share_change_who)
 
+regional_shares %>%
+  group_by(source2, od_region) %>%
+  summarise(share_total = sum(share))
 
 # =========================================================#
 # annual growth rates using WHO digitised databases only

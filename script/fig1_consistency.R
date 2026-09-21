@@ -4,10 +4,13 @@ library(ggplot2)
 library(scales)
 library(patchwork)
 library(ggtext)
+# Under Rscript there is no screen device, so print() of a plot would write Rplots.pdf;
+# send those calls to a null device. ggsave() opens its own device and is unaffected.
+if (!interactive()) pdf(NULL)
 source("functions/fn_OD_region.R") # regional classification
 
 # od gap filled
-df <- read.csv(file.path(getwd(), "runs/pred/pred_downscale_with_ci_V3.csv"))
+df <- read.csv(file.path(getwd(), "runs/mi_full/mi50/opendengue_gap_filled_MI.csv"))
 
 df <- df %>%
   group_by(adm_0_name, Year) %>%
@@ -69,7 +72,7 @@ df_global <- df %>%
 df_summary <- bind_rows(df_region, df_global)
 
 # load in WHO data -----------------------------------------
-source("script/04_consistency_analysis.R")
+source("script/04a_consistency_analysis.R")
 # who_combined: WHO all sources (dashboard, dengue explorer, and regional summaries)
 # who_db: data from WHO global and SEARO dengue dashboards
 
@@ -220,9 +223,11 @@ for (r in regions) {
     ) +
     scale_y_continuous(
       labels = function(x) format(x, big.mark = ","),
-      expand = c(0.01, 0.01)
+      # multiplicative expansion only: an additive term (0.01 = 10,000 cases in
+      # data units) would dwarf the EURO panel's whole data range
+      expand = expansion(mult = 0.01)
     ) +
-    coord_cartesian(ylim = c(0.01, NA)) +
+    coord_cartesian(ylim = c(0, NA)) +
     scale_x_continuous(
       breaks = c(seq(1990, 2020, 5), 2024),
       limits = c(1990, 2024),
@@ -314,17 +319,17 @@ ggsave(
   width = 18 * 0.8, height = 12 * 0.8, dpi = 300
 )
 
-# Supp Fig 5
-sfig5 <- wrap_plots(p_list[c(5, 3)]) +
+# Supp Fig 4
+sfig4 <- wrap_plots(p_list[c(5, 3)]) +
   plot_layout(guides = "collect") &
   theme(
     legend.position = "bottom",
     legend.spacing.y = unit(0.25, "cm"),
   )
 
-print(sfig5)
+print(sfig4)
 ggsave(
-  plot = sfig5, "output/figures/sfig5.png",
+  plot = sfig4, "output/figures/sfig4.png",
   width = 15, height = 6, dpi = 300
 )
 
@@ -502,7 +507,7 @@ p_global <- ggplot(global_cum_data) +
 
 print(p_global)
 
-leg <- get_legend(
+leg <- cowplot::get_legend(
   p + theme(
     legend.position = "top",
     legend.direction = "horizontal"
@@ -511,11 +516,28 @@ leg <- get_legend(
 
 p_noleg <- p_global + theme(legend.position = "none")
 
-p_global_new <- plot_grid(leg, p_noleg, ncol = 1, rel_heights = c(0.1, 1))
+p_global_new <- cowplot::plot_grid(leg, p_noleg, ncol = 1, rel_heights = c(0.1, 1))
 
 ggsave("output/figures/fig1a.png", p_global_new,
   width = 12, height = 8, dpi = 300, bg = "white"
 )
+
+# ---- Source data for Fig. 1: the values drawn in each panel ----
+# Cumulative reported cases (in cases; the figure shows them in millions) for the
+# three series of every panel. Panels b-e follow the order of the regional grid
+# above. Assembled into one workbook per figure by script/fig_source_data_xlsx.R.
+dir.create("output/source_data", recursive = TRUE, showWarnings = FALSE)
+sd_cols <- c("Year", "gap_filled_cumulative", "who_all_cumulative", "who_db_cumulative")
+write.csv(as.data.frame(global_cum_data)[, sd_cols],
+  "output/source_data/fig1_source_data_a.csv", row.names = FALSE)
+main_regions <- regions[c(6, 7, 2, 1)]
+fig1_be <- comparison_df %>%
+  ungroup() %>%
+  filter(who_region %in% main_regions) %>%
+  mutate(panel = letters[2:5][match(who_region, main_regions)]) %>%
+  select(panel, who_region, all_of(sd_cols)) %>%
+  arrange(panel, Year)
+write.csv(as.data.frame(fig1_be), "output/source_data/fig1_source_data_b-e.csv", row.names = FALSE)
 
 
 
@@ -603,11 +625,20 @@ country_comparison %>%
   group_by(who_region) %>%
   slice_max(diff_pct_top, n = 2)
 
-#   who_region ISO_A0 gap_filled_cumulative who_db_cumulative diff_top_region_sum diff_top diff_pct_top
-#   <chr>      <chr>                  <dbl>             <dbl>               <dbl>    <dbl>        <dbl>
-# 1 AFRO       BFA                   335195             73808              0.449    0.261          58.2
-# 2 EMRO       PAK                   766234             65071              1.10     0.701          63.9
-# 3 EURO       REU                    75501              1227              0.0807   0.0743         92.0
-# 4 PAHO       BRA                 35407550          25814627             16.3      9.59           59.0
-# 5 SEARO      IDN                  3042737             26187              7.46     3.02           40.5
-# 6 WPRO       VNM                  3613165            108433              9.97     3.50           35.2
+#    who_region ISO_A0 gap_filled_cumulative who_db_cumulative diff_top_region_sum diff_top diff_pct_top
+#    <chr>      <chr>                  <dbl>             <dbl>               <dbl>    <dbl>        <dbl>
+#  1 AFRO       BFA                   335195             73808               0.530 0.261           49.3
+#  2 AFRO       ERI                    94784             14679               0.530 0.0801          15.1
+#  3 EMRO       PAK                   766234             65071               1.10  0.701           63.9
+#  4 EMRO       YEM                   279604                 0               1.10  0.280           25.5
+#  5 EURO       ESP                       27                10            -Inf     0.000017         0
+#  6 EURO       FRA                      244                85            -Inf     0.000159         0
+#  7 EURO       HRV                       10                 0            -Inf     0.00001          0
+#  8 EURO       ITA                      306               213            -Inf     0.000093         0
+#  9 EURO       PRT                     1079                 0            -Inf     0.00108          0
+# 10 PAHO       BRA                 35429908          25814627              16.3   9.62            59.0
+# 11 PAHO       MEX                  3092265           1965685              16.3   1.13             6.91
+# 12 SEARO      IDN                  3042737             26187               7.51  3.02            40.2
+# 13 SEARO      IND                  2112105            232425               7.51  1.88            25.0
+# 14 WPRO       VNM                  3612478            108433               9.99  3.50            35.1
+# 15 WPRO       PHL                  3240253                 0               9.99  3.24            32.4

@@ -16,7 +16,6 @@ source("functions/fn_make_week_complete.R") # make weekly data complete
 source("functions/fn_Year_checker.R") # adjusting Year column
 source("functions/fn_OD_region.R") # regional classification
 
-git_path <- "C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/master-repo-alim/master-repo/data/releases/V1.3/"
 
 # ------------------------------------------------------------------------------
 # HELPER FUNCTIONS
@@ -30,8 +29,22 @@ add_country_year <- function(df) {
 # 1. LOAD AND PREPARE DATA
 # ------------------------------------------------------------------------------
 
+# >>> SENSITIVITY (0% model): when EXCLUDE_SUBANNUAL_SCALING=true, read/write files in a SEPARATE
+#   folder (data/sensitivity_noscale/, same basenames) so they never mix with the 100% files.
+NOSCALE <- tolower(Sys.getenv("EXCLUDE_SUBANNUAL_SCALING", "false")) %in% c("true", "1", "yes")
+psens <- function(path) {
+  if (!NOSCALE) {
+    return(path)
+  }
+  d <- "data/sensitivity_noscale"
+  dir.create(d, recursive = TRUE, showWarnings = FALSE)
+  file.path(d, basename(path))
+}
+# batch (Rscript) runs: send stray plots to null so no Rplots.pdf is written
+if (!interactive()) try(grDevices::pdf(grDevices::nullfile()), silent = TRUE)
+
 # 1.1 Load best temporal data -------------------------------------------------
-T_data <- read.csv("data/processed_data/Best_T_data_V1_3.csv") %>%
+T_data <- read.csv(psens("data/processed_data/Best_T_data_V1_3.csv")) %>%
   filter(between(Year, min_year, max_year)) %>% # keep target period
   region_class() %>% # add WHO region
   Year_checker() %>% # fix year alignment
@@ -291,7 +304,7 @@ coverage_tbl <- coverage_tbl %>%
 
 # Count EES countries
 ees_final <- coverage_tbl %>%
-  filter(data_source == "ees") %>%
+  filter(data_source == "Assumed_zero_cases") %>%
   distinct(adm_0_name) %>%
   pull(adm_0_name)
 
@@ -314,6 +327,8 @@ ihme_raw <- read.csv("data/ad_hoc/IHME-GBD_2021_DATA.csv") %>%
     adm_0_name = location_name,
     Year = year,
     IHME_est = as.integer(val),
+    IHME_lo = as.integer(lower),
+    IHME_hi = as.integer(upper),
     ISO_A0 = countrycode(location_name, "country.name", "iso3c")
   )
 
@@ -358,15 +373,17 @@ coverage_tbl_cal <- coverage_tbl %>%
   left_join(
     ihme_raw %>%
       filter(ISO_A0 %in% iso_overlap) %>%
-      select(ISO_A0, IHME_est, Year),
+      select(ISO_A0, IHME_est, IHME_lo, IHME_hi, Year),
     by = c("ISO_A0", "Year")
   ) %>%
   group_by(adm_0_name) %>%
   mutate(
-    OD_mean    = mean(annual_total, na.rm = TRUE),
-    IHME_mean  = mean(IHME_est, na.rm = TRUE),
-    scalar     = OD_mean / IHME_mean,
-    IHME_cal   = as.integer(IHME_est * scalar) # calibrated estimate
+    OD_mean = mean(annual_total, na.rm = TRUE),
+    IHME_mean = mean(IHME_est, na.rm = TRUE),
+    scalar = OD_mean / IHME_mean,
+    IHME_cal = as.integer(IHME_est * scalar), # calibrated estimate
+    IHME_cal_lo = as.integer(IHME_lo * scalar),
+    IHME_cal_hi = as.integer(IHME_hi * scalar)
   ) %>%
   ungroup()
 
@@ -441,13 +458,12 @@ coverage_tbl_cal %>%
   group_by(data_source) %>%
   tally()
 
-#   data_source         n
-# 1 IHME_calibrated     7
-# 2 No_data             5
-# 3 OD               3076
-# 4 ad_hoc_data       400
-# 5 ees              1532
-# 6 first_year        370
+# 1 Assumed_zero_cases  1532
+# 2 IHME_calibrated        7
+# 3 No_data                5
+# 4 OD                  2900
+# 5 ad_hoc_data          576
+# 6 first_year           370
 
 # 3.8 Remove countries with only zero cases -----------------------------------
 # Identify countries with zero cases across all years
@@ -521,6 +537,17 @@ coverage_tbl_cal <- impute_nearest_median(coverage_tbl_cal, k = 10)
 summary(is.na(coverage_tbl_cal))
 nrow(coverage_tbl_cal[coverage_tbl_cal$data_source == "No_data", ])
 
+# Sanity check: how many cells were median-imputed, and from which countries
+cat(sprintf(
+  "Median_from_neighbors cells: %d\n",
+  sum(coverage_tbl_cal$data_source == "Median_from_neighbors")
+))
+coverage_tbl_cal %>%
+  filter(data_source == "Median_from_neighbors") %>%
+  count(country_year, name = "n_median") %>%
+  arrange(desc(n_median)) %>%
+  print(n = Inf)
+
 # ------------------------------------------------------------------------------
 # 5. APPEND CALIBRATED/IMPUTED RECORDS TO TIME SERIES DATA
 # ------------------------------------------------------------------------------
@@ -575,7 +602,7 @@ coverage_tbl_cal %>%
 
 # Export calibrated time series data
 write.csv(T_data_cal,
-  "data/processed_data/Best_T_data_calibrated_V1_3.csv",
+  psens("data/processed_data/Best_T_data_calibrated_V1_3.csv"),
   row.names = F
 )
 
@@ -585,6 +612,6 @@ write.csv(
     select(-annual_total, -(IHME_est:annual_total2)) %>%
     mutate(annual_total = annual_total3) %>%
     select(-annual_total3),
-  "data/processed_data/dt_heatmap_calibrated.csv",
+  psens("data/processed_data/dt_heatmap_calibrated.csv"),
   row.names = F
 )

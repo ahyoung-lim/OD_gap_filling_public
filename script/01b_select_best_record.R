@@ -20,10 +20,44 @@ source("functions/fn_consecutive_gap_counter.R") # counting the number of consec
 source("functions/fn_make_week_complete.R") # make weekly data complete
 source("functions/fn_OD_region.R") # regional classification
 
-# 1.1 Load OpenDengue temporal extract ----------------------------------------
-git_path <- "C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/master-repo-alim/master-repo/data/releases/V1.3/"
+# >>> SUB-ANNUAL SCALING SENSITIVITY (0% = no scale, 100% = scale all).
+#   Two controls, each routing outputs to a SEPARATE folder so they never mix:
+#   - EXCLUDE_SUBANNUAL_SCALING=true  -> 0% (no scale): scale NOTHING.
+#   - SCALE_MIN_COMPLETENESS=<0-100>  -> scale only cases whose sub-annual completeness
+#       (pct_of_annual) is >= this value; drop the rest (they become model-disaggregated).
+#       0 (default) = scale all = 100%.  e.g. 50 = scale only >=50% complete.
+#   Usage:  SCALE_MIN_COMPLETENESS=50 Rscript script/01b_select_best_record.R
+EXCLUDE_SUBANNUAL_SCALING <- tolower(Sys.getenv("EXCLUDE_SUBANNUAL_SCALING", "false")) %in% c("true", "1", "yes")
+SCALE_MIN_COMPLETENESS <- suppressWarnings(as.numeric(Sys.getenv("SCALE_MIN_COMPLETENESS", "0")))
+if (is.na(SCALE_MIN_COMPLETENESS)) SCALE_MIN_COMPLETENESS <- 0
+# tag drives the output folder: "" (default 100%), "noscale" (0%), or "thr<pct>" (cutoff)
+SENS_TAG <- if (EXCLUDE_SUBANNUAL_SCALING) "noscale" else if (SCALE_MIN_COMPLETENESS > 0) sprintf("thr%g", SCALE_MIN_COMPLETENESS) else ""
+psens <- function(path) {
+  if (identical(SENS_TAG, "")) {
+    return(path)
+  }
+  d <- file.path("data", "sensitivity", "sens01_scaling_sensitivity", SENS_TAG)
+  dir.create(d, recursive = TRUE, showWarnings = FALSE)
+  file.path(d, basename(path))
+}
 
-od <- readr::read_csv(paste0(git_path, "/Temporal_extract_V1_3_2025_08_01.csv")) %>%
+# >>> SENSITIVITY when TRUE, do NOT merge ad hoc data (OD sources only). Drives the
+#   ad hoc impact comparison in 02b_ad_hoc_impact.R, so the ONLY difference between the
+#   two runs is ad hoc presence (same 01b logic, no stale copy).
+#   Usage:  EXCLUDE_AD_HOC=true Rscript script/01b_select_best_record.R
+EXCLUDE_AD_HOC <- tolower(Sys.getenv("EXCLUDE_AD_HOC", "false")) %in% c("true", "1", "yes")
+# excl-ad-hoc outputs get an "_excl_ad_hoc" suffix (same folder) so they never overwrite
+# the default (ad hoc included) files
+pah <- function(path) {
+  if (!EXCLUDE_AD_HOC) {
+    return(path)
+  }
+  sub("\\.csv$", "_excl_ad_hoc.csv", path)
+}
+
+# 1.1 Load OpenDengue temporal extract ----------------------------------------
+# OD_RELEASE_DIR is set in 00_setup.R
+od <- readr::read_csv(file.path(OD_RELEASE_DIR, "Temporal_extract_V1_3_2026_07_29.csv")) %>%
   filter(!adm_0_name == "PITCAIRN") %>%
   filter(between(Year, min_year, max_year)) %>%
   Year_checker()
@@ -63,14 +97,19 @@ od %>%
 # ------------------------------------------------------------------------------
 # 3. MERGE WITH AD HOC DATA
 # ------------------------------------------------------------------------------
-# od$cat <- "OD"
-ad <- read.csv("data/processed_data/ad_hoc_data_all.csv")
-
-# Combine OpenDengue and ad hoc data with category labels
-od <- rbind(
-  od %>% mutate(cat = "OD"),
-  ad
-)
+# Combine OpenDengue and ad hoc data with category labels.
+# >>> SENSITIVITY EXCLUDE_AD_HOC=true skips the merge (OD only) for the ad hoc
+#     impact comparison (02a runs this script both ways, 02b compares them).
+if (!EXCLUDE_AD_HOC) {
+  ad <- read.csv("data/processed_data/ad_hoc_data_all.csv")
+  od <- rbind(
+    od %>% mutate(cat = "OD"),
+    ad
+  )
+} else {
+  message(">>> EXCLUDE_AD_HOC: ad hoc data NOT merged (OD sources only)")
+  od <- od %>% mutate(cat = "OD")
+}
 
 # Create country-year identifier for all analyses
 od$country_year <- paste0(od$adm_0_name, "_", od$Year)
@@ -99,6 +138,17 @@ od_clean <- od_clean %>%
   ) %>%
   filter(!to_remove) %>%
   select(-to_remove)
+
+# 4.3 Correct implausible annual total -----------------------------------------
+# Nepal 2020: the WHO SEARO annual figure (WHOSEARO-ALL-2021, 10,808 cases) is an
+# outlier that conflicts with EDCD and multiple peer-reviewed sources reporting ~530
+# cases for 2020 (a COVID-suppressed year; cf. 2019 = 17,992, 2021 = 540, 2022 = 54,784).
+# Left in, its "highest sum wins" selection scales the (correct) monthly series up ~27x
+# to an implausible total. Drop it so the lower literature annual (630, close to EDCD's
+# 530) is selected instead.
+od_clean <- od_clean %>%
+  filter(!(adm_0_name == "NEPAL" & Year == 2020 & T_res == "Year" &
+    UUID == "WHOSEARO-ALL-2021-Y01-00"))
 
 # ------------------------------------------------------------------------------
 # 5. SYSTEMATIC DUPLICATE RESOLUTION
@@ -279,11 +329,67 @@ x3 <- od_clean %>%
 stopifnot(nrow(x3) == 0)
 
 # Clean up temporary objects
-rm(od, ad, x, x2, x3, keep_uuids_week, keep_uuids_month, keep_uuids_year, monthly_dups, weekly_dups, yearly_dups, uuids_to_remove_month, uuids_to_remove_week, uuids_to_remove_year)
+if (exists("ad")) rm(ad) # not created when EXCLUDE_AD_HOC
+rm(od, x, x2, x3, keep_uuids_week, keep_uuids_month, keep_uuids_year, monthly_dups, weekly_dups, yearly_dups, uuids_to_remove_month, uuids_to_remove_week, uuids_to_remove_year)
 
 # ------------------------------------------------------------------------------
 # 6. SPLIT BY SPATIAL RESOLUTION (ADMIN LEVELS)
 # ------------------------------------------------------------------------------
+
+# 6.0 Combine mixed Admin1 + Admin2 reporting into the national total -------------
+# Some MOH sources report a country-year at MIXED spatial resolution within a single
+# source (same UUID + T_res): cases with a known department but an UNKNOWN municipality
+# are coded at Admin1 (e.g. "... SIN MUNICIPIO"), while cases with a known municipality
+# are at Admin2. These are COMPLEMENTARY (different cases), so the national total =
+# Admin1 + Admin2. The default "pick the single highest level" selection keeps only one
+# and undercounts. For the confirmed countries below we relabel their Admin2 rows to
+# Admin1 so the Admin1 aggregation sums both levels into the national total (this avoids
+# creating a new Admin0 record that would collide with an existing national source).
+#
+# Confirmed to SUM (Admin1 = unknown-sub-geography, complementary):
+#   COLOMBIA, PANAMA, PERU
+# Checked and NOT summed (left as-is):
+#   - PHILIPPINES: Admin1 is NOT complementary here (verified separately) -> keep pick-one
+#   - BHUTAN / MYANMAR / NEPAL: Admin0 + Admin1 where Admin0 ≈ sum(Admin1) = national
+#     rollup (redundant; already handled by picking one level)
+#   - TAIWAN: the Admin0 records are zero placeholders (no effect)
+# Checked and NOT summed — tracked per (country, UUID) below, so a NEW source (even for a
+# country already reviewed) re-triggers the sanity check instead of being silently excluded:
+#   - PHILIPPINES / TYCHO-ALL-19242017-SV_DF01-00: Admin1 is NOT complementary (verified)
+# (Other mixed patterns are not Admin1+Admin2 and never reach this check: BHUTAN/MYANMAR/
+#  NEPAL are Admin0+Admin1 rollups where Admin0 ≈ sum(Admin1); TAIWAN's Admin0 rows are 0.)
+combine_a1a2_countries <- c("COLOMBIA", "PANAMA", "PERU")
+
+# Mixed Admin1+Admin2 sources reviewed and confirmed NOT to combine (keep pick-one),
+# tracked at (country, UUID) so a new source triggers review rather than silent exclusion.
+reviewed_no_combine <- data.frame(
+  adm_0_name = "PHILIPPINES",
+  UUID = "TYCHO-ALL-19242017-SV_DF01-00",
+  stringsAsFactors = FALSE
+)
+
+# (country, Year, T_res, UUID) groups that report BOTH Admin1 and Admin2 in one source
+mixed_a1a2 <- od_clean %>%
+  filter(S_res %in% c("Admin1", "Admin2")) %>%
+  distinct(adm_0_name, Year, T_res, UUID, S_res) %>%
+  count(adm_0_name, Year, T_res, UUID, name = "n_levels") %>%
+  filter(n_levels > 1)
+
+# SANITY CHECK: stop on any mixed Admin1+Admin2 source that is neither confirmed-to-combine
+# (its country in combine_a1a2_countries) nor already reviewed-and-excluded (its exact
+# country+UUID in reviewed_no_combine). Catches new countries AND new sources for a country
+# already reviewed (e.g. a new PHILIPPINES UUID) in future data updates.
+unreviewed <- mixed_a1a2 %>%
+  filter(!(adm_0_name %in% combine_a1a2_countries)) %>%
+  anti_join(reviewed_no_combine, by = c("adm_0_name", "UUID"))
+if (nrow(unreviewed) > 0) {
+  stop(
+    "Unreviewed mixed Admin1+Admin2 source(s): ",
+    paste(unique(paste(unreviewed$adm_0_name, unreviewed$UUID, sep = " / ")), collapse = "; "),
+    ". Review each: complementary -> add its country to combine_a1a2_countries; ",
+    "rollup/duplicate -> add its (adm_0_name, UUID) to reviewed_no_combine."
+  )
+}
 
 od_adm0 <- od_clean[od_clean$S_res == "Admin0", ]
 od_adm1 <- od_clean[od_clean$S_res == "Admin1", ]
@@ -530,6 +636,57 @@ if (exists("result") && "relationships" %in% names(result)) {
   # If relationships not available, infer from data
   scaling_cases$subannual_column <- NA
   scaling_cases$subannual_type <- NA
+}
+
+# 8.1b Report the magnitude of the sub-annual -> annual scale-up ---------------
+# Each scaling case stretches a COMPLETE sub-annual series up to its annual total. The
+# scale factor = annual / sub-annual sum (= 100 / pct_of_annual). A large factor means the
+# sub-annual source captured only a small fraction of the annual, so its seasonal SHAPE is
+# imposed on a much larger total (e.g. Brazil 1993-2000 used Tycho's Alagoas alone, 33-360x).
+# This block quantifies how many cases are scaled and flags the extreme ones for review.
+if (nrow(scaling_cases) > 0 && "pct_of_annual" %in% names(scaling_cases)) {
+  scaling_report <- scaling_cases %>%
+    mutate(scale_factor = round(100 / pct_of_annual, 1)) %>%
+    arrange(desc(annual_total), desc(scale_factor)) %>%
+    # filter(pct_of_annual < 90)%>%
+    select(country_year, pct_of_annual, scale_factor, annual_total)
+
+  scaling_report_print <- scaling_cases %>%
+    mutate(scale_factor = round(100 / pct_of_annual, 1)) %>%
+    arrange(desc(scale_factor)) %>%
+    filter(pct_of_annual < 90) %>%
+    select(country_year, pct_of_annual, scale_factor, annual_total)
+
+  cat(sprintf("\n=== Sub-annual -> annual scale-up: %d country-years ===\n", nrow(scaling_report)))
+  cat(sprintf(
+    "  sub-annual >=90%% of annual (factor ~1, negligible): %d | <90%%: %d | factor >=5x (extreme): %d\n",
+    sum(scaling_report$pct_of_annual >= 90, na.rm = TRUE),
+    sum(scaling_report$pct_of_annual < 90, na.rm = TRUE),
+    sum(scaling_report$scale_factor >= 5, na.rm = TRUE)
+  ))
+  cat("  largest scale-ups (small, potentially unrepresentative sub-annual stretched to a large annual):\n")
+  print(utils::head(as.data.frame(scaling_report_print), 20), row.names = FALSE)
+}
+
+# >>> SENSITIVITY: drop (some or all) sub-annual scaling. Removing a case from scaling_cases
+#   makes that country-year fall through to the regular path (its selected Year record ->
+#   disaggregation) and skips PART 2 below. The 8.1b report above still prints the full count.
+if (EXCLUDE_SUBANNUAL_SCALING) {
+  # 0% (no scale): scale nothing
+  cat(sprintf(
+    ">>> 0%% MODEL: excluding sub-annual scaling for %d country-years (treated as annual-only)\n",
+    nrow(scaling_cases)
+  ))
+  scaling_cases <- scaling_cases[0, , drop = FALSE]
+} else if (SCALE_MIN_COMPLETENESS > 0 && "pct_of_annual" %in% names(scaling_cases)) {
+  # completeness cutoff: scale only cases with pct_of_annual >= threshold; drop the rest
+  n0 <- nrow(scaling_cases)
+  scaling_cases <- scaling_cases[!is.na(scaling_cases$pct_of_annual) &
+                                   scaling_cases$pct_of_annual >= SCALE_MIN_COMPLETENESS, , drop = FALSE]
+  cat(sprintf(
+    ">>> COMPLETENESS CUTOFF %g%%: scaling %d of %d cases; dropped %d with completeness < %g%% (treated as annual-only)\n",
+    SCALE_MIN_COMPLETENESS, nrow(scaling_cases), n0, n0 - nrow(scaling_cases), SCALE_MIN_COMPLETENESS
+  ))
 }
 
 # 8.2 Separate regular vs scaling selections ----------------------------------
@@ -837,5 +994,5 @@ if (nrow(scaling_summary) > 0) {
   cat("\nScaled records are flagged with scaled_to_annual = TRUE in final_dataset\n")
 }
 
-write.csv(final_dataset, "data/processed_data/Best_T_data_V1_3.csv", row.names = F)
-write.csv(selection_outcome, "data/processed_data/selection_outcome_V1_3.csv", row.names = F)
+write.csv(final_dataset, psens(pah("data/processed_data/Best_T_data_V1_3.csv")), row.names = F)
+write.csv(selection_outcome, psens(pah("data/processed_data/selection_outcome_V1_3.csv")), row.names = F)

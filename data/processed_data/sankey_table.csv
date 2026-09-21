@@ -1,0 +1,19 @@
+source,target,value
+OD,Sub-annual,1006
+OD,Annual,1988
+Ad-hoc data,Annual,281
+Ad-hoc data,Sub-annual,238
+Sub-annual,Complete monthly series,991
+Sub-annual,Sub-annual imputation model,130
+Annual,Annual disaggregation model,1469
+Sub-annual,Confirmed or assumed absence of cases,123
+Annual,Confirmed or assumed absence of cases,800
+OD,Confirmed or assumed absence of cases,22
+Assumed absence,IHME,7
+Assumed absence,Median from neighbors,5
+Assumed absence,first year,300
+Assumed absence,EES,1158
+Median from neighbors,Annual disaggregation model,5
+IHME,Annual disaggregation model,7
+first year,Confirmed or assumed absence of cases,300
+EES,Confirmed or assumed absence of cases,1158

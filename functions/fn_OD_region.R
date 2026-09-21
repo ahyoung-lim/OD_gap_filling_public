@@ -38,13 +38,14 @@ region_class <- function(data, upper = T) {
       "Niger", "Sao Tome and Principe", "Senegal", "Seychelles",
       "Togo", "United Republic of Tanzania",
       "Comoros", "Democratic Republic of Congo", "Gabon", "Madagascar",
+      "Mayotte", "Reunion",
       "Mozambique", "Nigeria", "South Sudan",
       "Burundi", "Congo", "Equatorial Guinea", "Gambia",
       "Guinea-Bissau", "Liberia", "Malawi", "Namibia",
       "Rwanda", "Sierra Leone", "Uganda", "Zambia", "Zimbabwe"
     ),
     EURO = c(
-      "France", "Italy", "Spain", "Croatia", "Portugal", "Reunion", "Mayotte"
+      "France", "Italy", "Spain", "Croatia", "Portugal"
     )
   )
 

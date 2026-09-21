@@ -9,7 +9,6 @@ library(tidyr)
 library(purrr)
 
 # GAM CV on full dataset
-source("script/CV/00_build_gap_mask_ext.R")
 source("script/CV/00_build_gap_mask.R")
 source("script/CV/00_imp_model_gam_spec.R")
 source("script/CV/00_gam_eval_helpers.R")

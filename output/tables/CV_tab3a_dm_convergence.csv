@@ -1,0 +1,7 @@
+Parameter set,Mask type,N fits,% fits with divergences,R-hat median,R-hat max,ESS bulk median,ESS bulk min,ESS tail median,ESS tail min
+Hyperparameters,Interpolation,9,0,1.01,1.01,745,607,1342,1063
+Hyperparameters,Extrapolation (backcast),9,0,1.01,1.01,666,557,1194,1071
+Hyperparameters,Extrapolation (forecast),9,0,1.01,1.01,721,646,1245,1073
+Interpolated monthly proportions,Interpolation,9,0,1.00,1.00,1771,1506,2472,2021
+Interpolated monthly proportions,Extrapolation (backcast),9,0,1.00,1.01,1618,1430,2353,2015
+Interpolated monthly proportions,Extrapolation (forecast),9,0,1.00,1.01,1732,1453,2455,2204

@@ -29,11 +29,21 @@ add_country_year <- function(df) {
 # 1. LOAD CALIBRATED DATA
 # ------------------------------------------------------------------------------
 
+# >>> SENSITIVITY (0% model): read/write files in a SEPARATE folder (data/sensitivity/sens01_scaling_sensitivity/<tag>/,
+#   same basenames) when EXCLUDE_SUBANNUAL_SCALING=true, so they never mix with the 100% files.
+# route sensitivity outputs to a SEPARATE folder: "noscale" (0%), "thr<pct>" (completeness cutoff), or none (100%)
+.excl <- tolower(Sys.getenv("EXCLUDE_SUBANNUAL_SCALING", "false")) %in% c("true", "1", "yes")
+.minpct <- suppressWarnings(as.numeric(Sys.getenv("SCALE_MIN_COMPLETENESS", "0"))); if (is.na(.minpct)) .minpct <- 0
+SENS_TAG <- if (.excl) "noscale" else if (.minpct > 0) sprintf("thr%g", .minpct) else ""
+psens <- function(path) { if (identical(SENS_TAG, "")) return(path); d <- file.path("data", "sensitivity", "sens01_scaling_sensitivity", SENS_TAG); dir.create(d, recursive = TRUE, showWarnings = FALSE); file.path(d, basename(path)) }
+# batch (Rscript) runs: send stray plots to null so no Rplots.pdf is written
+if (!interactive()) try(grDevices::pdf(grDevices::nullfile()), silent = TRUE)
+
 # Load coverage assessment table with modelling categories
-tab <- read.csv("data/processed_data/dt_heatmap_calibrated.csv")
+tab <- read.csv(psens("data/processed_data/dt_heatmap_calibrated.csv"))
 
 # Load calibrated temporal extract
-T_data <- read.csv("data/processed_data/Best_T_data_calibrated_V1_3.csv")
+T_data <- read.csv(psens("data/processed_data/Best_T_data_calibrated_V1_3.csv"))
 summary(is.na(T_data))
 
 # 1.1 Data summary statistics --------------------------------------------------
@@ -108,6 +118,19 @@ if (nrow(inconsistent_dates) != 0) {
 }
 
 # Verify one-to-one mapping between dates and time_seq
+# >>> diagnostic: if the counts differ, show WHICH weekly dates don't align to the epiweek
+#   master calendar (those get time_seq = NA; >=2 of them break the 1-to-1 check).
+.nd <- length(unique(dt_w_complete$calendar_start_date))
+.nt <- length(unique(dt_w_complete$time_seq))
+if (.nd != .nt) {
+  message(sprintf(">>> time_seq check: %d unique dates vs %d unique time_seq", .nd, .nt))
+  .na_dt <- dt_w_complete %>% dplyr::filter(is.na(time_seq)) %>%
+    dplyr::distinct(adm_0_name, Year, calendar_start_date) %>% dplyr::arrange(Year, calendar_start_date)
+  if (nrow(.na_dt) > 0) {
+    message(sprintf("  %d weekly dates NOT on the epiweek master calendar (time_seq = NA):", nrow(.na_dt)))
+    print(utils::head(as.data.frame(.na_dt), 50))
+  }
+}
 stopifnot(length(unique(dt_w_complete$calendar_start_date)) ==
   length(unique(dt_w_complete$time_seq)))
 
@@ -399,7 +422,7 @@ mismatches <- data_m_down %>%
   filter(sum_of_monthly != annual_total) %>%
   add_country_year()
 
-so <- read.csv("data/processed_data/selection_outcome_V1_3.csv")
+so <- read.csv(psens("data/processed_data/selection_outcome_V1_3.csv"))
 
 inspect <- so %>%
   filter(country_year %in% mismatches$country_year) %>%
@@ -423,33 +446,33 @@ data_y$countryx <- as.integer(factor(
 # 8.1 Training data (complete cases only) --------------------------------------
 # Data for cross-validation and model training
 write.csv(data_w %>% na.omit(),
-  "data/model_input/model_data_weekly_new.csv",
+  psens("data/model_input/model_data_weekly_new.csv"),
   row.names = F
 )
 
 write.csv(data_m %>% na.omit(),
-  "data/model_input/model_data_monthly_new.csv",
+  psens("data/model_input/model_data_monthly_new.csv"),
   row.names = F
 )
 
 write.csv(data_m_down_filtered,
-  "data/model_input/model_data_downscaling_new.csv",
+  psens("data/model_input/model_data_downscaling_new.csv"),
   row.names = F
 )
 
 # 8.2 Prediction data (including missing values) -------------------------------
 # Full datasets with gaps for model prediction/imputation
 write.csv(data_w,
-  "data/model_input/pred_data_weekly.csv",
+  psens("data/model_input/pred_data_weekly.csv"),
   row.names = F
 )
 
 write.csv(data_m,
-  "data/model_input/pred_data_monthly.csv",
+  psens("data/model_input/pred_data_monthly.csv"),
   row.names = F
 )
 
 write.csv(data_y,
-  "data/model_input/pred_data_disaggregate.csv",
+  psens("data/model_input/pred_data_disaggregate.csv"),
   row.names = F
 )

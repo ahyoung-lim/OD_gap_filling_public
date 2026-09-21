@@ -3,7 +3,6 @@ source("functions/fn_consecutive_gap_counter.R") # counting the number of consec
 source("functions/fn_make_week_complete.R") # make weekly data complete
 source("functions/fn_Year_checker.R") # adjusting Year column
 source("functions/fn_OD_region.R") # regional classification
-git_path <- "C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/master-repo-alim/master-repo/data/releases/V1.3/"
 
 T_data <- read.csv("data/processed_data/Best_T_data_calibrated_V1_3.csv")
 summary(is.na(T_data$ISO_A0))
@@ -198,7 +197,7 @@ gap_summary_year <- Year_clean %>%
 
 Year_clean %>%
   filter(is.na(dengue_total)) %>%
-  nrow() # 1483 (annual disaggregation + calibrated annual totals )
+  nrow() # 1481 (annual disaggregation + calibrated annual totals )
 
 med_year_size <- median(gap_summary_year$na_lengths) # 2 years
 
@@ -539,6 +538,12 @@ year_gap_position %>%
   # mutate(gap_type = ifelse(grepl("edge", gap_type), "Edge", gap_type))%>%
   group_by(gap_type, od_region) %>%
   summarise(median = median(na_lengths, na.rm = T))
+
+
+year_gap_position %>%
+  filter(!gap_type %in% "observed") %>%
+  distinct(adm_0_name, na_lengths, run_id) %>%
+  arrange(desc(na_lengths))
 
 
 all_gap_position <- rbind(

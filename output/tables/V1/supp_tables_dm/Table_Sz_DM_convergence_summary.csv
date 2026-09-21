@@ -1,0 +1,4 @@
+model,mask_type,n_fits,pct_fits_with_div,max_divergences,rhat_median,rhat_max,ess_bulk_median_min,ess_bulk_min,ess_tail_median_min,ess_tail_min
+DM_v3_pooled_jax_v3,extrap_future,9,0,0,1.03,1.05,205,152,249,162
+DM_v3_pooled_jax_v3,extrap_past,9,0,0,1.03,1.04,183,123,258,181
+DM_v3_pooled_jax_v3,interp,9,0,0,1.03,1.04,218,159,263,201

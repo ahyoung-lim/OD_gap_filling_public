@@ -1,7 +1,6 @@
 # ============================================================================
 # Downscaling INLA — repeated CV (3 reps)
 # ============================================================================
-source("script/CV/00_build_gap_mask_ext.R")
 source("script/CV/00_build_gap_mask.R")
 source("script/CV/00_build_gap_mask_downscaling.R")
 source("script/CV/00_imp_model_inla_spec.R")

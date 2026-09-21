@@ -1,0 +1,281 @@
+"od_region","Year","total"
+"North & Central America",1990,28462
+"North & Central America",1991,25292
+"North & Central America",1992,21127
+"North & Central America",1993,30231
+"North & Central America",1994,75709
+"North & Central America",1995,103882
+"North & Central America",1996,50441
+"North & Central America",1997,90472
+"North & Central America",1998,70317
+"North & Central America",1999,55819
+"North & Central America",2000,58701
+"North & Central America",2001,33650
+"North & Central America",2002,80571
+"North & Central America",2003,59112
+"North & Central America",2004,63223
+"North & Central America",2005,116206
+"North & Central America",2006,86352
+"North & Central America",2007,139412
+"North & Central America",2008,69924
+"North & Central America",2009,311478
+"North & Central America",2010,214851
+"North & Central America",2011,124252
+"North & Central America",2012,289219
+"North & Central America",2013,478407
+"North & Central America",2014,304448
+"North & Central America",2015,419910
+"North & Central America",2016,305467
+"North & Central America",2017,194970
+"North & Central America",2018,176480
+"North & Central America",2019,698665
+"North & Central America",2020,228579
+"North & Central America",2021,114024
+"North & Central America",2022,233536
+"North & Central America",2023,624672
+"North & Central America",2024,1097923
+"Europe, Middle East & North Africa",1990,0
+"Europe, Middle East & North Africa",1991,0
+"Europe, Middle East & North Africa",1992,0
+"Europe, Middle East & North Africa",1993,1
+"Europe, Middle East & North Africa",1994,315
+"Europe, Middle East & North Africa",1995,136
+"Europe, Middle East & North Africa",1996,57
+"Europe, Middle East & North Africa",1997,62
+"Europe, Middle East & North Africa",1998,31
+"Europe, Middle East & North Africa",1999,26
+"Europe, Middle East & North Africa",2000,17
+"Europe, Middle East & North Africa",2001,7
+"Europe, Middle East & North Africa",2002,11
+"Europe, Middle East & North Africa",2003,0
+"Europe, Middle East & North Africa",2004,343
+"Europe, Middle East & North Africa",2005,718
+"Europe, Middle East & North Africa",2006,1544
+"Europe, Middle East & North Africa",2007,490
+"Europe, Middle East & North Africa",2008,1354
+"Europe, Middle East & North Africa",2009,3791
+"Europe, Middle East & North Africa",2010,7546
+"Europe, Middle East & North Africa",2011,3573
+"Europe, Middle East & North Africa",2012,2864
+"Europe, Middle East & North Africa",2013,6522
+"Europe, Middle East & North Africa",2014,2823
+"Europe, Middle East & North Africa",2015,11910
+"Europe, Middle East & North Africa",2016,33719
+"Europe, Middle East & North Africa",2017,3696
+"Europe, Middle East & North Africa",2018,33504
+"Europe, Middle East & North Africa",2019,95009
+"Europe, Middle East & North Africa",2020,69119
+"Europe, Middle East & North Africa",2021,23903
+"Europe, Middle East & North Africa",2022,36720
+"Europe, Middle East & North Africa",2023,48063
+"Europe, Middle East & North Africa",2024,25621
+"East & Southeast Asia",1990,173580
+"East & Southeast Asia",1991,207809
+"East & Southeast Asia",1992,134280
+"East & Southeast Asia",1993,157280
+"East & Southeast Asia",1994,141397
+"East & Southeast Asia",1995,219730
+"East & Southeast Asia",1996,229168
+"East & Southeast Asia",1997,289867
+"East & Southeast Asia",1998,543530
+"East & Southeast Asia",1999,122808
+"East & Southeast Asia",2000,102295
+"East & Southeast Asia",2001,304322
+"East & Southeast Asia",2002,284773
+"East & Southeast Asia",2003,268783
+"East & Southeast Asia",2004,285359
+"East & Southeast Asia",2005,324027
+"East & Southeast Asia",2006,351325
+"East & Southeast Asia",2007,502186
+"East & Southeast Asia",2008,470086
+"East & Southeast Asia",2009,438460
+"East & Southeast Asia",2010,643551
+"East & Southeast Asia",2011,383177
+"East & Southeast Asia",2012,532534
+"East & Southeast Asia",2013,707454
+"East & Southeast Asia",2014,506291
+"East & Southeast Asia",2015,827518
+"East & Southeast Asia",2016,727238
+"East & Southeast Asia",2017,577653
+"East & Southeast Asia",2018,645559
+"East & Southeast Asia",2019,1328458
+"East & Southeast Asia",2020,570628
+"East & Southeast Asia",2021,276731
+"East & Southeast Asia",2022,951260
+"East & Southeast Asia",2023,875298
+"East & Southeast Asia",2024,895534
+"Caribbean",1990,14769
+"Caribbean",1991,12365
+"Caribbean",1992,19121
+"Caribbean",1993,27117
+"Caribbean",1994,22000
+"Caribbean",1995,15244
+"Caribbean",1996,9760
+"Caribbean",1997,11447
+"Caribbean",1998,25771
+"Caribbean",1999,8489
+"Caribbean",2000,9128
+"Caribbean",2001,28308
+"Caribbean",2002,16600
+"Caribbean",2003,13958
+"Caribbean",2004,6677
+"Caribbean",2005,19033
+"Caribbean",2006,16177
+"Caribbean",2007,30209
+"Caribbean",2008,11330
+"Caribbean",2009,21184
+"Caribbean",2010,125727
+"Caribbean",2011,25343
+"Caribbean",2012,31150
+"Caribbean",2013,65235
+"Caribbean",2014,27105
+"Caribbean",2015,25249
+"Caribbean",2016,18523
+"Caribbean",2017,7059
+"Caribbean",2018,6319
+"Caribbean",2019,39544
+"Caribbean",2020,70484
+"Caribbean",2021,14816
+"Caribbean",2022,20365
+"Caribbean",2023,67969
+"Caribbean",2024,45473
+"South Asia",1990,94368
+"South Asia",1991,7339
+"South Asia",1992,3339
+"South Asia",1993,11881
+"South Asia",1994,8221
+"South Asia",1995,8363
+"South Asia",1996,17815
+"South Asia",1997,2412
+"South Asia",1998,3992
+"South Asia",1999,3023
+"South Asia",2000,11598
+"South Asia",2001,14740
+"South Asia",2002,19118
+"South Asia",2003,18100
+"South Asia",2004,26968
+"South Asia",2005,24112
+"South Asia",2006,31776
+"South Asia",2007,16354
+"South Asia",2008,24051
+"South Asia",2009,53276
+"South Asia",2010,75478
+"South Asia",2011,77323
+"South Asia",2012,101485
+"South Asia",2013,140267
+"South Asia",2014,93762
+"South Asia",2015,147856
+"South Asia",2016,203671
+"South Asia",2017,404433
+"South Asia",2018,172714
+"South Asia",2019,449896
+"South Asia",2020,205007
+"South Asia",2021,556031
+"South Asia",2022,510430
+"South Asia",2023,777434
+"South Asia",2024,494226
+"Pacific Islands",1990,7592
+"Pacific Islands",1991,3215
+"Pacific Islands",1992,2294
+"Pacific Islands",1993,1151
+"Pacific Islands",1994,637
+"Pacific Islands",1995,4946
+"Pacific Islands",1996,3991
+"Pacific Islands",1997,2274
+"Pacific Islands",1998,29954
+"Pacific Islands",1999,1282
+"Pacific Islands",2000,1719
+"Pacific Islands",2001,36010
+"Pacific Islands",2002,4597
+"Pacific Islands",2003,11513
+"Pacific Islands",2004,1999
+"Pacific Islands",2005,319
+"Pacific Islands",2006,3847
+"Pacific Islands",2007,4163
+"Pacific Islands",2008,6879
+"Pacific Islands",2009,13863
+"Pacific Islands",2010,1924
+"Pacific Islands",2011,2710
+"Pacific Islands",2012,4529
+"Pacific Islands",2013,24418
+"Pacific Islands",2014,36016
+"Pacific Islands",2015,7438
+"Pacific Islands",2016,12882
+"Pacific Islands",2017,23899
+"Pacific Islands",2018,15551
+"Pacific Islands",2019,19852
+"Pacific Islands",2020,11020
+"Pacific Islands",2021,17853
+"Pacific Islands",2022,74101
+"Pacific Islands",2023,12818
+"Pacific Islands",2024,10519
+"South America",1990,114431
+"South America",1991,223787
+"South America",1992,72319
+"South America",1993,41250
+"South America",1994,145077
+"South America",1995,217219
+"South America",1996,227318
+"South America",1997,308473
+"South America",1998,633337
+"South America",1999,252850
+"South America",2000,329223
+"South America",2001,582135
+"South America",2002,906981
+"South America",2003,446605
+"South America",2004,199857
+"South America",2005,313807
+"South America",2006,454302
+"South America",2007,727150
+"South America",2008,826129
+"South America",2009,780142
+"South America",2010,1335874
+"South America",2011,926283
+"South America",2012,848038
+"South America",2013,1874759
+"South America",2014,885961
+"South America",2015,2054912
+"South America",2016,2613868
+"South America",2017,649493
+"South America",2018,586347
+"South America",2019,2453310
+"South America",2020,2034732
+"South America",2021,1140851
+"South America",2022,2573449
+"South America",2023,3903220
+"South America",2024,11943267
+"Sub-Saharan Africa",1990,2
+"Sub-Saharan Africa",1991,46
+"Sub-Saharan Africa",1992,0
+"Sub-Saharan Africa",1993,146
+"Sub-Saharan Africa",1994,0
+"Sub-Saharan Africa",1995,0
+"Sub-Saharan Africa",1996,0
+"Sub-Saharan Africa",1997,0
+"Sub-Saharan Africa",1998,0
+"Sub-Saharan Africa",1999,0
+"Sub-Saharan Africa",2000,0
+"Sub-Saharan Africa",2001,0
+"Sub-Saharan Africa",2002,0
+"Sub-Saharan Africa",2003,0
+"Sub-Saharan Africa",2004,228
+"Sub-Saharan Africa",2005,4481
+"Sub-Saharan Africa",2006,3331
+"Sub-Saharan Africa",2007,758
+"Sub-Saharan Africa",2008,1466
+"Sub-Saharan Africa",2009,25173
+"Sub-Saharan Africa",2010,13336
+"Sub-Saharan Africa",2011,15020
+"Sub-Saharan Africa",2012,13367
+"Sub-Saharan Africa",2013,25936
+"Sub-Saharan Africa",2014,18421
+"Sub-Saharan Africa",2015,8030
+"Sub-Saharan Africa",2016,3675
+"Sub-Saharan Africa",2017,25889
+"Sub-Saharan Africa",2018,18364
+"Sub-Saharan Africa",2019,36348
+"Sub-Saharan Africa",2020,21824
+"Sub-Saharan Africa",2021,31441
+"Sub-Saharan Africa",2022,10570
+"Sub-Saharan Africa",2023,294653
+"Sub-Saharan Africa",2024,161860

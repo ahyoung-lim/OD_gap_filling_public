@@ -1,0 +1,10 @@
+Task,Model,N,Mean observed incidence,MAE,RMSE,nMAE,nRMSE,80% coverage,CRPS
+Interpolation,DM,3648,18.2,13.4,78.5,0.74,4.3,0.95,9.6
+Interpolation,INLA unscaled,3648,18.2,13.6,76.2,0.75,4.2,0.87,11.8
+Interpolation,INLA scaled,3648,18.2,10.7,79.8,0.59,4.4,0.87,7.6
+Extrapolation (backcast),DM,2412,28.0,31.7,261.6,1.13,9.3,0.86,27.2
+Extrapolation (backcast),INLA unscaled,2412,28.0,26.6,187.8,0.95,6.7,0.76,24.5
+Extrapolation (backcast),INLA scaled,2412,28.0,25.9,163.4,0.92,5.8,0.76,16.9
+Extrapolation (forecast),DM,2400,43.6,38.6,185.6,0.88,4.2,0.85,29.3
+Extrapolation (forecast),INLA unscaled,2400,43.6,38.9,159.7,0.89,3.7,0.75,33.4
+Extrapolation (forecast),INLA scaled,2400,43.6,27.9,116.6,0.64,2.7,0.81,20.0

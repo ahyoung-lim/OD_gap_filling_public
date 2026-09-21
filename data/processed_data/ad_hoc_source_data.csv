@@ -17,6 +17,7 @@
 "LITERATURE-AUS-1990-Y01-00",NA,"https://doi.org/10.1016/S0031-3025(16)35775-0","probably including imported cases tho"
 "LITERATURE-BFA-20162019-Y01-00",NA,"https://doi.org/10.1186/s12889-022-12820-x","Figure 4"
 "LITERATURE-BGD-20152021-Y01-00",NA,"https://pmc.ncbi.nlm.nih.gov/articles/PMC10883285/#sup1","Supplementary Table 3."
+"LITERATURE-BRA-19862003-Y01-00",NA,"https://wwwnc.cdc.gov/eid/article/11/1/03-1091_article#","digitise fig1"
 "LITERATURE-BRN-19901993-Y01-00",NA,"https://www.jstage.jst.go.jp/article/yoken/60/4/60_JJID.2007.205/_pdf",NA
 "LITERATURE-BRN-19941997-Y01-01",NA,"https://pubmed.ncbi.nlm.nih.gov/17642533/","digitise the fig2"
 "LITERATURE-CHN-2020-Y01-00",NA,"https://www.mdpi.com/1660-4601/19/7/3910","local cases only"
@@ -125,6 +126,7 @@
 "MOH-SYC-2022-Y01-00","Seychelles Annual Health-Sector Performance Report","https://www.health.gov.sc/wp-content/uploads/2024/05/MOH-Annual-Performance-Report-2022.pdf#:~:text=Thirty,1%20and",NA
 "MOH-TLS-20172019-Y01-00","National guideline for clinical management of dengue","https://cdn.who.int/media/docs/default-source/2021-dha-docs/5_national-clinical-guideline-of-dengue-timor-leste_clean_final-12-dec-2022.pdf?sfvrsn=e80bf9cd_1","Table 1"
 "MOH-UST-20132023-Y01-00","US CDC Arbonet","https://www.cdc.gov/dengue/data-research/facts-stats/historic-data.html","Historic Data > cumulative data > select Travel status ""Locally acquired"" > scraped number of cases from the Data Table - Dengue cases by jurisdiction based on year and travel status selected above"
+"PAHO-NIC-2000-Y01-00","PAHO epidemiological bulletin","https://iris.paho.org/items/214b09bd-f457-4b19-ae04-651b96aa8f90","Vol. 21, No. 4 (""Health Situation Analysis in the Americas, 1999-2000""); digitise fig10"
 "WHO-AFG-2024-Y01-00","WHO Afghanistan Emergency Situation Report","https://reliefweb.int/report/afghanistan/afghanistan-emergency-situation-report-issue-47-reporting-period-december-2024",NA
 "WHO-ALL-19902018-Y02-00","WHO Dengue Explorer","https://ntdhq.shinyapps.io/dengue5/",NA
 "WHO-ALL-2025-Y01-02","WHO Global Dengue Dashboard","https://worldhealthorg.shinyapps.io/dengue_global/","Download data > global"

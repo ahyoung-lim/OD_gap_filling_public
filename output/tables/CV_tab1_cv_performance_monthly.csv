@@ -1,0 +1,7 @@
+Task,Model,N,Mean observed incidence,MAE,RMSE,nMAE,nRMSE,80% coverage,CRPS
+Interpolation,GAM,13135,19.1,17.2,99.7,0.90,5.2,0.89,13.9
+Interpolation,INLA,13135,19.1,10.5,78.5,0.55,4.1,0.90,8.5
+Extrapolation (backcast),GAM,5053,43.8,41.8,210.3,0.95,4.8,0.80,36.0
+Extrapolation (backcast),INLA,5053,43.8,35.0,198.9,0.80,4.5,0.82,30.0
+Extrapolation (forecast),GAM,5045,30.9,29.8,158.9,0.96,5.1,0.82,25.6
+Extrapolation (forecast),INLA,5045,30.9,24.7,145.3,0.80,4.7,0.82,22.5

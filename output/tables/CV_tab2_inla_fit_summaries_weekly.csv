@@ -1,0 +1,11 @@
+"Parameter","Type","Median","CI_0.025","CI_0.975"
+"(Intercept)","Fixed effect",0.88,0.68,1.07
+"size for the nbinomial observations (1/overdispersion)","Hyperparameter",21.49,19.57,23.64
+"Precision for time_seq","Hyperparameter",0.31,0.28,0.34
+"Rho for time_seq","Hyperparameter",0.98,0.98,0.98
+"Precision for week_shared","Hyperparameter",171,83.61,358.45
+"Precision for week_dev","Hyperparameter",21.5,15.16,30.04
+"Precision for week_dev_country","Hyperparameter",3.67,3.17,4.28
+"Precision for yearx","Hyperparameter",1.36,1.04,1.7
+"Rho for yearx","Hyperparameter",-0.11,-0.28,0.05
+"Precision for countryx","Hyperparameter",0.09,0.08,0.13

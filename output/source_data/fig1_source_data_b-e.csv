@@ -1,0 +1,141 @@
+"panel","who_region","Year","gap_filled_cumulative","who_all_cumulative","who_db_cumulative"
+"b","WHO South-East Asia Region",1990,215495,122477,122477
+"b","WHO South-East Asia Region",1991,295520,202502,202502
+"b","WHO South-East Asia Region",1992,359289,266271,266271
+"b","WHO South-East Asia Region",1993,457884,364866,364866
+"b","WHO South-East Asia Region",1994,548078,455060,455060
+"b","WHO South-East Asia Region",1995,654274,561256,560837
+"b","WHO South-East Asia Region",1996,756702,663504,663066
+"b","WHO South-East Asia Region",1997,895782,802583,799096
+"b","WHO South-East Asia Region",1998,1114863,1021404,1009501
+"b","WHO South-East Asia Region",1999,1176838,1076809,1064906
+"b","WHO South-East Asia Region",2000,1242380,1142351,1130448
+"b","WHO South-East Asia Region",2001,1458046,1355085,1343182
+"b","WHO South-East Asia Region",2002,1648388,1543425,1531522
+"b","WHO South-East Asia Region",2003,1789079,1684116,1672213
+"b","WHO South-East Asia Region",2004,1941654,1836691,1824788
+"b","WHO South-East Asia Region",2005,2121580,2016609,2004706
+"b","WHO South-East Asia Region",2006,2320082,2206880,2194977
+"b","WHO South-East Asia Region",2007,2571813,2457431,2445528
+"b","WHO South-East Asia Region",2008,2856691,2739499,2727596
+"b","WHO South-East Asia Region",2009,3117589,2997381,2985478
+"b","WHO South-East Asia Region",2010,3473589,3353218,3341315
+"b","WHO South-East Asia Region",2011,3666622,3546251,3534348
+"b","WHO South-East Asia Region",2012,3942116,3821172,3809269
+"b","WHO South-East Asia Region",2013,4343558,4220659,4208756
+"b","WHO South-East Asia Region",2014,4589674,4465844,4453941
+"b","WHO South-East Asia Region",2015,5042614,4917286,4540894
+"b","WHO South-East Asia Region",2016,5491004,4956206,4579814
+"b","WHO South-East Asia Region",2017,6007922,5162882,4786490
+"b","WHO South-East Asia Region",2018,6350383,5311736,4935344
+"b","WHO South-East Asia Region",2019,7039648,5996192,5272973
+"b","WHO South-East Asia Region",2020,7316265,6271978,5379544
+"b","WHO South-East Asia Region",2021,7668424,6347496,5455062
+"b","WHO South-East Asia Region",2022,8319361,6558397,5665963
+"b","WHO South-East Asia Region",2023,9367248,7183620,6291186
+"b","WHO South-East Asia Region",2024,10146593,7749633,6857199
+"c","WHO Western Pacific Region",1990,60045,54959,54959
+"c","WHO Western Pacific Region",1991,198383,193126,193126
+"c","WHO Western Pacific Region",1992,274527,315356,315356
+"c","WHO Western Pacific Region",1993,346244,387070,387070
+"c","WHO Western Pacific Region",1994,406160,446638,446638
+"c","WHO Western Pacific Region",1995,532927,571920,571920
+"c","WHO Western Pacific Region",1996,681473,719353,719353
+"c","WHO Western Pacific Region",1997,836695,874402,874402
+"c","WHO Western Pacific Region",1998,1195090,1231587,1231587
+"c","WHO Western Pacific Region",1999,1260228,1296121,1296121
+"c","WHO Western Pacific Region",2000,1310298,1344155,1342926
+"c","WHO Western Pacific Region",2001,1449704,1479851,1478622
+"c","WHO Western Pacific Region",2002,1567850,1592712,1591483
+"c","WHO Western Pacific Region",2003,1725538,1747918,1746689
+"c","WHO Western Pacific Region",2004,1887264,1908741,1906792
+"c","WHO Western Pacific Region",2005,2051856,2072455,2070506
+"c","WHO Western Pacific Region",2006,2238371,2256925,2254976
+"c","WHO Western Pacific Region",2007,2508144,2524115,2522166
+"c","WHO Western Pacific Region",2008,2722487,2736653,2734704
+"c","WHO Western Pacific Region",2009,2966242,2979077,2976798
+"c","WHO Western Pacific Region",2010,3321410,3332984,3330276
+"c","WHO Western Pacific Region",2011,3566659,3577864,3573881
+"c","WHO Western Pacific Region",2012,3925949,3934702,3871472
+"c","WHO Western Pacific Region",2013,4367763,4364725,4176092
+"c","WHO Western Pacific Region",2014,4753427,4741697,4502856
+"c","WHO Western Pacific Region",2015,5270211,5255271,4502856
+"c","WHO Western Pacific Region",2016,5756352,5714114,4502856
+"c","WHO Western Pacific Region",2017,6220396,6168345,4502856
+"c","WHO Western Pacific Region",2018,6705705,6647608,4502856
+"c","WHO Western Pacific Region",2019,7760545,7697893,4502856
+"c","WHO Western Pacific Region",2020,8144789,7697893,4502856
+"c","WHO Western Pacific Region",2021,8348891,7697893,4502856
+"c","WHO Western Pacific Region",2022,9153602,7697893,4502856
+"c","WHO Western Pacific Region",2023,9749696,7697893,4502856
+"c","WHO Western Pacific Region",2024,10306387,8014851,4819814
+"d","WHO Eastern Mediterranean Region",1990,0,0,0
+"d","WHO Eastern Mediterranean Region",1991,46,0,0
+"d","WHO Eastern Mediterranean Region",1992,46,0,0
+"d","WHO Eastern Mediterranean Region",1993,47,0,0
+"d","WHO Eastern Mediterranean Region",1994,507,0,0
+"d","WHO Eastern Mediterranean Region",1995,719,0,0
+"d","WHO Eastern Mediterranean Region",1996,776,0,0
+"d","WHO Eastern Mediterranean Region",1997,1089,0,0
+"d","WHO Eastern Mediterranean Region",1998,1120,0,0
+"d","WHO Eastern Mediterranean Region",1999,1146,0,0
+"d","WHO Eastern Mediterranean Region",2000,1163,0,0
+"d","WHO Eastern Mediterranean Region",2001,1170,0,0
+"d","WHO Eastern Mediterranean Region",2002,1181,0,0
+"d","WHO Eastern Mediterranean Region",2003,1198,0,0
+"d","WHO Eastern Mediterranean Region",2004,1566,0,0
+"d","WHO Eastern Mediterranean Region",2005,6224,0,0
+"d","WHO Eastern Mediterranean Region",2006,9699,0,0
+"d","WHO Eastern Mediterranean Region",2007,11388,0,0
+"d","WHO Eastern Mediterranean Region",2008,14537,0,0
+"d","WHO Eastern Mediterranean Region",2009,19274,0,0
+"d","WHO Eastern Mediterranean Region",2010,36593,0,0
+"d","WHO Eastern Mediterranean Region",2011,65462,0,0
+"d","WHO Eastern Mediterranean Region",2012,71374,0,0
+"d","WHO Eastern Mediterranean Region",2013,106769,0,0
+"d","WHO Eastern Mediterranean Region",2014,113716,0,0
+"d","WHO Eastern Mediterranean Region",2015,138706,0,0
+"d","WHO Eastern Mediterranean Region",2016,181685,0,0
+"d","WHO Eastern Mediterranean Region",2017,210404,0,0
+"d","WHO Eastern Mediterranean Region",2018,249948,0,0
+"d","WHO Eastern Mediterranean Region",2019,399044,0,0
+"d","WHO Eastern Mediterranean Region",2020,593932,0,0
+"d","WHO Eastern Mediterranean Region",2021,912186,0,0
+"d","WHO Eastern Mediterranean Region",2022,1034328,0,0
+"d","WHO Eastern Mediterranean Region",2023,1103830,13985,13985
+"d","WHO Eastern Mediterranean Region",2024,1193386,95893,95893
+"e","WHO African Region",1990,2,0,0
+"e","WHO African Region",1991,2,0,0
+"e","WHO African Region",1992,2,0,0
+"e","WHO African Region",1993,148,0,0
+"e","WHO African Region",1994,148,0,0
+"e","WHO African Region",1995,148,0,0
+"e","WHO African Region",1996,148,0,0
+"e","WHO African Region",1997,148,0,0
+"e","WHO African Region",1998,148,0,0
+"e","WHO African Region",1999,148,0,0
+"e","WHO African Region",2000,148,0,0
+"e","WHO African Region",2001,148,0,0
+"e","WHO African Region",2002,148,0,0
+"e","WHO African Region",2003,148,0,0
+"e","WHO African Region",2004,376,0,0
+"e","WHO African Region",2005,4857,0,0
+"e","WHO African Region",2006,8188,0,0
+"e","WHO African Region",2007,8946,0,0
+"e","WHO African Region",2008,10412,0,0
+"e","WHO African Region",2009,35585,0,0
+"e","WHO African Region",2010,48921,0,0
+"e","WHO African Region",2011,63573,0,0
+"e","WHO African Region",2012,76586,0,0
+"e","WHO African Region",2013,102522,0,0
+"e","WHO African Region",2014,120943,0,0
+"e","WHO African Region",2015,128973,0,0
+"e","WHO African Region",2016,132648,0,0
+"e","WHO African Region",2017,158537,0,0
+"e","WHO African Region",2018,176901,0,0
+"e","WHO African Region",2019,213249,0,0
+"e","WHO African Region",2020,235073,0,0
+"e","WHO African Region",2021,266514,0,0
+"e","WHO African Region",2022,271734,0,0
+"e","WHO African Region",2023,566387,171991,41453
+"e","WHO African Region",2024,728247,328991,198453

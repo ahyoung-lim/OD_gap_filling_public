@@ -14,10 +14,10 @@ source("functions/fn_consecutive_gap_counter.R") # counting the number of consec
 source("functions/fn_make_week_complete.R") # make weekly data complete
 source("functions/fn_OD_region.R") # regional classification
 
-git_path <- "C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/master-repo-alim/master-repo/data/releases/V1.3/"
-
 # Load base OpenDengue dataset and apply regional classification
-od <- readr::read_csv(paste0(git_path, "/Temporal_extract_V1_3_2025_08_01.csv")) %>%
+# (OD_RELEASE_DIR is set in 00_setup.R). Used here only as the country-name /
+# ISO3 lookup for standardising the ad hoc records.
+od <- readr::read_csv(file.path(OD_RELEASE_DIR, "Temporal_extract_V1_3_2026_07_29.csv")) %>%
   filter(!adm_0_name == "PITCAIRN") %>%
   region_class()
 
@@ -924,7 +924,15 @@ meta_to_fill <- ad_f %>%
   distinct(clean_ID) %>%
   pull(clean_ID)
 
-od_f <- readxl::read_xlsx("C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/OpenDengue-Dev/archive/filingDB_allV_2025_08_01.xlsx")
+# Internal OpenDengue filing database (OD_DEV_DIR, set in 00_setup.R): used to fill
+# the source metadata of ad hoc records. Not distributable; see 00_setup.R.
+od_f_path <- file.path(OD_DEV_DIR, "archive", "filingDB_allV_2026_07_29.xlsx")
+if (!file.exists(od_f_path)) stop(
+  "Internal OpenDengue filing database not found at ", od_f_path,
+  ". This step only fills source metadata; its outputs (data/processed_data/ad_hoc_*.csv) ",
+  "are included in the repository, so 01a does not need to be rerun."
+)
+od_f <- readxl::read_xlsx(od_f_path)
 names(od_f)
 
 summary(meta_to_fill %in% od_f$UUID)
@@ -1011,9 +1019,8 @@ ad_f_new %>%
   filter(n() > 1)
 
 # checking if any UUIDs have been changed since the last release
-dev_path <- "C:/Users/AhyoungLim/Dropbox/WORK/OpenDengue/OpenDengue-Dev/"
-
-f_old <- readxl::read_xlsx(paste0(dev_path, "archive/filingDB_allV_2025_08_01.xlsx")) %>%
+# (previous release of the internal filing database, OD_DEV_DIR set in 00_setup.R)
+f_old <- readxl::read_xlsx(file.path(OD_DEV_DIR, "archive", "filingDB_allV_2026_07_29.xlsx")) %>%
   filter(released == "Y") %>%
   rename(UUID_old_v = UUID)
 

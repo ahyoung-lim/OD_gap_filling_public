@@ -1,0 +1,8 @@
+"check","analysis","cycle","value","detail"
+"random_effect_structure","power","Annual","random_slope=50",""
+"random_effect_structure","sync","Annual","random_slope=50",""
+"random_effect_structure","power","Multiannual","random_slope=50",""
+"random_effect_structure","sync","Multiannual","random_slope=50",""
+"country_set","wavelet","","1 distinct sets; size 73 to 73",""
+"country_set","ann","","1 distinct sets; size 46 to 46",""
+"country_set","mlt","","1 distinct sets; size 45 to 45",""
